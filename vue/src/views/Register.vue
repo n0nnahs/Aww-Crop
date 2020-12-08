@@ -7,10 +7,10 @@
       </div>
       <label for="username" class="sr-only">Username</label>
       <input
-        type="text"
+        type="email"
         id="username"
         class="form-control"
-        placeholder="Username"
+        placeholder="E-mail"
         v-model="user.username"
         required
         autofocus
@@ -78,6 +78,9 @@ export default {
             this.registrationErrors = true;
             if (response.status === 400) {
               this.registrationErrorMsg = 'Bad Request: Validation Errors';
+            }
+            if(response.status === 409){
+              this.registrationErrorMsg = 'This E-mail is already registered!'
             }
           });
       }
