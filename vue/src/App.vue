@@ -7,3 +7,12 @@
     <router-view />
   </div>
 </template>
+
+<style scoped>
+#app{
+  background-color: #4e2409;
+  color: white;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+</style>
