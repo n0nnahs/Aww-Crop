@@ -17,4 +17,16 @@
   height: 100vh;
 }
 
+header {
+  background-image: url("./assets/veggies-fixed-clouds.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 100px;
+  width: 100%;
+}
+
+nav {
+  background-color: #81e5fc;
+}
+
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div id="register" class="text-center">
+    <header class="header">
+    </header> 
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Come grow with us!</br>Create your new account below.</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -9,8 +11,8 @@
       <input
         type="email"
         id="username"
-        class="form-control"
-        placeholder="E-mail"
+        class="user-input"
+        placeholder="Email"
         v-model="user.username"
         required
         autofocus
@@ -19,7 +21,7 @@
       <input
         type="password"
         id="password"
-        class="form-control"
+        class="user-input"
         placeholder="Password"
         v-model="user.password"
         required
@@ -27,15 +29,17 @@
       <input
         type="password"
         id="confirmPassword"
-        class="form-control"
+        class="user-input"
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      </br>
+      <button class="create-account-button" type="submit">
         Create Account
       </button>
+      </br>
+      <router-link :to="{ name: 'login' }">Already have an account? Click here to sign in.</router-link>
     </form>
   </div>
 </template>
@@ -80,7 +84,7 @@ export default {
               this.registrationErrorMsg = 'Bad Request: Validation Errors';
             }
             if(response.status === 409){
-              this.registrationErrorMsg = 'This E-mail is already registered!'
+              this.registrationErrorMsg = 'This email is already registered!'
             }
           });
       }
@@ -93,4 +97,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+.create-account-button {
+  margin-bottom: 10px;
+}
+
+</style>
