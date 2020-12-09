@@ -6,7 +6,7 @@
         class="alert alert-danger"
         role="alert"
         v-if="invalidCredentials"
-      >Invalid username and password!</div>
+      >Invalid username or password!</div>
       <div
         class="alert alert-success"
         role="alert"
@@ -17,7 +17,7 @@
         type="text"
         id="username"
         class="form-control"
-        placeholder="Username"
+        placeholder="E-mail"
         v-model="user.username"
         required
         autofocus
