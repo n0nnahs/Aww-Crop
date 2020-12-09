@@ -7,3 +7,14 @@
     <router-view />
   </div>
 </template>
+
+<style>
+
+#app {
+  background-color: #4e2409;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: 100vh;
+}
+
+</style>

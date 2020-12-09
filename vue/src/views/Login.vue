@@ -1,7 +1,9 @@
 <template>
   <div id="login" class="text-center">
-    <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+    <header class="header">
+    </header> 
+    <form class="form-signin" @submit.prevent="login">  
+      <h1 class="h3 mb-3 font-weight-normal">Welcome, farmer!<br/>Please sign in below.</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -16,23 +18,26 @@
       <input
         type="text"
         id="username"
-        class="form-control"
-        placeholder="E-mail"
+        class="user-input"
+        placeholder="Email"
         v-model="user.username"
         required
         autofocus
       />
+      <br/>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
         id="password"
-        class="form-control"
+        class="user-input"
         placeholder="Password"
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <br/>
       <button type="submit">Sign in</button>
+      <br/>
+      <router-link :to="{ name: 'register' }">Register for new account</router-link>
     </form>
   </div>
 </template>
@@ -74,3 +79,26 @@ export default {
   }
 };
 </script>
+
+<style>
+
+.user-input {
+  align-content: center;
+  width: 50%;
+  margin: 10px;
+}
+
+header {
+  background-image: url("../assets/veggies-fixed-clouds.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 100px;
+  width: 100%;
+}
+
+form {
+  height: 100%;
+  margin-top: 10px;
+}
+
+</style>
