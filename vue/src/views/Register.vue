@@ -1,7 +1,5 @@
 <template>
   <div id="register" class="text-center">
-    <header class="header">
-    </header> 
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Come grow with us!</br>Create your new account below.</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">

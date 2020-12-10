@@ -1,7 +1,5 @@
 <template>
   <div id="login" class="text-center">
-    <header class="header">
-    </header> 
     <form class="form-signin" @submit.prevent="login">  
       <h1 class="h3 mb-3 font-weight-normal">Welcome, farmer!<br/>Please sign in below.</h1>
       <div
@@ -86,14 +84,6 @@ export default {
   align-content: center;
   width: 50%;
   margin: 10px;
-}
-
-header {
-  background-image: url("../assets/veggies-fixed-clouds.jpg");
-  background-repeat: repeat-x;
-  background-size: contain;
-  height: 100px;
-  width: 100%;
 }
 
 form {
