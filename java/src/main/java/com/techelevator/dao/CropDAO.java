@@ -8,8 +8,11 @@ public interface CropDAO {
 
 	List<Crop> listAll();
 	
+	List<Crop> listAllCropsInPlot(int plotId);
+	
 	Crop getCropByName(String name);
 	
 	Crop getCropById(int id);
+
 	
 }
