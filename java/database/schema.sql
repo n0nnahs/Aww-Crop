@@ -4,8 +4,8 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS plot;
 DROP TABLE IF EXISTS users_plot;
 DROP TABLE IF EXISTS crops;
-DROP TABLE IF EXISTS crops_plot;
 DROP TABLE IF EXISTS notes;
+DROP TABLE IF EXISTS plot_coords;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -27,7 +27,7 @@ CREATE TABLE plot
 (
     plot_id serial PRIMARY KEY,
     width int NOT NULL,
-    height int NOT NULL,
+    length int NOT NULL,
     active BOOL DEFAULT 't'
 );
 
@@ -44,18 +44,10 @@ CREATE TABLE crops
 (
     crop_id serial PRIMARY KEY,
     name varchar(25),
-    yield varchar(50),
+    yield_lbs_per_square_foot int,
     crops_per_square_foot int,
-    details varchar(1000)
-);
-
-CREATE TABLE crops_plot
-(
-    crop_id int NOT NULL,
-    plot_id int NOT NULL,
-    
-    constraint fk_crops_crops_plot foreign key (crop_id) references crops (crop_id),
-    constraint fk_plot_crops_plot foreign key (plot_id) references plot (plot_id)
+    seed_cost decimal(10, 2),
+    description varchar(1000)
 );
 
 CREATE TABLE notes
@@ -67,12 +59,20 @@ CREATE TABLE notes
     constraint fk_notes_plot foreign key (note_id) references plot (plot_id)
 );
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+CREATE TABLE plot_coords
+(
+    coords_id serial PRIMARY KEY,
+    crop_id int NOT NULL,
+    plot_id int NOT NULL,
+    x int,
+    y int,
+    
+    constraint fk_plot_coords_crop foreign key (crop_id) references crops (crop_id),
+    constraint fk_plot_coords_plot foreign key (plot_id) references plot (plot_id)
+);
 
--- TEMPORARY FAKE DATA --
-INSERT INTO crops (name,yield,crops_per_square_foot,details) VALUES ('Tomatoes','20 per plant',3,'Tomatoes are red.');
-INSERT INTO crops (name,yield,crops_per_square_foot,details) VALUES ('Carrots','4 per plant',8,'Carrots can be found underground.');
+INSERT INTO users (username,password_hash,role) VALUES ('user@user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('admin@admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 COMMIT TRANSACTION;
 
