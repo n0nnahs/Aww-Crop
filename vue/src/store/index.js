@@ -19,8 +19,30 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
-  },
+    user: currentUser || {},
+    plotGrid: [
+          {
+          id: 'apple',
+          x: 0,
+          y: 0 
+        },
+        { 
+          id: 'carrot',
+          x: 0,
+          y: 1 
+        },
+
+        { 
+          id: 'pineapple',
+          x: 1,
+          y: 1
+        }
+    ],
+    plotSize: {
+      height: 2,
+      width: 2
+    }
+    },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
