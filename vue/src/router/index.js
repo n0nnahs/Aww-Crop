@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
+import Welcome from '../views/Welcome.vue'
 import store from '../store/index'
 import Plots from '../views/Plots.vue'
 
@@ -61,6 +62,14 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: "/welcome",
+      name: "welcome",
+      component: Welcome,
+      meta: {
+        requiresAuth: false
+      }
     }
   ]
 })
@@ -71,7 +80,7 @@ router.beforeEach((to, from, next) => {
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
-    next("/login");
+    next("/welcome");
   } else {
     // Else let them go to their next destination
     next();
