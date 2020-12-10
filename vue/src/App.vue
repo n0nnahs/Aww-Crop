@@ -26,7 +26,7 @@ header {
   background-image: url("./assets/veggies-fixed-clouds.jpg");
   background-repeat: repeat-x;
   background-size: contain;
-  height: 100px;
+  height: 25%;
   width: 100%;
 }
 
