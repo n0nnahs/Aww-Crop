@@ -4,7 +4,6 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS plot;
 DROP TABLE IF EXISTS users_plot;
 DROP TABLE IF EXISTS crops;
-DROP TABLE IF EXISTS crops_plot;
 DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS plot_coords;
 DROP SEQUENCE IF EXISTS seq_user_id;
@@ -72,26 +71,8 @@ CREATE TABLE plot_coords
     constraint fk_plot_coords_plot foreign key (plot_id) references plot (plot_id)
 );
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-
--- TEMPORARY FAKE DATA --
- INSERT INTO crops 
- (
-     name,
-     yield_lbs_per_square_foot,
-     crops_per_square_foot,
-     seed_cost,
-     description
- ) 
- VALUES 
- (
-     'Carrots',
-     0,
-     3,
-     2.00,
-     'Tomatoes are red.'
- );
+INSERT INTO users (username,password_hash,role) VALUES ('user@user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('admin@admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 COMMIT TRANSACTION;
 
