@@ -81,6 +81,7 @@ export default {
     "attractive-header"
     "info-columns"
     "footer";
+  background-color: #4e2409;
 }
 #info-columns {
   grid-area: info-columns;
@@ -89,6 +90,7 @@ export default {
   grid-template-areas:
     "plan track shop";
   text-align: center;
+  background-color: #4e2409;
 }
 #header-image{
   width: 100%;
