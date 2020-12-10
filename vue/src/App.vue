@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <header class="header">
-    </header> 
-    <div id="nav" v-if="this.class!=welcome" >
+    <div id="nav" v-show="$route.name !== 'welcome'">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
+    <header class="header" v-show="$route.name !== 'welcome'">
+    </header> 
     <router-view />
   </div>
 </template>
@@ -17,7 +17,9 @@
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 100vh;
 }
-
+#nav{
+  background-color: #81e5fc;
+}
 header {
   background-image: url("./assets/veggies-fixed-clouds.jpg");
   background-repeat: repeat-x;
@@ -27,3 +29,4 @@ header {
 }
 
 </style>
+ 
