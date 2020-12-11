@@ -14,15 +14,15 @@ export default {
 
         crop: {
           name: "",
-          amount:""
+          amount:"",
+          yield:""
         }
 
       }
     },
     methods: {
         showDetails() {
-
-            
+   
         },
         imageUrl () {
         return `~src/assets/${this.crop.name}.jpg`;
