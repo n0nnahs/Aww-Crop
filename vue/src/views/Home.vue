@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1>My Garden</h1>
+    <my-crops></my-crops>
   </div>
 </template>
 

@@ -2,21 +2,31 @@
   <div class="my-crops">
     <h2>My Crops</h2>
     <div id="crop-list">
-        <crop v-for="crop in $store.state.crops" v-bind:crop="crop" v-bind:key="crop.name"/>
+        <crop v-for="crop in listAllCropsForUser()" v-bind:crop="crop" v-bind:key="crop.name"/>
     </div>
   </div>
 </template>
 
 <script>
-
+import CropService from '../services/CropService';
 import Crop from '@/components/Crop.vue';
 
 export default {
     name: 'my-crops',
     components: {
         Crop
-    }
-}
+    },
+    data(){
+      return{
+      crops: [],
+      }
+    },
+created() {
+    CropService.listAllCropsForUser().then(response => {
+      this.crops = response.data;
+    });
+  }
+};
 </script>
 
 <style>

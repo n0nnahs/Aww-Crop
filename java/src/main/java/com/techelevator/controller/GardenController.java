@@ -37,7 +37,7 @@ public class GardenController {
 		this.plotDao = plotDao;
 	}
 	
-	@RequestMapping(value = "/myfarm", method = RequestMethod.GET)
+	@RequestMapping(value = "/mycrops", method = RequestMethod.GET)
 	public List<Crop> listlistAllCropsForUser(@RequestParam(value = "user_id", defaultValue = "0") int userId){
 						   
 		if(userId > 0) {

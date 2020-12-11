@@ -6,8 +6,12 @@ const http = axios.create({
 
 export default {
 
-  getTopics() {
-    return http.get('/topics')
+  listAllCropsForUser() {
+    return http.get('/home/mycrops')
   },
+
+  listCropsForOnePlot() {
+    return http.get('/plot/myplot')
+  }
 
 }
