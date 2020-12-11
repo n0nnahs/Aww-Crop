@@ -26,6 +26,7 @@ CREATE TABLE users
 CREATE TABLE plot
 (
     plot_id serial PRIMARY KEY,
+    name varchar(50),
     width int NOT NULL,
     length int NOT NULL,
     active BOOL DEFAULT 't'
