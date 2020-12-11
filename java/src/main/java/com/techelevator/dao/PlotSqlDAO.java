@@ -31,7 +31,7 @@ public class PlotSqlDAO implements PlotDAO {
 					+ "JOIN users USING (user_id) "
 					+ "WHERE user_id = ?";
 		
-		SqlRowSet results = jdbc.queryForRowSet(sql);
+		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
 		while(results.next()) {
 			Plot plotResult = mapRowToPlot(results);
 			plots.add(plotResult);
@@ -40,11 +40,37 @@ public class PlotSqlDAO implements PlotDAO {
 	}
 
 	@Override
-	public void create(Plot plot) {
-		String sql = "INSERT INTO plot(name, length, width) "
-				   + "VALUES(?, ?, ?)";
-		jdbc.update(sql, plot.getName(), plot.getLength(), plot.getWidth());
+	public int create(Plot plot) {
+		String sqlCreate = "INSERT INTO plot(name, length, width) "
+				   + "VALUES(?, ?, ?) "
+				   + "RETURNING plot_id";
+		Long plotIdLong = jdbc.queryForObject(sqlCreate, Long.class, plot.getName(), plot.getLength(), plot.getWidth());
+		return plotIdLong.intValue();
+		
 	}
+	
+	@Override
+	public void userPlot(int userId, int plotId) {
+		String sql = "INSERT INTO users_plot(user_id, plot_id) "
+				   + "VALUES(?, ?)";
+		jdbc.update(sql, userId, plotId);
+	}
+	
+	@Override
+	public List<Plot> plotById(int plotId) {
+		List<Plot> plots = new ArrayList<>();
+		String sql =  "SELECT plot_id, name, length, width, active "
+					+ "FROM plot "
+					+ "WHERE plot_id = ?";
+		
+		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+		while(results.next()) {
+			Plot plotResult = mapRowToPlot(results);
+			plots.add(plotResult);
+		}
+		return plots;
+	}
+
 
 	private Plot mapRowToPlot(SqlRowSet results) {
 		Plot p = new Plot();

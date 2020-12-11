@@ -14,5 +14,7 @@ public interface CropDAO {
 	
 	Crop getCropById(int id);
 
+	List<Crop> listAllCropsForUser(int userId);
+
 	
 }

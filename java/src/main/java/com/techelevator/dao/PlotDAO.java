@@ -8,7 +8,11 @@ import com.techelevator.model.Plot;
 public interface PlotDAO {
 
 	List<Plot> listAllForUser(int userId);
+	
+	List<Plot> plotById(int plotId);
 		
-	void create(Plot plot);
+	int create(Plot plot);
+
+	void userPlot(int userId, int plotId);
 	
 }

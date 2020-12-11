@@ -36,21 +36,66 @@ public class CropSqlDAO implements CropDAO {
 		return allCrops;
 		
 	}
-
+	
+	@Override
+	public Crop getCropById(int id) {
+		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
+					+ "FROM crops "
+					+ "WHERE crop_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, id);
+		if(results.next()) {
+			return mapRowToCrop(results);
+		}
+		else {
+			return null;
+		}
+	}
 
 	@Override
 	public Crop getCropByName(String name) {
-		return null;
+		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
+					+ "FROM crops "
+					+ "WHERE name ILIKE '?'";
+		SqlRowSet results = jdbc.queryForRowSet(sql, name);
+		if(results.next()) {
+			return mapRowToCrop(results);
+		}
+		else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<Crop> listAllCropsInPlot(int plotId){
+		List<Crop> cropsInPlot = new ArrayList<>();
+		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
+			       + "FROM crops "
+			       + "JOIN plot_coords USING (crop_id) "
+			       + "WHERE plot_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+		while(results.next()) {
+			Crop c = mapRowToCrop(results);
+			cropsInPlot.add(c);
+		} 
+		return cropsInPlot;
 	}
 
 	@Override
-	public Crop getCropById(int id) {
-		return null;
-	}
-
-	@Override
-	public List<Crop> listAllCropsInPlot(int plotId) {
-		return null;
+	public List<Crop> listAllCropsForUser(int userId) {
+		List<Crop> cropsForUser = new ArrayList<>();
+		String sql = "SELECT crop_id, c.name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
+				+ "FROM crops "
+				+ "JOIN plot_coords pc USING (crop_id) "
+				+ "JOIN plot p USING (plot_id) "
+				+ "JOIN users_plot up USING (plot_id) "
+				+ "WHERE up.user_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
+		while(results.next()) {
+			Crop c = mapRowToCrop(results);
+			cropsForUser.add(c);
+		}
+		
+		return cropsForUser;
 	}
 
 	private Crop mapRowToCrop(SqlRowSet results) {
