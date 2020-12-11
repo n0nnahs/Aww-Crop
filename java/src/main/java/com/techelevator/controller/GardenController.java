@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.CropDAO;
+import com.techelevator.dao.PlotDAO;
 import com.techelevator.model.Crop;
 
 
@@ -24,32 +25,27 @@ import com.techelevator.model.Crop;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/crop")
+@RequestMapping("/home")
 
-public class CropController {
+public class GardenController {
 	
-	private CropDAO dao;
+	private CropDAO cropDao;
+	private PlotDAO plotDao;
 	
-	public CropController(CropDAO dao) {
-		this.dao = dao;
+	public GardenController(CropDAO cropDao, PlotDAO plotDao) {
+		this.cropDao = cropDao;
+		this.plotDao = plotDao;
 	}
 	
 	@RequestMapping(value = "/myfarm", method = RequestMethod.GET)
-	public List<Crop> list(@RequestParam(value = "user_id", defaultValue = "0") int userId){
+	public List<Crop> listlistAllCropsForUser(@RequestParam(value = "user_id", defaultValue = "0") int userId){
 						   
 		if(userId > 0) {
-			return dao.listCropsForViewFarm(userId);
+			return cropDao.listCropsForViewFarm(userId);
 		}
 		return null;
 	}
 	
-	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
-	public List<Crop> list(@RequestParam(value = "user_id", defaultValue = "0") int userId,
-						   @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
-		if(userId > 0 && plotId > 0) {
-			return dao.listCropsForOnePlot(userId, plotId);
-		}
-		return null;
-	}
+
 
 }
