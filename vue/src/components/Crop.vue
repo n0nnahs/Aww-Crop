@@ -1,8 +1,8 @@
 <template>
-    <div class="crop">
-      <img src="bind to crop name and call api somehow? i have no idea"/> 
-      <button id="crop-name" v-onclick="showDetails()">{{crop.name}}</button>
-      <h3 id="crop-amount">{{crop.amount}}</h3>
+    <div id="main-grid" class="crop">
+      <img :src='this.imageUrl()'/>  
+      <button id="crop-name" v-onclick="showDetails()">crop.name</button>
+      <h3 id="crop-amount">crop.amount</h3>
   </div>
 </template>
 
@@ -23,46 +23,57 @@ export default {
         showDetails() {
 
             
-        }
+        },
+        imageUrl () {
+        return `~src/assets/${this.crop.name}.jpg`;
+      }
+
     }
 }
 </script>
 
 <style scoped>
 
-.crop{
+#main-grid{
   display: grid;
-  grid-template-columns:3fr;
+  grid-auto-flow:row;
+  grid-template-columns:1fr 1fr 2fr;
   grid-template-areas:
-    "image"
-    "crop-name"
-    "crop-amount";
+    "image crop-name crop-amount crop amount";
+
   padding: 10px;
   color: #b24747;
-  background-color:	#ffeeb9;
-}
 
+}
 img {
+  align-self:center;
+  justify-self: center;
   grid-area: image;
-  size:50px;
-  display:flex;
-  align-content: space-around;
+  max-height: 50px;
 }
 #crop-name{
+  grid-area: crop-name;
   background: none;
   border: none;
-  grid-area: crop-name;
+  color:#b24747;
   font-size: 16px;
-  text-align: center;
-  display:flex;
-  align-content: space-around;
+  align-self:center;
+  justify-self: flex-start;
 }
 #crop-amount{
+  padding-top: 7px;
+  padding-left: 5px;
   grid-area: crop-amount;
   font-size: 16px;
-  text-align: center;
-  display:flex;
-  align-content: space-around;
+  align-self:center;
+  justify-self: flex-start;
+}
+#crop-name:hover {
+  border-width: 3px;
+  border-color: #53856d;
+  border-style:solid;
+  background-color: #a5e79b;
+  color: #53856d;
 }
 
 </style>

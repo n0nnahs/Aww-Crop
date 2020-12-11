@@ -2,12 +2,6 @@
   <div class="my-crops">
     <h2>My Crops</h2>
     <div id="crop-list">
-      <p>filler</p>
-      <p>filler</p>
-      <p>filler</p>
-      <p>filler</p>
-      <p>filler</p>
-      <p>filler</p>
         <crop v-for="crop in $store.state.crops" v-bind:crop="crop" v-bind:key="crop.name"/>
     </div>
   </div>
