@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    
+  <div v-bind="croppy">
+  </div>
   </div>
 </template>
 
@@ -11,5 +13,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
