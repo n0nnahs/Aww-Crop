@@ -9,8 +9,10 @@ public interface PlotDAO {
 
 	List<Plot> listAllForUser(int userId);
 	
-	List<Crop> listAllCropsInPlot(int plotId);
-	
-	boolean create(String name, int length, int width);
+	List<Plot> plotById(int plotId);
+		
+	int create(Plot plot);
+
+	void userPlot(int userId, int plotId);
 	
 }
