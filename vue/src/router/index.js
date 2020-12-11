@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Welcome from '../views/Welcome.vue'
 import store from '../store/index'
+import PlotList from '../views/PlotList.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: "/welcome",
       name: "welcome",
       component: Welcome,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/plot/:userID",
+      name: "plot",
+      component: PlotList,
       meta: {
         requiresAuth: false
       }

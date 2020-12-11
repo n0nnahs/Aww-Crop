@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,6 +52,17 @@ public class PlotController {
 		
 		dao.userPlot(daoUser.findIdByUsername(p.getName()), plotId);
 	}
-	
+    
+// Randy's testing code below...will delete //
+    
+    @RequestMapping(value = "/{user_id}", method = RequestMethod.GET)
+	public List<Plot> breakfast(@PathVariable int user_id){
+		if(user_id > 0) {
+			return dao.listAllForUser(user_id);
+		}
+		return null;
+    }
+   
+// Randy's testing code above...will delete //
 	
 }
