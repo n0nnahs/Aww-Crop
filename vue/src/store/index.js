@@ -22,31 +22,15 @@ export default new Vuex.Store({
     user: currentUser || {},
     plotGrid: [
           {
-            id: "apple",
-            x: 0,
-            y: 1
-          },
-          {
-            id: "banana",
+            id: "",
             x: 0,
             y: 0
           },
-          {
-            id: "cucumber",
-            x: 2,
-            y: 9
-          },
-          {
-            id: "danger",
-            x: 1,
-            y: 1
-          }
+
     ],
     plotSize: {
       height: 10,
-      width: 20
-
-    }
+      width: 10
     },
     header: false
   },

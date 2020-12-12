@@ -1,6 +1,5 @@
 <template>
   <div class="plot-component">
-      <img v-if="isLoading === true" src="../assets/loadingPlant.gif"/>
       <header>
           Garden Plot
       </header>
@@ -9,8 +8,9 @@
         
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
             <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy">
-
-                
+                <img v-on:click="assignNewCrop(this.cropRow.getIndex(), this.croppy.getIndex())" v-if="croppy ===0" id="plant" src="../assets/dirt.jpg" />
+                <img v-if="croppy !==0" id="plant" src="../assets/plotPlant.jpg" />
+                <!-- <plot-crop v-bind='croppy' v:bind='cropRow'></plot-crop> -->
             </td>
         </tr>
       </table>
@@ -19,9 +19,10 @@
 </template>
 
 <script>
-
+import PlotCrop from './PlotCrop.vue';
 
 export default {
+    name: "plot-grid",
     data(){
         return{
             isLoading: true,
@@ -33,7 +34,7 @@ export default {
         'croppy'    
             ],
     components:{
-        
+        PlotCrop
         
     },
     methods: {

@@ -1,14 +1,15 @@
 <template>
   <div>
-      <plot></plot>
+    <plot-grid></plot-grid>
   </div>
 </template>
 
 <script>
-import Plot from '../components/Plot.vue'
+import plotGrid from "../components/PlotGrid";
+
 export default {
   components: { 
-      Plot 
+    plotGrid
       },
 
 }
