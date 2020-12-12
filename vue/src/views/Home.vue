@@ -9,15 +9,12 @@
       </div>
       <my-crops id="my-crops"></my-crops>
     </div>
-    <active-plots></active-plots>
-    <my-crops></my-crops>
   </div>
 </template>
 
 <script>
 import ActivePlots from '../components/ActivePlots.vue';
 import MyCrops from '@/components/MyCrops.vue';
-import ActivePlots from '../components/ActivePlots.vue';
 import InactivePlots from '../components/InactivePlots.vue';
 
 export default {
@@ -26,8 +23,6 @@ export default {
         MyCrops,
         ActivePlots,
         InactivePlots, 
-        ActivePlots,
-        MyCrops
     },
 }
 
@@ -85,27 +80,5 @@ export default {
   padding: 20px;
   background-color: #4e2409;
 }
-<style scoped>
-
-.home{
-  background-color: #4e2409;
-  display: grid;
-  grid-template-columns:1fr 1fr 1fr;
-  grid-template-areas:
-    "plots crops";
-}
-
-
-
-
-
-#plots{
-  grid-area: plots;
-}
-
-my-crops{
-  grid-area: my-crops;
-}
-
 
 </style>
