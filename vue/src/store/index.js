@@ -22,11 +22,19 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     plotGrid: [
-          {
-            id: "",
-            x: 0,
-            y: 0
-          },
+      {
+        id: 0,
+        name: "Cauliflower",
+        yeild: 0,
+        cropsPerSqFt: 0,
+        seed_cost: 0.0,
+        description: null,
+        amount: 0,
+        totalYield: 0,
+        xCoordinate: 0,
+        yCoordinate: 3,
+        plotId: 101
+    },
 
     ],
     plotSize: {

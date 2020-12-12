@@ -2,7 +2,7 @@
   <div class="my-crops">
     <h2>My Crops</h2>
     <div id="crop-list">
-        <crop v-for="crop in crops" v-bind:crop="crop" v-bind:key="crop.name"/>
+        <crop v-for="eachcrop in crops" v-bind:eachcrop="crop" v-bind:key="eachcrop.name"/>
     </div>
   </div>
 </template>

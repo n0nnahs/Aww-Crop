@@ -138,6 +138,22 @@ public class CropSqlDAO implements CropDAO {
 		return plotCrops;
 	}
 	
+	public List<Crop> listCropCoordinatesForOnePlot (int plotId) {
+		List<Crop> plotCrops = new ArrayList<>();
+		String sql = "SELECT plot_id, crop_id, crops.name, plot_coords.x, plot_coords.y " + 
+				"FROM crops JOIN plot_coords USING (crop_id) " + 
+				"JOIN plot USING (plot_id) " + 
+				"JOIN users_plot USING (plot_id) " + 
+				"JOIN users USING (user_id) " + 
+				"WHERE plot_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+		while(results.next()) {
+			Crop c = mapRowToCropCoordDetails(results);
+			plotCrops.add(c);
+		}
+		return plotCrops;
+	}
+	
 	
 	
 	private Crop mapRowToCrop(SqlRowSet results) {
@@ -156,6 +172,15 @@ public class CropSqlDAO implements CropDAO {
 		c.setName(results.getString("name"));
 		c.setAmount(results.getInt("amount"));
 		c.setTotalYield(results.getInt("yield"));
+		return c;
+	}
+	
+	private Crop mapRowToCropCoordDetails(SqlRowSet results) {
+		Crop c = new Crop();
+		c.setName(results.getString("name"));
+		c.setxCoordinate(results.getInt("x"));
+		c.setyCoordinate(results.getInt("y"));
+		c.setPlotId(results.getInt("plot_id"));
 		return c;
 	}
 }

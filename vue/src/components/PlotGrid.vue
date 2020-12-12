@@ -10,7 +10,7 @@
             <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy">
                 <img v-on:click="assignNewCrop(this.cropRow.getIndex(), this.croppy.getIndex())" v-if="croppy ===0" id="plant" src="../assets/dirt.jpg" />
                 <img v-if="croppy !==0" id="plant" src="../assets/plotPlant.jpg" />
-                <!-- <plot-crop v-bind='croppy' v:bind='cropRow'></plot-crop> -->
+                <!-- <plot-crop v-bind='croppy'></plot-crop> -->
             </td>
         </tr>
       </table>
@@ -59,9 +59,9 @@ export default {
             //sort information coming in
             let arr = this.$store.state.plotGrid;
             arr.forEach(element => {
-                let x = element.x;
-                let y = element.y;
-                this.plotGrid[x] [y] = (element.id);
+                let x = element.xCoordinate;
+                let y = element.yCoordinate;
+                this.plotGrid[x] [y] = (element.name);
             });
         },
         assignNewCrop(y, x){
@@ -123,8 +123,6 @@ header{
   width: 3.25vw;
 }
 
-td{
 
-}
 
 </style>

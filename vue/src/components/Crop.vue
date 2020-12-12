@@ -10,7 +10,7 @@
 
 export default {
     name: 'crop',
-    props: ['crops'],
+    props: ['eachcrop'],
     data(){
       return {
         crop: {
@@ -23,10 +23,10 @@ export default {
     },
     methods: {
         showDetails() {
-   
+          this.crop.name = this.eachcrop.name
         },
         imageUrl () {
-        return `~src/assets/${this.crop.name}.jpg`;
+        return `~src/assets/${this.eachcrop.name}.jpg`;
       }
 
     }
