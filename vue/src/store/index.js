@@ -25,7 +25,17 @@ export default new Vuex.Store({
         name: "Sample Plot",
         plant: "broccoli",
         active: true
-      }
+      },
+      {
+        name: "Sample Plot 2",
+        plant: "cauliflower",
+        active: true
+      },
+      {
+        name: "Sample Plot 3",
+        plant: "brussels-sprouts",
+        active: true
+      },
     ]
   },
   mutations: {

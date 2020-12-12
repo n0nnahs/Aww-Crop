@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h2 class="plot-name">{{ plot.name }}</h2>
-    <img id="crop-image" v-bind:src="'https://pixabay.com/images/search/food-' + plot.plant" />
+    <img id="crop-image" :src="require(`../assets/${plot.plant}.jpeg`)">
     <button id="manage-plot-button">Manage Plot</button>
   </div>
 </template>
@@ -11,8 +11,9 @@ export default {
   name: 'plot-card',
   props: {
     plot: Object
-  },
+  }
 }
+
 </script>
 
 <style>
@@ -38,6 +39,7 @@ export default {
 #crop-image {
   height: 90px;
   width: 90px;
+  object-fit: contain;
   align-self: center;
 }
 
