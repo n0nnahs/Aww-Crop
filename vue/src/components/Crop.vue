@@ -1,6 +1,7 @@
 <template>
     <div id="main-grid" class="crop">
-      <img :src='this.imageUrl()'/>  
+<!-- <img :src='this.imageUrl()'/> -->
+      <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">
       <button id="crop-name">{{crop.name}}</button>
       <h3 id="crop-amount">{{crop.amount}}</h3>
   </div>
@@ -14,9 +15,9 @@ export default {
     data(){
       return {
         crop: {
-          name: "",
-          amount:"",
-          yield:""
+          name: "beets",
+          amount:"10",
+          yield:"3"
         }
 
       }
@@ -26,7 +27,7 @@ export default {
    
         },
         imageUrl () {
-        return `~src/assets/${this.crop.name}.jpg`;
+        return `../assets/${this.crop.name}.jpg`;
       }
 
     }
