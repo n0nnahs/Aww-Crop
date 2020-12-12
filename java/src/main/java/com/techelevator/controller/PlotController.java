@@ -48,14 +48,14 @@ public class PlotController {
 //		}
 //		return null;
 //	}
-	
-    @ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public void createPlot(@Valid @RequestBody Plot newPlot, Principal p) {
-		int plotId = dao.create(newPlot);
-		
-		dao.userPlot(daoUser.findIdByUsername(p.getName()), plotId);
-	}
+//	
+//    @ResponseStatus(HttpStatus.CREATED)
+//	@RequestMapping(value = "", method = RequestMethod.POST)
+//	public void createPlot(@Valid @RequestBody Plot newPlot, Principal p) {
+//		int plotId = dao.create(newPlot);
+//		
+//		dao.userPlot(daoUser.findIdByUsername(p.getName()), plotId);
+//	}
     
 // Randy's testing code below...will delete //
     
@@ -74,9 +74,17 @@ public class PlotController {
 
 	}
     
-    
+    @ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public void createPlot(@RequestParam int userId, @Valid @RequestBody Plot newPlot) {
+		int plotId = dao.create(newPlot);
+		
+		dao.userPlot(userId, plotId);
+	}
    
 // Randy's testing code above...will delete //
+	
+	
 	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
 	public List<Crop> listCropsForOnePlot (@RequestParam int plotId){
 		if(plotId > 0) {
