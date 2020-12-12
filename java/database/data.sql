@@ -24,7 +24,7 @@ BEGIN TRANSACTION;
      'Broccoli is a hardy, cool-season vegetables bringing colorful green nutrients to the table. Broccoli is part of the Cole Crop family, which also includes cabbage, kohlrabi, kale and more. It can be grown twice a year, in the late spring and the fall.'
  ),
  (
-     'Brussel Sprouts',
+     'Brussels-Sprouts',
      0,
      1,
      0.00,
@@ -145,6 +145,7 @@ BEGIN TRANSACTION;
  INSERT INTO plot 
  (
      plot_id,
+     name,
      width,
      length,
      active
@@ -152,6 +153,7 @@ BEGIN TRANSACTION;
  VALUES 
  (
      101,
+     'My First Plot',
      4,
      4,
      't'

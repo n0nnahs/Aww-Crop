@@ -57,18 +57,21 @@ public class PlotSqlDAO implements PlotDAO {
 	}
 	
 	@Override
-	public List<Plot> plotById(int plotId) {
-		List<Plot> plots = new ArrayList<>();
+	public Plot plotById(int plotId) {
+		Plot plotResult = new Plot();
 		String sql =  "SELECT plot_id, name, length, width, active "
 					+ "FROM plot "
 					+ "WHERE plot_id = ?";
 		
 		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
-		while(results.next()) {
-			Plot plotResult = mapRowToPlot(results);
-			plots.add(plotResult);
-		}
-		return plots;
+		
+			
+			//plots.add(plotResult);
+			if(results.next()) {
+				plotResult = mapRowToPlot(results);
+			}
+		
+		return plotResult;
 	}
 
 

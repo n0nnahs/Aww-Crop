@@ -9,7 +9,7 @@ public interface PlotDAO {
 
 	List<Plot> listAllForUser(int userId);
 	
-	List<Plot> plotById(int plotId);
+	Plot plotById(int plotId);
 		
 	int create(Plot plot);
 
