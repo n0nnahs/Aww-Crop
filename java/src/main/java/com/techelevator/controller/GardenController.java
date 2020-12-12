@@ -27,11 +27,8 @@ import com.techelevator.model.Crop;
 public class GardenController {
 	
 	private CropDAO cropDao;
-	private PlotDAO plotDao;
-	
 	public GardenController(CropDAO cropDao, PlotDAO plotDao) {
 		this.cropDao = cropDao;
-		this.plotDao = plotDao;
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
