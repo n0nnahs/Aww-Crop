@@ -11,13 +11,13 @@
 
 export default {
     name: 'crop',
-    // props: [eachcrop],
+    props: ['crops'],
     data(){
       return {
         crop: {
-          name: "broccoli",
-          amount:"69",
-          yield:"420"
+          name: "",
+          amount:"",
+          yield:""
         }
 
       }

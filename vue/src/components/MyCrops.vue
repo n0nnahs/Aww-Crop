@@ -8,7 +8,7 @@
       <h3 id="yield">Harvest</h3>
     </div>
     <div id="crop-list">
-        <crop v-for="crop in crops" v-bind:crop="crop" v-bind:key="crop.name"/>
+        <crop v-for="crop in crops" v-bind:crop="crops" v-bind:key="crop.name"></crop>
     </div>
   </div>
 </template>
@@ -27,11 +27,13 @@ export default {
       crops: [],
       }
     },
-created() {
-    CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
-      this.crops = response.data;
-    });
-  }
+    methods: {
+        getCrops() {
+          CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
+          this.crops = response.data;
+          });
+        }
+    }
 };
 </script>
 
