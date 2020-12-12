@@ -21,6 +21,18 @@ export default new Vuex.Store({
     plots: [],
     token: currentToken || '',
     user: currentUser || {},
+    plotGrid: [
+          {
+            id: "",
+            x: 0,
+            y: 0
+          },
+
+    ],
+    plotSize: {
+      height: 10,
+      width: 10
+    },
     plots: [
       {
         name: "Sample Plot",
@@ -37,7 +49,7 @@ export default new Vuex.Store({
         plant: "brussels-sprouts",
         active: true
       },
-    ]
+    ],
     header: false
   },
   mutations: {
