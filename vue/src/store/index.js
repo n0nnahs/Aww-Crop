@@ -43,8 +43,9 @@ export default new Vuex.Store({
           }
     ],
     plotSize: {
-      height: 3,
-      width: 10
+      height: 10,
+      width: 20
+
     }
     },
   mutations: {

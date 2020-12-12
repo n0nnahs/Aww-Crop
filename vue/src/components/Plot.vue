@@ -9,8 +9,8 @@
         
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
             <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy">
-                <img v-if="croppy ===undefined" id="plant" src="../assets/dirt.jpg" />
-                <img v-if="croppy !==undefined" id="plant" src="../assets/plotPlant.jpg" />
+                <img v-on:click="assignNewCrop(this.cropRow.getIndex(), this.croppy.getIndex())" v-if="croppy ===0" id="plant" src="../assets/dirt.jpg" />
+                <img v-if="croppy !==0" id="plant" src="../assets/plotPlant.jpg" />
             </td>
         </tr>
       </table>
@@ -43,7 +43,7 @@ export default {
             //     row.push("0");
             // }
             for(let i = 0; i < height; i++){
-                this.plotGrid.push(new Array(width))
+                this.plotGrid.push(new Array(width).fill(0))
             }
             this.assignCrops();
             this.isLoading = false;
@@ -58,6 +58,10 @@ export default {
                 let y = element.y;
                 this.plotGrid[x] [y] = (element.id);
             });
+        },
+        assignNewCrop(y, x){
+            this.plotGrid[x][y]=0;
+            console.log(x, y);
         }
     },
     created(){
@@ -92,22 +96,26 @@ header{
     display: absolute;
     table-layout: fixed;
     justify-content: center;
+    margin: 10px;
+    max-width: 100%;
+    height: auto;
 }
 
 #crop{
-    border: 10px solid rgb(87, 53, 22);
-    height: 50px;
-    width: 50px;
+    border: .5vw solid rgb(87, 53, 22);
+    height: 3vw;
+    width: 3vw;
 }
 
 #plot-grid{
     display: flex;
     justify-content: center;
+
 }
 
 #plant{
-  height:50px;
-  width: 50px;
+  height:3.25vw;
+  width: 3.25vw;
 }
 
 td{
