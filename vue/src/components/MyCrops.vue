@@ -2,7 +2,7 @@
   <div class="my-crops">
     <h2>My Crops</h2>
     <div id="crop-list">
-        <crop v-for="crop in listAllCropsForUser()" v-bind:crop="crop" v-bind:key="crop.name"/>
+        <crop v-for="crop in crops" v-bind:crop="crop" v-bind:key="crop.name"/>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
       }
     },
 created() {
-    CropService.listAllCropsForUser().then(response => {
+    CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
       this.crops = response.data;
     });
   }

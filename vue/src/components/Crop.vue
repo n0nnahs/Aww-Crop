@@ -1,8 +1,8 @@
 <template>
     <div id="main-grid" class="crop">
       <img :src='this.imageUrl()'/>  
-      <button id="crop-name" v-onclick="showDetails()">crop.name</button>
-      <h3 id="crop-amount">crop.amount</h3>
+      <button id="crop-name">{{crop.name}}</button>
+      <h3 id="crop-amount">{{crop.amount}}</h3>
   </div>
 </template>
 
@@ -10,9 +10,9 @@
 
 export default {
     name: 'crop',
+    props: ['crops'],
     data(){
       return {
-
         crop: {
           name: "",
           amount:"",

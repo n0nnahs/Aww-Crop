@@ -38,7 +38,7 @@ public class GardenController {
 	}
 	
 	@RequestMapping(value = "/mycrops", method = RequestMethod.GET)
-	public List<Crop> listlistAllCropsForUser(@RequestParam(value = "user_id", defaultValue = "0") int userId){
+	public List<Crop> listlistAllCropsForUser(@RequestParam int userId){
 						   
 		if(userId > 0) {
 			return cropDao.listCropsForViewFarm(userId);

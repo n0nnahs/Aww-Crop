@@ -6,7 +6,13 @@
 </template>
 
 <script>
+import MyCrops from '@/components/MyCrops.vue';
+
 export default {
-  name: "home"
-};
+  name: "home",
+  components: {
+        MyCrops
+    },
+}
+
 </script>

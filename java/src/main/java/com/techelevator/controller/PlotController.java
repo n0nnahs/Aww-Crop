@@ -57,10 +57,9 @@ public class PlotController {
 	}
     
 	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
-	public List<Crop> listCropsForOnePlot(@RequestParam(value = "user_id", defaultValue = "0") int userId,
-						   @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
-		if(userId > 0 && plotId > 0) {
-			return cropDao.listCropsForOnePlot(userId, plotId);
+	public List<Crop> listCropsForOnePlot (@RequestParam int plotId){
+		if(plotId > 0) {
+			return cropDao.listCropsForOnePlot(plotId);
 		}
 		return null;
 	}
