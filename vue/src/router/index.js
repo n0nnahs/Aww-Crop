@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
+import Farm from '../views/Farm.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Welcome from '../views/Welcome.vue'
 import store from '../store/index'
+import ActivePlots from '../components/ActivePlots.vue'
 import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
 
@@ -26,8 +27,8 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'farm',
+      component: Farm,
       meta: {
         requiresAuth: true
       }
@@ -65,6 +66,9 @@ const router = new Router({
       }
     },
     {
+      path: "/sample-plot",
+      name: "sample-plot",
+      component: ActivePlots,
       /*for testing/viewing, will be deleted*/
       path: "/mycrops",
       name: "mycrops",
