@@ -98,6 +98,48 @@ public class CropSqlDAO implements CropDAO {
 		return cropsForUser;
 	}
 
+	@Override
+	public List<Crop> listCropsForViewFarm(int userId) {
+		List<Crop> myCrops = new ArrayList<>();
+		String sql = "SELECT crops.name AS name, " +
+				     "COUNT (coords_id) AS amount, " +
+				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield " +
+				     "FROM crops JOIN plot_coords USING (crop_id) " +
+				     "JOIN plot USING (plot_id) " +
+				     "JOIN users_plot USING (plot_id) " +
+				     "JOIN users USING (user_id) " +
+				     "WHERE user_id = ? " +
+				     "GROUP BY crops.name, yield_lbs_per_square_foot ";
+		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
+		while(results.next()) {
+			Crop c = mapRowToCropDetails(results);
+			myCrops.add(c);
+		}
+		return myCrops;
+	}
+	
+	@Override
+	public List<Crop> listCropsForOnePlot(int plotId) {
+		List<Crop> plotCrops = new ArrayList<>();
+		String sql = "SELECT crops.name AS name, " +
+				     "COUNT (coords_id) AS amount, " +
+				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield " +
+				     "FROM crops JOIN plot_coords USING (crop_id) " +
+				     "JOIN plot USING (plot_id) " +
+				     "JOIN users_plot USING (plot_id) " +
+				     "JOIN users USING (user_id) " +
+				     "WHERE plot_id = ? " +
+				     "GROUP BY crops.name, yield_lbs_per_square_foot ";
+		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+		while(results.next()) {
+			Crop c = mapRowToCropDetails(results);
+			plotCrops.add(c);
+		}
+		return plotCrops;
+	}
+	
+	
+	
 	private Crop mapRowToCrop(SqlRowSet results) {
 		Crop c = new Crop();
 		c.setId(results.getInt("crop_id"));
@@ -106,6 +148,14 @@ public class CropSqlDAO implements CropDAO {
 		c.setCropsPerSqFt(results.getInt("crops_per_square_foot"));
 		c.setSeed_cost(results.getDouble("seed_cost"));
 		c.setDescription(results.getString("description"));
+		return c;
+	}
+	
+	private Crop mapRowToCropDetails(SqlRowSet results) {
+		Crop c = new Crop();
+		c.setName(results.getString("name"));
+		c.setAmount(results.getInt("amount"));
+		c.setTotalYield(results.getInt("yield"));
 		return c;
 	}
 }

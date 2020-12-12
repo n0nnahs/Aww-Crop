@@ -8,6 +8,9 @@ public class Crop {
 	private int cropsPerSqFt;
 	private double seed_cost;
 	private String description;
+	private int amount;
+	private int totalYield;
+	
 	
 	public Crop(int id, String name, int yeild, int cropsPerSqFt, double seed_cost, String description) {
 		this.id = id;
@@ -22,6 +25,12 @@ public class Crop {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+	}
+	
+	public Crop(String name, int amount, int totalYield) {
+		this.name = name;
+		this.amount = amount;
+		this.totalYield = totalYield;
 	}
 
 	public Crop() {
@@ -64,6 +73,17 @@ public class Crop {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public int getTotalYield() {
+		return totalYield;
+	}
+	public void setTotalYield(int totalYield) {
+		this.totalYield = totalYield;
+	}
 
 }

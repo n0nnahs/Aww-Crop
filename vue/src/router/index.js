@@ -7,6 +7,8 @@ import Register from '../views/Register.vue'
 import Welcome from '../views/Welcome.vue'
 import store from '../store/index'
 import PlotList from '../views/PlotList.vue'
+import MyCrops from '../components/MyCrops.vue'
+import Crop from '../components/Crop.vue'
 
 Vue.use(Router)
 
@@ -71,6 +73,24 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      /*for testing/viewing, will be deleted*/
+      path: "/mycrops",
+      name: "mycrops",
+      component: MyCrops,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      /*for testing/viewing, will be deleted*/
+      path: "/crop",
+      name: "crop",
+      component: Crop,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 

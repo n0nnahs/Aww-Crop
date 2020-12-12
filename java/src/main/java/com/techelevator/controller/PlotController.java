@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.techelevator.dao.CropDAO;
 import com.techelevator.dao.PlotDAO;
 import com.techelevator.dao.UserDAO;
+import com.techelevator.model.Crop;
 import com.techelevator.model.Plot;
 
 @RestController
@@ -25,12 +27,14 @@ import com.techelevator.model.Plot;
 @RequestMapping("/plot")
 public class PlotController {
 	
+	private CropDAO cropDao;
 	private PlotDAO dao;
 	private UserDAO daoUser;
 
-	public PlotController(PlotDAO plotDAO, UserDAO daoUser) {
+	public PlotController(CropDAO cropDao, PlotDAO plotDAO, UserDAO daoUser) {
 		this.dao = plotDAO;
 		this.daoUser = daoUser;
+		this.cropDao = cropDao;
 	}
 	
 //	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -73,5 +77,14 @@ public class PlotController {
     
    
 // Randy's testing code above...will delete //
+	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
+	public List<Crop> listCropsForOnePlot (@RequestParam int plotId){
+		if(plotId > 0) {
+			return cropDao.listCropsForOnePlot(plotId);
+		}
+		return null;
+	}
+	
+	
 	
 }
