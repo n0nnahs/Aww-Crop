@@ -9,8 +9,8 @@
         
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
             <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy">
-                <img v-on:click="assignNewCrop(this.cropRow.getIndex(), this.croppy.getIndex())" v-if="croppy ===0" id="plant" src="../assets/dirt.jpg" />
-                <img v-if="croppy !==0" id="plant" src="../assets/plotPlant.jpg" />
+
+                
             </td>
         </tr>
       </table>
@@ -28,6 +28,10 @@ export default {
             plotGrid: []
         }
     },
+    props: [
+        'cropRows',
+        'croppy'    
+            ],
     components:{
         
         
