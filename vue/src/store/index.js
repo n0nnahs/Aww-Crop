@@ -37,7 +37,7 @@ export default new Vuex.Store({
         plant: "brussels-sprouts",
         active: true
       },
-    ]
+    ],
     header: false
   },
   mutations: {
