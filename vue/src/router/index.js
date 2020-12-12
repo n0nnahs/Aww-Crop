@@ -6,7 +6,11 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Welcome from '../views/Welcome.vue'
 import store from '../store/index'
+<<<<<<< HEAD
+import PlotList from '../views/PlotList.vue'
+=======
 import ActivePlots from '../components/ActivePlots.vue'
+>>>>>>> c960b0a535fbb8dbb063f0624320bbbb5dcec046
 import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
 
@@ -66,9 +70,22 @@ const router = new Router({
       }
     },
     {
+      path: "/plot/:userID",
+      name: "plot",
+      component: PlotList,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/sample-plot",
       name: "sample-plot",
       component: ActivePlots,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       /*for testing/viewing, will be deleted*/
       path: "/mycrops",
       name: "mycrops",
