@@ -33,17 +33,17 @@ public class PlotController {
 		this.daoUser = daoUser;
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Plot> list(@RequestParam(value = "user_id", defaultValue = "0") int userId,
-						   @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
-		if(userId > 0) {
-			return dao.listAllForUser(userId);
-		}
-		if(plotId > 0) {
-			return dao.plotById(plotId);
-		}
-		return null;
-	}
+//	@RequestMapping(value = "", method = RequestMethod.GET)
+//	public List<Plot> list(@RequestParam(value = "user_id", defaultValue = "0") int userId,
+//						   @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
+//		if(userId > 0) {
+//			return dao.listAllForUser(userId);
+//		}
+//		if(plotId > 0) {
+////			return dao.plotById(plotId);
+//		}
+//		return null;
+//	}
 	
     @ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -62,6 +62,15 @@ public class PlotController {
 		}
 		return null;
     }
+    
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public Plot lunch(@RequestParam int plotId){
+
+			return dao.plotById(plotId);
+
+	}
+    
+    
    
 // Randy's testing code above...will delete //
 	

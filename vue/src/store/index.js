@@ -18,6 +18,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    plots: [],
     token: currentToken || '',
     user: currentUser || {},
     header: false
