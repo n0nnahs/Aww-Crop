@@ -15,9 +15,21 @@ export default {
     data(){
       return {
         crop: {
+<<<<<<< HEAD
           name: "",
           amount:"",
           yield:""
+=======
+<<<<<<< HEAD
+          name: "beets",
+          amount:"10",
+          yield:"3"
+=======
+          name: "broccoli",
+          amount:"69",
+          yield:"420"
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
+>>>>>>> 51442145929d12447d98bcbf00fe4df3846494f5
         }
 
       }
@@ -25,7 +37,15 @@ export default {
     methods: {
         showDetails() {
    
+<<<<<<< HEAD
+        },
+        imageUrl () {
+        return `../assets/${this.crop.name}.jpg`;
+      }
+
+=======
         }
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
     }
 }
 </script>
