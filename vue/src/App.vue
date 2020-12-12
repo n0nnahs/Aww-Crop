@@ -20,6 +20,8 @@
 
 #nav {
   background-color: #81e5fc;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 header {

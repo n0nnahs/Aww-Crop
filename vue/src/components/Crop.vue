@@ -1,6 +1,6 @@
 <template>
     <div id="main-grid" class="crop">
-       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
+      <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">
       <button id="crop-name">{{crop.name}}</button>
       <h3 id="crop-amount">{{crop.amount}} ft²</h3>
       <h3 id="expected-yield">{{crop.yield}} lbs</h3>
@@ -11,7 +11,6 @@
 
 export default {
     name: 'crop',
-    // props: [eachcrop],
     data(){
       return {
         crop: {
@@ -19,7 +18,6 @@ export default {
           amount:"69",
           yield:"420"
         }
-
       }
     },
     methods: {

@@ -44,9 +44,24 @@ export default new Vuex.Store({
         active: true
       },
       {
-        name: "Sample Plot 3",
-        plant: "brussels-sprouts",
+        name: "Raised bed, front yard",
+        plant: "tomatoes",
         active: true
+      },
+      {
+        name: "Vegetable garden, side yard",
+        plant: "potatoes",
+        active: false
+      },
+      {
+        name: "Raised bed by patio",
+        plant: "radishes",
+        active: false
+      },
+      {
+        name: "35CharactersIsMaximumPlotNameSize!!",
+        plant: "peas",
+        active: false
       },
     ],
     header: false
