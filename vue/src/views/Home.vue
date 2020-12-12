@@ -50,6 +50,7 @@ export default {
   margin: 20px;
   font-size: 30px;
   align-content: bottom;
+  border-radius: 10px;
 }
 #add-new-plot-button::before {
   font-family: fontAwesome;

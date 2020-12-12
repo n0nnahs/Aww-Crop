@@ -33,7 +33,7 @@ export default {
 }
 
 #active-plots-section {
-  justify-content: center !important;
+  justify-items: center !important;
 }
 
 </style>

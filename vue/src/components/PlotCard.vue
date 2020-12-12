@@ -56,6 +56,7 @@ export default {
   font-size: 15px;
   margin: 5px;
   align-content: bottom;
+  border-radius: 10px;
 }
 
 #manage-plot-button:hover {
@@ -71,6 +72,7 @@ export default {
   width: 90px;
   object-fit: contain;
   align-self: center;
+  border-radius: 10px;
 }
 
 </style>
