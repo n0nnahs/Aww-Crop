@@ -75,6 +75,8 @@ img {
   border-style:solid;
   background-color: #a5e79b;
   color: #53856d;
+  display: flex;
+  align-content:space-between
 }
 
 </style>

@@ -25,13 +25,17 @@ export default {
 .home{
   background-color: #4e2409;
   display: grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:
-    "active-plots my-crops";
+    "plots crops";
 }
 
-active-plots{
-  grid-area: active-plots;
+
+
+
+
+#plots{
+  grid-area: plots;
 }
 
 my-crops{
