@@ -1,9 +1,14 @@
 <template>
     <div id="main-grid" class="crop">
+<<<<<<< HEAD
 <!-- <img :src='this.imageUrl()'/> -->
       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">
+=======
+       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
       <button id="crop-name">{{crop.name}}</button>
-      <h3 id="crop-amount">{{crop.amount}}</h3>
+      <h3 id="crop-amount">{{crop.amount}} ft²</h3>
+      <h3 id="expected-yield">{{crop.yield}} lbs</h3>
   </div>
 </template>
 
@@ -11,13 +16,19 @@
 
 export default {
     name: 'crop',
-    props: ['crops'],
+    // props: [eachcrop],
     data(){
       return {
         crop: {
+<<<<<<< HEAD
           name: "beets",
           amount:"10",
           yield:"3"
+=======
+          name: "broccoli",
+          amount:"69",
+          yield:"420"
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
         }
 
       }
@@ -25,11 +36,15 @@ export default {
     methods: {
         showDetails() {
    
+<<<<<<< HEAD
         },
         imageUrl () {
         return `../assets/${this.crop.name}.jpg`;
       }
 
+=======
+        }
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
     }
 }
 </script>
@@ -39,43 +54,55 @@ export default {
 #main-grid{
   display: grid;
   grid-auto-flow:row;
-  grid-template-columns:1fr 1fr 2fr;
+  grid-template-columns:1fr 3fr 3fr 3fr;
   grid-template-areas:
-    "image crop-name crop-amount crop amount";
-
+    "image crop-name crop-amount expected-yield";
   padding: 10px;
-  color: #b24747;
-
+  color: white;
+  margin-top: 5px;
+  padding-bottom: 0px;
 }
 img {
-  align-self:center;
-  justify-self: center;
   grid-area: image;
   max-height: 50px;
+  border-radius: 10px;
 }
 #crop-name{
   grid-area: crop-name;
   background: none;
   border: none;
-  color:#b24747;
+  color:white;
   font-size: 16px;
-  align-self:center;
-  justify-self: flex-start;
-}
-#crop-amount{
-  padding-top: 7px;
-  padding-left: 5px;
-  grid-area: crop-amount;
-  font-size: 16px;
-  align-self:center;
-  justify-self: flex-start;
+  font-weight: bold !important;
+  padding-left: 0px;
 }
 #crop-name:hover {
-  border-width: 3px;
-  border-color: #53856d;
-  border-style:solid;
-  background-color: #a5e79b;
-  color: #53856d;
+  background-color: #83a126;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold !important;
+  padding: 10px;
 }
-
+#crop-amount{
+  grid-area: crop-amount;
+  background: none;
+  color:white;
+  font-size: 16px;
+  padding-top: 7px;
+  padding-left: 5px;
+  align-self:center;
+  justify-self: center;
+  font-weight: bold !important;
+}
+#expected-yield{
+  grid-area: expected-yield;
+  background: none;
+  color:white;
+  font-size: 16px;
+  padding-top: 7px;
+  padding-left: 5px;
+  align-self:center;
+  justify-self: flex-end;
+  font-weight: bold !important;
+}
 </style>

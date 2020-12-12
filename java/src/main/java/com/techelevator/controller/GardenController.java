@@ -20,12 +20,9 @@ import com.techelevator.dao.PlotDAO;
 import com.techelevator.model.Crop;
 
 
-
-
-
 @RestController
 @CrossOrigin
-@RequestMapping("/home")
+@RequestMapping("/crops")
 
 public class GardenController {
 	
@@ -37,15 +34,36 @@ public class GardenController {
 		this.plotDao = plotDao;
 	}
 	
-	@RequestMapping(value = "/mycrops", method = RequestMethod.GET)
-	public List<Crop> listlistAllCropsForUser(@RequestParam int userId){
-						   
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public List<Crop> listAll(@RequestParam( value = "user_id", defaultValue = "0") int userId,
+            				  @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
+		//if you want to return a list of all crops for the users farm
 		if(userId > 0) {
 			return cropDao.listCropsForViewFarm(userId);
+		}
+		
+		//if you want to look up a list of crops by the plot 
+		else if(plotId > 0){
+			return cropDao.listCropsForOnePlot(plotId);
+		}
+		
+		//otherwise just returns a list of all crops available
+		else return cropDao.listAll();
+	}
+	
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public Crop getCrop(@RequestParam(value = "name", defaultValue = "") String cropName,
+						@RequestParam(value = "id", defaultValue = "0") int cropId){
+		if(!cropName.isEmpty()) {
+			return cropDao.getCropByName(cropName);
+		} 
+		 if(cropId > 0) {
+			return cropDao.getCropById(cropId);
+			
 		}
 		return null;
 	}
 	
-
+	 
 
 }

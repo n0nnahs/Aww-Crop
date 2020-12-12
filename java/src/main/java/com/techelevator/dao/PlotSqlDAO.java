@@ -41,8 +41,8 @@ public class PlotSqlDAO implements PlotDAO {
 
 	@Override
 	public int create(Plot plot) {
-		String sqlCreate = "INSERT INTO plot(name, length, width) "
-				   + "VALUES(?, ?, ?) "
+		String sqlCreate = "INSERT INTO plot(name, length, width, active) "
+				   + "VALUES(?, ?, ?, true) "
 				   + "RETURNING plot_id";
 		Long plotIdLong = jdbc.queryForObject(sqlCreate, Long.class, plot.getName(), plot.getLength(), plot.getWidth());
 		return plotIdLong.intValue();
@@ -81,6 +81,7 @@ public class PlotSqlDAO implements PlotDAO {
 		p.setName(results.getString("name"));
 		p.setLength(results.getInt("length"));
 		p.setWidth(results.getInt("width"));
+		p.setActive(results.getBoolean("active"));
 		
 		return p;
 	}
