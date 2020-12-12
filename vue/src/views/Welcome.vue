@@ -1,4 +1,4 @@
-<template>
+<template id="welcome">
   <div id="main-grid" class="welcome">
     <div id="attractive-header">
             <img id="header-image" src="@/assets/Outstanding-Vegetable-Garden-Vectors-1.jpg" alt="Vegetable Garden">
@@ -85,6 +85,7 @@ export default {
 }
 #info-columns {
   grid-area: info-columns;
+  background-color:#4e2409;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -128,7 +129,7 @@ h6{
 }
 
 /*tablets*/
-@media (max-width: 800px){
+@media (max-width: 900px){
       #main-grid {
         grid-template-columns: 100%;
         grid-template-areas:
