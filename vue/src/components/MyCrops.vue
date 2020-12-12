@@ -1,6 +1,6 @@
 <template>
   <div class="my-crops">
-    <h2>My Crops</h2>
+    <h2 id="pineapples">My Crops</h2>
     <div id="crop-list">
         <crop v-for="crop in crops" v-bind:crop="crop" v-bind:key="crop.name"/>
     </div>
@@ -32,7 +32,7 @@ created() {
 <style>
 
 
-h2{
+#pineapples{
   font-size: 32px !important;
   font-weight: bold !important;
   text-align: center;
