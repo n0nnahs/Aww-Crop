@@ -48,6 +48,8 @@ export default new Vuex.Store({
 
     }
     },
+    header: false
+  },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
@@ -57,6 +59,9 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
+    },
+    SET_HEADER(state, boolean){
+      state.header = boolean;
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
