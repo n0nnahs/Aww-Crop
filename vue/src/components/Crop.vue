@@ -1,6 +1,11 @@
 <template>
     <div id="main-grid" class="crop">
+<<<<<<< HEAD
+<!-- <img :src='this.imageUrl()'/> -->
+      <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">
+=======
        <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
       <button id="crop-name">{{crop.name}}</button>
       <h3 id="crop-amount">{{crop.amount}} ft²</h3>
       <h3 id="expected-yield">{{crop.yield}} lbs</h3>
@@ -15,9 +20,15 @@ export default {
     data(){
       return {
         crop: {
+<<<<<<< HEAD
+          name: "beets",
+          amount:"10",
+          yield:"3"
+=======
           name: "broccoli",
           amount:"69",
           yield:"420"
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
         }
 
       }
@@ -25,7 +36,15 @@ export default {
     methods: {
         showDetails() {
    
+<<<<<<< HEAD
+        },
+        imageUrl () {
+        return `../assets/${this.crop.name}.jpg`;
+      }
+
+=======
         }
+>>>>>>> 3f772406d9fece575ba6309571f36a3e561d3bd4
     }
 }
 </script>

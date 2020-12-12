@@ -55,7 +55,7 @@ public class CropSqlDAO implements CropDAO {
 	public Crop getCropByName(String name) {
 		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
 					+ "FROM crops "
-					+ "WHERE name ILIKE '?'";
+					+ "WHERE name ILIKE ?";
 		SqlRowSet results = jdbc.queryForRowSet(sql, name);
 		if(results.next()) {
 			return mapRowToCrop(results);
