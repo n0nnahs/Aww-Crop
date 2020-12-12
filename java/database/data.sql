@@ -145,6 +145,7 @@ BEGIN TRANSACTION;
  INSERT INTO plot 
  (
      plot_id,
+     name,
      width,
      length,
      active
@@ -152,6 +153,7 @@ BEGIN TRANSACTION;
  VALUES 
  (
      101,
+     'My First Plot',
      4,
      4,
      't'

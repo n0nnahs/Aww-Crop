@@ -129,7 +129,7 @@ h6{
 }
 
 /*tablets*/
-@media (max-width: 800px){
+@media (max-width: 900px){
       #main-grid {
         grid-template-columns: 100%;
         grid-template-areas:
