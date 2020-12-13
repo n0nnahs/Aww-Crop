@@ -64,6 +64,18 @@ export default new Vuex.Store({
         active: false
       },
     ],
+    notes: [
+      {
+        plotId: "202",
+        message: "This is a test message.",
+        date: "12-13-2020"
+      },
+      {
+        plotId: "202",
+        message: "I heart my garden.",
+        date: "12-13-2020"
+      }
+    ],
     header: false
   },
   mutations: {
@@ -85,6 +97,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SAVE_NOTE(state, note) {
+      state.notes.push(note);
     }
   }
 })
