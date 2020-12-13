@@ -12,6 +12,7 @@ import Plots from '../views/Plots.vue'
 import ActivePlots from '../components/ActivePlots.vue'
 import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
+import Notes from '../components/Notes.vue'
 
 Vue.use(Router)
 
@@ -84,6 +85,16 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    /*for testing/viewing, will be deleted*/
+    {
+      path: "/notes",
+      name: "notes",
+      component: Notes,
+      meta: {
+        requiresAuth: false
+      }
+    },    
+    /*for testing/viewing, will be deleted*/
     {
       path: "/sample-plot",
       name: "sample-plot",

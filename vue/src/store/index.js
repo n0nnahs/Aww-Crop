@@ -22,6 +22,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+<<<<<<< HEAD
     // crops: [],
     // crops: userCrops,
      crops: [
@@ -45,44 +46,31 @@ export default new Vuex.Store({
     activePlotSize: {
       plotId: 0,
       length: 10,
+=======
+    crops: [],
+    plotGrid: [
+          {
+            id: "",
+            x: 0,
+            y: 0
+          },
+
+    ],
+    plotSize: {
+      height: 10,
+>>>>>>> 245c37e9faf4e8471331541bdefb8da8759be25c
       width: 10
     },
-    plots: [
-      {
-        name: "Sample Plot",
-        plant: "broccoli",
-        active: true
-      },
-      {
-        name: "Sample Plot 2",
-        plant: "cauliflower",
-        active: true
-      },
-      {
-        name: "Raised bed, front yard",
-        plant: "tomatoes",
-        active: true
-      },
-      {
-        name: "Vegetable garden, side yard",
-        plant: "potatoes",
-        active: false
-      },
-      {
-        name: "Raised bed by patio",
-        plant: "radishes",
-        active: false
-      },
-      {
-        name: "35CharactersIsMaximumPlotNameSize!!",
-        plant: "peas",
-        active: false
-      },
-    ],
-    header: false,
-    
+    plots: [],
+    header: false
   },
   mutations: {
+    SET_PLOTS(state, data) {
+      state.plots = data;
+    },
+    SET_CROPS(state, data){
+      state.crops = data;
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
@@ -102,7 +90,11 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
+    SAVE_NOTE(state, note) {
+      state.notes.push(note)
+    },
     SET_CROPS (state, crops) {
+<<<<<<< HEAD
         state.crops = String(crops);
       },
     SET_PLOT_GRID(state, plotGrid){
@@ -111,7 +103,11 @@ export default new Vuex.Store({
     SET_ACTIVE_PLOT(state, plotId){
         state.activePlotSize.plotId = plotId;
     },
+=======
+      state.crops = String(crops)
+>>>>>>> 245c37e9faf4e8471331541bdefb8da8759be25c
     },
+  },
 
   actions: {
     fetchCrops (store) {

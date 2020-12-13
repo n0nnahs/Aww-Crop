@@ -4,7 +4,7 @@
         <h2>Inactive Plots</h2>
       </div>
         <div class="inactive-plots-list">
-          <plot-card v-for="plot in plots" v-bind:plot="plot" v-bind:key="plot.name" />
+          <plot-card v-for="plot in inactivePlots" v-bind:plot="plot" v-bind:key="plot.id" />
       </div>
     </section>
 </template>
@@ -15,7 +15,7 @@ import PlotCard from '@/components/PlotCard.vue';
 export default {
   name: "inactive-plots",
   computed: {
-    plots() {
+    inactivePlots() {
       return this.$store.state.plots.filter((plot) => {
         return plot.active === false;
       });
