@@ -29,24 +29,23 @@ export default {
     margin: 20px;
     background-color: #ba7331 !important;
     display: grid;
-    grid-template-rows:1fr 2fr 1fr;
+    grid-template-rows:50px 100px 50px;
     grid-template-areas:
           "plot-name image button";
-
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center; */
+    justify-content: space-around;
+
 }
 
 #plot-name {
+  grid-area: plot-name;
   font-size: 15px;
   text-align: center;
   margin: 5px; 
-  grid-area: plot-name;
   display:flex;
   flex-direction: column;
-  flex-flow: column wrap;
+  justify-content: space-around;
 } 
 
 #plot-name-div {
@@ -60,6 +59,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content:flex-end;
 }
 
 #manage-plot-button {
@@ -74,6 +74,7 @@ export default {
   font-size: 15px;
   background-color: #83a126;
   margin: 5px;
+  margin-top: 10px;
   color: white;
 }
 
@@ -87,6 +88,7 @@ export default {
 }
 #manage-plot-button{
   grid-area: button;
+  margin-top: 10px;
 }
 
 button{

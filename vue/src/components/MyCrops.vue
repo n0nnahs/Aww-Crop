@@ -54,7 +54,6 @@ export default {
   color: white;
   background-color: #a53b58;;
   border-radius: 10px;
-  height: 100vh;
 }
 #pineapples{
   font-size: 32px !important;
