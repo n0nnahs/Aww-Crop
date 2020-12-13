@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default {
 
-  getPlots(userID) {
-    return axios.get(`/plot/${userID}`)
+  getPlots(username) {
+    return axios.get(`/plot/user/${username}`)
   },
   getPlotById(plotId) {
     return axios.get(`/plot?plotId=${plotId}`)

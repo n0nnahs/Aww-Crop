@@ -4,7 +4,7 @@
       <i class="fas fa-seedling"></i>
       My Garden
       <i class="fas fa-seedling"></i>
-      </h1>
+    </h1>
     <div id="home-grid">
       <div id="plots">
           <div id="aplots">
