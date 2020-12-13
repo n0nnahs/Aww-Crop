@@ -11,15 +11,15 @@
 
 export default {
     name: 'crop',
-  props: {
-    crop: Object
-  },
+    props: {
+      crop: Object
+    },
     methods: {
         showDetails() {
-   
+        
         }
     }
-
+}
 </script>
 
 <style scoped>

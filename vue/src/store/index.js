@@ -41,24 +41,10 @@ export default new Vuex.Store({
          yield: 300
        }
      ],
-    plotGrid: [
-      {
-        id: 0,
-        name: "Cauliflower",
-        yeild: 0,
-        cropsPerSqFt: 0,
-        seed_cost: 0.0,
-        description: null,
-        amount: 0,
-        totalYield: 0,
-        xCoordinate: 0,
-        yCoordinate: 3,
-        plotId: 101
-    },
-
-    ],
-    plotSize: {
-      height: 10,
+    plotGrid: [],
+    activePlotSize: {
+      plotId: 0,
+      length: 10,
       width: 10
     },
     plots: [
@@ -117,8 +103,14 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     SET_CROPS (state, crops) {
-        state.crops = String(crops)
-      }
+        state.crops = String(crops);
+      },
+    SET_PLOT_GRID(state, plotGrid){
+        state.plotGrid = plotGrid;
+    },
+    SET_ACTIVE_PLOT(state, plotId){
+        state.ActivePlotSize.plotId = plotId;
+    },
     },
 
   actions: {

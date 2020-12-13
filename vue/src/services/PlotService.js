@@ -9,7 +9,7 @@ export default {
     return axios.get(`/plot?plotId=${plotId}`)
   },
   getPlotCoordId(plotId) {
-    return axios.get(`/myplot?plotId=${plotId}`)
+    return axios.get(`/crops/myplot?plotId=${plotId}`)
   }
 
 }
