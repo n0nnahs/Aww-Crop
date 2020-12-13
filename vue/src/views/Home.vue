@@ -51,7 +51,7 @@ export default {
 #home-grid {
   background-color: #4e2409;
   display: grid;
-  column-gap: 50px;
+  column-gap: 20px;
   grid-template-columns:1fr 1fr;
   grid-template-areas:
     "plots my-crops";
@@ -71,28 +71,13 @@ export default {
 #my-crops{
   grid-area: my-crops;
   margin-top: 10px;
-
-
 }
-/* #plot {
-  background-color: #4e2409;
-  display: grid;
-  column-gap: 50px;
-  grid-template-rows: 2fr  1fr  2fr;
-  grid-template-areas:
-    "aplots button iplots";
-}
-#aplots {
-  grid-area: aplots;
-}
-#iplots {
-  grid-area: iplots;
-} */
 #add-new-plot-button {
   grid-area: button;
   width: 100%;
   height: 65px;
   margin-bottom: 20px;
+  margin-top: 20px;
   font-size: 32px;
   align-content: bottom;
   border-radius: 10px;
@@ -102,18 +87,6 @@ export default {
   color: #83a126;
   background-color: white;
 }
-/* #add-new-plot-button::before {
-  font-family: fontAwesome;
-  content: "\f4d8\00a0";
-  color: #83a126;
-}
-
-#add-new-plot-button::after {
-  font-family: fontAwesome;
-  content: "\f4d8\00a0";
-  color: #83a126;
-} */
-
 #add-new-plot-button:hover {
   grid-area: button;
   width: 100%;
@@ -128,9 +101,4 @@ export default {
   color: white;
   background-color: #83a126;
 }
-
-
-
-
-
 </style>
