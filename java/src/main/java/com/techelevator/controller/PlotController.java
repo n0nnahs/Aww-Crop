@@ -25,6 +25,7 @@ import com.techelevator.model.Plot;
 @RestController
 @CrossOrigin
 @RequestMapping("/plot")
+
 public class PlotController {
 	
 	private CropDAO cropDao;
@@ -49,11 +50,19 @@ public class PlotController {
 //		return null;
 //	}
 //	
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	public List<Plot> list(@PathVariable("id") int userId){
+		return dao.listAllForUser(userId);
+	}
+
     @ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public void createPlot(@Valid @RequestBody Plot newPlot, Principal p) {
-		int plotId = dao.create(newPlot);
-		
+    	
+		//creates a new plot and returns the new plots ID
+    	int plotId = dao.create(newPlot);
+    	
+		//adds the new plot and the user who created the plot to the user_plot table
 		dao.userPlot(daoUser.findIdByUsername(p.getName()), plotId);
 	}
     
@@ -91,6 +100,9 @@ public class PlotController {
 			return cropDao.listCropsForOnePlot(plotId);
 		}
 		return null;
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public List<Crop> listCropsForOnePlot (@PathVariable("id") int plotId){
+		return cropDao.listCropsForOnePlot(plotId);
 	}
 	
 	

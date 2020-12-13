@@ -5,16 +5,27 @@ public class Plot {
 	private int id;
 	private String name;
 	private int length;
+
 	private int width;
+	private boolean active;
 	
-	public Plot(int id, String name, int length, int width) {
+	public Plot(int id, String name, int length, int width, boolean active) {
 		this.id = id;
 		this.name = name;
 		this.length = length;
 		this.width = width;
+		this.active = active;
 	}
 
 	public Plot() {
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public int getId() {
