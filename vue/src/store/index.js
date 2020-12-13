@@ -22,25 +22,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    // crops: [],
-    // crops: userCrops,
-     crops: [
-       {
-         name: "broccoli",
-         amount: 666,
-         yield: 8000
-       },
-       {
-         name: "beets",
-         amount: 6,
-         yield: 9
-       },
-       {
-         name: "cabbage",
-         amount: 67,
-         yield: 300
-       }
-     ],
+    crops: [],
     plotGrid: [
           {
             id: "",
@@ -53,53 +35,16 @@ export default new Vuex.Store({
       height: 10,
       width: 10
     },
-    plots: [
-      {
-        name: "Sample Plot",
-        plant: "broccoli",
-        active: true
-      },
-      {
-        name: "Sample Plot 2",
-        plant: "cauliflower",
-        active: true
-      },
-      {
-        name: "Raised bed, front yard",
-        plant: "tomatoes",
-        active: true
-      },
-      {
-        name: "Vegetable garden, side yard",
-        plant: "potatoes",
-        active: false
-      },
-      {
-        name: "Raised bed by patio",
-        plant: "radishes",
-        active: false
-      },
-      {
-        name: "35CharactersIsMaximumPlotNameSize!!",
-        plant: "peas",
-        active: false
-      },
-    ],
-    notes: [
-      {
-        plotId: "202",
-        message: "This is a test message.",
-        date: "12-13-2020"
-      },
-      {
-        plotId: "202",
-        message: "I heart my garden.",
-        date: "12-13-2020"
-      }
-    ],
+    plots: [],
     header: false
   },
   mutations: {
+    SET_PLOTS(state, data) {
+      state.plots = data;
+    },
+    SET_CROPS(state, data){
+      state.crops = data;
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);

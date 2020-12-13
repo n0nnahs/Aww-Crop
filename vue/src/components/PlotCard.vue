@@ -4,7 +4,7 @@
       <h3 id="plot-name">{{ plot.name }}</h3>
     </div>
     <div id="pic-and-button">
-      <img id="crop-image" :src="require(`../assets/${plot.plant}.jpeg`)">
+      <img id="crop-image" :src="require(`../assets/${plot.topCrop}.jpeg`)">
       <button id="manage-plot-button">Manage Plot</button>
     </div>
   </div>

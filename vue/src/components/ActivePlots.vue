@@ -2,20 +2,24 @@
     <section id="active-plots-section">
       <div id="active">
         <h2>Active Plots</h2>
-      </div>
-      <div class="active-plots-list">
-          <plot-card v-for="plot in plots" v-bind:plot="plot" v-bind:key="plot.name" />
+        <div class="active-plots-list">
+          <plot-card v-for="plot in activePlots" v-bind:plot="plot" v-bind:key="plot.id" />
+        </div>
       </div>
     </section>
 </template>
  
 <script>
+import PlotService from '../services/PlotService';
 import PlotCard from '@/components/PlotCard.vue';
  
 export default {
   name: "active-plots",
+  methods:{
+      
+  },
   computed: {
-    plots() {
+    activePlots() {
       return this.$store.state.plots.filter((plot) => {
         return plot.active === true;
       });
@@ -23,8 +27,13 @@ export default {
   },
   components: {
     PlotCard
+  },
+  created() {
+        PlotService.getPlots(this.$store.state.user.id).then(response => {
+          this.$store.commit("SET_PLOTS", response.data);
+        });
   }
-}
+};
 </script>
  
 <style>
