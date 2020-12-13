@@ -20,13 +20,20 @@
 
 <script>
 import PlotCrop from './PlotCrop.vue';
+import plotService from "../services/PlotService";
 
 export default {
     name: "plot-grid",
     data(){
         return{
             isLoading: true,
-            plotGrid: []
+            plotGrid: [],
+            cropSquare: {
+                name: "",
+                xCoordinate: 0,
+                yCoordinate: 0,
+                plotId: 0
+            }
         }
     },
     props: [
@@ -48,13 +55,15 @@ export default {
             //     row.push("0");
             // }
             for(let i = 0; i < height; i++){
-                this.plotGrid.push(new Array(width).fill(0))
+                this.plotGrid.push(new Array(width).fill(this.cropSquare))
             }
             this.assignCrops();
             this.isLoading = false;
             console.log(this.plotGrid);
         },
         assignCrops(){
+            plotService.getPlotCoordId
+            
             //go through all of the locations in grid & assign crops to locations in grid & assign empty locations
             //sort information coming in
             let arr = this.$store.state.plotGrid;
