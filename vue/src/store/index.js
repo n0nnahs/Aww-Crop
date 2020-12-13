@@ -22,43 +22,15 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-<<<<<<< HEAD
     // crops: [],
     // crops: userCrops,
-     crops: [
-       {
-         name: "broccoli",
-         amount: 666,
-         yield: 8000
-       },
-       {
-         name: "beets",
-         amount: 6,
-         yield: 9
-       },
-       {
-         name: "cabbage",
-         amount: 67,
-         yield: 300
-       }
-     ],
     plotGrid: [],
     activePlotSize: {
       plotId: 0,
       length: 10,
-=======
     crops: [],
-    plotGrid: [
-          {
-            id: "",
-            x: 0,
-            y: 0
-          },
-
-    ],
     plotSize: {
       height: 10,
->>>>>>> 245c37e9faf4e8471331541bdefb8da8759be25c
       width: 10
     },
     plots: [],
@@ -93,20 +65,13 @@ export default new Vuex.Store({
     SAVE_NOTE(state, note) {
       state.notes.push(note)
     },
-    SET_CROPS (state, crops) {
-<<<<<<< HEAD
-        state.crops = String(crops);
-      },
     SET_PLOT_GRID(state, plotGrid){
         state.plotGrid = plotGrid;
     },
     SET_ACTIVE_PLOT(state, plotId){
         state.activePlotSize.plotId = plotId;
     },
-=======
-      state.crops = String(crops)
->>>>>>> 245c37e9faf4e8471331541bdefb8da8759be25c
-    },
+  },
   },
 
   actions: {

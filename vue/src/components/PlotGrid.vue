@@ -7,8 +7,10 @@
       <table id="plot-grid-table" v-bind="grid" v-if="!isLoading">
         
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
-            <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy">
-                <plot-crop v-on:click="assignNewCrop(this.croppy.xCoordinate, this.croppy.yCoordinate)" v-bind='croppy.name'>{{croppy.name}}</plot-crop>
+            <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy.name">
+                <img v-if='croppy.name === ""' id="plant" src="../assets/dirt.jpg" />
+                <img v-if='croppy.name !==""' id="plant" src='../assets/veggies-original.jpg' />      
+                <!--<plot-crop v-on:click="assignNewCrop(this.croppy.xCoordinate, this.croppy.yCoordinate)" v-bind='croppy.name'>{{croppy.name}}</plot-crop>-->
             </td>
         </tr>
       </table>
@@ -52,6 +54,12 @@ export default {
             // for(let i = 0; i < width; i++){
             //     row.push("0");
             // }
+            let width = this.$store.state.activePlotSize.width;
+            let height = this.$store.state.activePlotSize.length;
+                        
+            for(let i = 0; i < height; i++){
+                this.plotGrid.push(new Array(width).fill(this.cropSquare))
+                        }
 
             this.assignCrops();
         },
@@ -67,19 +75,9 @@ export default {
                         //this.$store.commit("SET_ACTIVE_PLOT", response.data.plotId);
                         //console.log("SET_ACTIVE_GRID");
                         
-                        let width = this.$store.state.activePlotSize.width;
-                        let height = this.$store.state.activePlotSize.length;
-                        
-                        for(let i = 0; i < height; i++){
-                            this.plotGrid.push(new Array(width).fill(this.cropSquare))
-                        }
+
                         console.log("broke the indexing");
-                        this.plotGrid.forEach(row => {
-                            row.forEach(object => {
-                                object.xCoordinate = row.indexOf(object);
-                                object.yCoordinate = this.plotGrid.indexOf(row);
-                            });
-                        });
+
                         console.log(this.plotGrid);
                         let arr = this.$store.state.plotGrid;
                         
