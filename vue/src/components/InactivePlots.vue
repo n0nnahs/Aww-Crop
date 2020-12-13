@@ -39,15 +39,17 @@ export default {
   color: white;
   background-color: #a53b58;
   border-radius: 10px;
-}
-.inactive-plots-list {
-    display:flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 #blueberries{
   background-color: #FE6F15;
   padding: 10px;
   border-radius: 10px; 
 }
+.inactive-plots-list {
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 </style>

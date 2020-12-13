@@ -49,6 +49,7 @@ export default {
   color: white;
   background-color: #a53b58;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 #raspberries{
   background-color: #FE6F15;
