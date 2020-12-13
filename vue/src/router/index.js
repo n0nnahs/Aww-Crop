@@ -6,8 +6,9 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Welcome from '../views/Welcome.vue'
 import store from '../store/index'
-import Plots from '../views/Plots.vue'
 import PlotList from '../views/PlotList.vue'
+import InactivePlots from '../components/InactivePlots.vue'
+import Plots from '../views/Plots.vue'
 import ActivePlots from '../components/ActivePlots.vue'
 import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
@@ -86,7 +87,7 @@ const router = new Router({
     {
       path: "/sample-plot",
       name: "sample-plot",
-      component: ActivePlots,
+      component: ActivePlots, InactivePlots,
       meta: {
         requiresAuth: false
       }
