@@ -109,7 +109,7 @@ export default new Vuex.Store({
         state.plotGrid = plotGrid;
     },
     SET_ACTIVE_PLOT(state, plotId){
-        state.ActivePlotSize.plotId = plotId;
+        state.activePlotSize.plotId = plotId;
     },
     },
 
