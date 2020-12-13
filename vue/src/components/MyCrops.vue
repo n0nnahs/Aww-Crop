@@ -42,7 +42,7 @@ export default {
 
 .my-crops{
   color: white;
-  background-color: #a53b58;;
+  background-color: #a53b58;
   border-radius: 10px;
 }
 #pineapples{
@@ -97,7 +97,6 @@ export default {
 }
 #crop-list{
   margin-top: 0px;
-  background-color:#ba7331;
   border-radius: 10px;
   color:white;
 }

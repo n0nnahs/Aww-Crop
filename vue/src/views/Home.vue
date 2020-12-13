@@ -98,7 +98,7 @@ export default {
   text-align: center;
   padding: 10px;
   border-radius: 10px;
-  color: white;
+  color: white !important;
   background-color: #83a126;
 }
 </style>

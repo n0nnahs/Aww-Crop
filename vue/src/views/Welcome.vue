@@ -5,41 +5,41 @@
             <h1 id="heading">Aww Crop! The Garden Planning App</h1>
         <div id="bananas">
             <div id="login">
-              <router-link style="color: #4e2409;" v-bind:to="{ name: 'login' }">Have an account already? <span style="font-style:italic;font-weight:bold"> Sign in.</span></router-link>
+              <router-link style="color: #4e2409;" v-bind:to="{ name: 'login' }">Have an account already? <span style="font-style:italic;font-weight:bold; color: #a53b58;"> Sign in.</span></router-link>
             </div>
             <div id="register">
-              <router-link style="color: #4e2409;" v-bind:to="{ name: 'register' }">If not, click <span style="font-style:italic;font-weight:bold">here</span> to create one!</router-link>
+              <router-link style="color: #4e2409;" v-bind:to="{ name: 'register' }">If not, click <span style="font-style:italic;font-weight:bold; color: #fe6f15;">here</span> to create one!</router-link>
             </div>
         </div>
     </div>
     <div id="info-columns">
       <div id="plan">
-        <h3>Plan your garden</h3>
+        <h3 id="p" >Plan your garden</h3>
           <p>
           <i class="fas fa-seedling"></i>
-          Find plants and vegetables that are suitable for your garden<br> 
+          Browse plants and vegetables<br> 
           <i class="fas fa-seedling"></i>
-          Figure out what goes where using our Graphplot™ feature<br>
+          Try our patented Graphplot™ feature!<br>
           <i class="fas fa-seedling"></i>
           Other cool stuff</p>
       </div>
       <div id="track">
-        <h3>Track your progress</h3>
+        <h3 id="t" >Track your progress</h3>
           <p>
             <i class="fas fa-seedling"></i>
-            Keep track of crop yeilds<br>
+            Keep track of crop yields<br>
             <i class="fas fa-seedling"></i>
-            Save notes of what works, and what doesn't<br>
+            Save notes for next year!<br>
             <i class="fas fa-seedling"></i>
             all your crops are belong to us</p>
       </div>
       <div id="shop">
-        <h3>Shop for supplies</h3>
+        <h3 id="s" >Shop for supplies</h3>
           <p>
             <i class="fas fa-seedling"></i>
-            Calculate how many seeds you need for your garden<br>
+            Calculate how many seeds you need<br>
             <i class="fas fa-seedling"></i>
-            Get recommendations for seeds suitable for your garden<br>
+            Hello Josh!<br>
             <i class="fas fa-seedling"></i>
             Discover something new!</p>
       </div>
@@ -68,6 +68,8 @@ color: green;
   grid-area: footer;
   text-align: left;
   background-color: #5f2b0a; 
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 #login{
   grid-area: login;
@@ -79,17 +81,17 @@ color: green;
 }
 #plan{
   grid-area: plan;
-  text-align: center;
+  text-align: left;
   margin: 20px;
 }
 #track{
   grid-area: track;
-  text-align: center;
+  text-align: left;
   margin: 20px;
 }
 #shop{
   grid-area: shop;
-  text-align: center;
+  text-align: left;
   margin: 20px;
 }
 #main-grid {
@@ -108,7 +110,6 @@ color: green;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "plan track shop";
-  text-align: center;
   background-color: #4e2409;
 
 }
@@ -145,6 +146,13 @@ h6{
   padding-top: 20px;
   font-size: 10 px;
   color:#b24747;
+}
+h3{
+  font-size: 32px;
+  padding-bottom: 15 px;
+}
+#info-columns{
+  font-size: 12;
 }
 /*mid-sized*/
 @media (max-width: 1200px){
