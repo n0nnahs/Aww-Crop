@@ -25,15 +25,30 @@ public class PlotSqlDAO implements PlotDAO {
 	@Override
 	public List<Plot> listAllForUser(int userId) {
 		List<Plot> plots = new ArrayList<>();
-		String sql =  "SELECT plot_id, name, length, width, active "
+		String sqlPlot =  "SELECT plot_id, name, length, width, active "
 					+ "FROM plot "
 					+ "JOIN users_plot USING(plot_id) "
 					+ "JOIN users USING (user_id) "
 					+ "WHERE user_id = ?";
 		
-		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
-		while(results.next()) {
-			Plot plotResult = mapRowToPlot(results);
+		String sqlTopCrop = "SELECT crops.name AS name, COUNT (coords_id) AS amount "
+						  + "FROM crops JOIN plot_coords USING (crop_id) "
+						  + "JOIN plot USING (plot_id) "
+						  + "JOIN users_plot USING (plot_id) "
+						  + "WHERE plot_id = ? "
+						  + "GROUP BY crops.name, yield_lbs_per_square_foot "
+						  + "ORDER BY amount DESC "
+						  + "LIMIT 1";
+		
+		SqlRowSet plotResults = jdbc.queryForRowSet(sqlPlot, userId);
+		
+		while(plotResults.next()) {
+			Plot plotResult = mapRowToPlot(plotResults);
+			
+			SqlRowSet topCropResult = jdbc.queryForRowSet(sqlTopCrop, plotResult.getId());
+			while(topCropResult.next()) {
+				plotResult.setTopCrop(topCropResult.getString("name").toLowerCase());
+			}
 			plots.add(plotResult);
 		}
 		return plots;
@@ -65,12 +80,10 @@ public class PlotSqlDAO implements PlotDAO {
 		
 		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
 		
-			
-			//plots.add(plotResult);
-			if(results.next()) {
-				plotResult = mapRowToPlot(results);
-			}
-		
+		if(results.next()) {
+			plotResult = mapRowToPlot(results);
+		}
+	
 		return plotResult;
 	}
 

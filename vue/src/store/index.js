@@ -22,25 +22,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    // crops: [],
-    // crops: userCrops,
-     crops: [
-       {
-         name: "broccoli",
-         amount: 666,
-         yield: 8000
-       },
-       {
-         name: "beets",
-         amount: 6,
-         yield: 9
-       },
-       {
-         name: "cabbage",
-         amount: 67,
-         yield: 300
-       }
-     ],
+    crops: [],
     plotGrid: [
           {
             id: "",
@@ -59,6 +41,9 @@ export default new Vuex.Store({
   mutations: {
     SET_PLOTS(state, data) {
       state.plots = data;
+    },
+    SET_CROPS(state, data){
+      state.crops = data;
     },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;

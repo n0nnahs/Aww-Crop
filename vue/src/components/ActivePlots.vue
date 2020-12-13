@@ -3,8 +3,9 @@
       <div id="active">
         <h2>Active Plots</h2>
         <div class="active-plots-list">
-          <plot-card v-for="plot in this.$store.state.plots" v-bind:plot="plot" v-bind:key="plot.id" />
+          <plot-card v-for="plot in activePlots" v-bind:plot="plot" v-bind:key="plot.id" />
         </div>
+      </div>
     </section>
 </template>
 
@@ -18,7 +19,7 @@ export default {
       
   },
   computed: {
-    plots() {
+    activePlots() {
       return this.$store.state.plots.filter((plot) => {
         return plot.active === true;
       });

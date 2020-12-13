@@ -19,6 +19,8 @@ public interface CropDAO {
 	List<Crop> listCropsForViewFarm(int userId);
 
 	List<Crop> listCropsForOnePlot(int plotId);
+	 
+	Crop getTopCropForPlot(int plotId);
 
 	
 }
