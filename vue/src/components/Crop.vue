@@ -1,6 +1,6 @@
 <template>
     <div id="main-grid" class="crop">
-       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
+      <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
       <button id="crop-name">{{crop.name}}</button>
       <h3 id="crop-amount">{{crop.amount}} ft²</h3>
       <h3 id="expected-yield">{{crop.yield}} lbs</h3>
@@ -28,6 +28,8 @@ export default {
   padding: 10px;
   color: white;
   margin: 10px;
+  background-color:#ba7331;
+  border-radius: 10px;
 
 }
 img {
