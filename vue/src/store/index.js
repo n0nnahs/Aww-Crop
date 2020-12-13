@@ -68,9 +68,9 @@ export default new Vuex.Store({
       state.notes.push(note)
     },
     SET_CROPS (state, crops) {
-        state.crops = String(crops)
-      }
+      state.crops = String(crops)
     },
+  },
 
   actions: {
     fetchCrops (store) {

@@ -38,6 +38,18 @@ public class PlotController {
 		this.cropDao = cropDao;
 	}
 	
+//	@RequestMapping(value = "", method = RequestMethod.GET)
+//	public List<Plot> list(@RequestParam(value = "user_id", defaultValue = "0") int userId,
+//						   @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
+//		if(userId > 0) {
+//			return dao.listAllForUser(userId);
+//		}
+//		if(plotId > 0) {
+////			return dao.plotById(plotId);
+//		}
+//		return null;
+//	}
+//	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public List<Plot> list(@PathVariable("id") int userId){
 		return dao.listAllForUser(userId);
@@ -54,10 +66,45 @@ public class PlotController {
 		dao.userPlot(daoUser.findIdByUsername(p.getName()), plotId);
 	}
     
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public List<Crop> listCropsForOnePlot (@PathVariable("id") int plotId){
-		return cropDao.listCropsForOnePlot(plotId);
+// Randy's testing code below...will delete //
+    
+    @RequestMapping(value = "/{user_id}", method = RequestMethod.GET)
+	public List<Plot> breakfast(@PathVariable int user_id){
+		if(user_id > 0) {
+			return dao.listAllForUser(user_id);
+		}
+		return null;
+    }
+    
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public Plot lunch(@RequestParam int plotId){
+
+			return dao.plotById(plotId);
+
 	}
+    
+//    @ResponseStatus(HttpStatus.CREATED)
+//	@RequestMapping(value = "", method = RequestMethod.POST)
+//	public void createPlot(@RequestParam int userId, @Valid @RequestBody Plot newPlot) {
+//		int plotId = dao.create(newPlot);
+//		
+//		dao.userPlot(userId, plotId);
+//	}
+   
+// Randy's testing code above...will delete //
+	
+	
+	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
+	public List<Crop> listCropsForOnePlot (@RequestParam int plotId){
+		if(plotId > 0) {
+			return cropDao.listCropsForOnePlot(plotId);
+		}
+		return null;
+	}
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	public List<Crop> listCropsForOnePlot (@PathVariable("id") int plotId){
+//		return cropDao.listCropsForOnePlot(plotId);
+//	}
 	
 	
 	
