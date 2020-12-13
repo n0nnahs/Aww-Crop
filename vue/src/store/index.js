@@ -22,25 +22,25 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    crops: [],
+    // crops: [],
     // crops: userCrops,
-    // crops: [
-    //   {
-    //     name: "broccoli",
-    //     amount: 666,
-    //     yield: 8000
-    //   },
-    //   {
-    //     name: "beets",
-    //     amount: 6,
-    //     yield: 9
-    //   },
-    //   {
-    //     name: "cabbage",
-    //     amount: 67,
-    //     yield: 300
-    //   }
-    // ],
+     crops: [
+       {
+         name: "broccoli",
+         amount: 666,
+         yield: 8000
+       },
+       {
+         name: "beets",
+         amount: 6,
+         yield: 9
+       },
+       {
+         name: "cabbage",
+         amount: 67,
+         yield: 300
+       }
+     ],
     plotGrid: [
           {
             id: "",

@@ -32,5 +32,9 @@ header {
   width: 100%;
 }
 
+button{
+  border-style:none;
+}
+
 </style>
  

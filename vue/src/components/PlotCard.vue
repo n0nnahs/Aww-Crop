@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div id="plot-name-div">
-      <h3 class="plot-name">{{ plot.name }}</h3>
+      <h3 id="plot-name">{{ plot.name }}</h3>
     </div>
     <div id="pic-and-button">
       <img id="crop-image" :src="require(`../assets/${plot.plant}.jpeg`)">
@@ -27,36 +27,43 @@ export default {
     width: 110px;
     height: 200px;
     margin: 20px;
-    background-color: #a53b58 !important;
+    background-color: #ba7331 !important;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
-.card .plot-name {
-  font-size: 100%;
+#plot-name {
+  font-size: 15px;
   text-align: center;
-  margin: 5px;
-}
+  margin: 5px; 
+  display:flex;
+  flex-direction: column;
+   flex-flow: column wrap;
+} 
 
 #plot-name-div {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
+
+  align-content: center !important;
   justify-content: center;
 }
 
 #pic-and-button {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 #manage-plot-button {
   font-size: 15px;
   margin: 5px;
-  align-content: bottom;
-  border-radius: 10px;
+  border-radius: 4px;
+  color: #4a7623;
+  background-color: white;
 }
 
 #manage-plot-button:hover {
@@ -64,7 +71,6 @@ export default {
   background-color: #83a126;
   margin: 5px;
   color: white;
-  align-content: bottom;
 }
 
 #crop-image {
@@ -73,6 +79,9 @@ export default {
   object-fit: contain;
   align-self: center;
   border-radius: 10px;
+}
+button{
+  border-style: none;
 }
 
 </style>
