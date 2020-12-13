@@ -48,7 +48,6 @@ export default {
   font-weight: bold !important;
   color: white;
   background-color: #a53b58;
-  padding-bottom: 5px;
   border-radius: 10px;
 }
 #raspberries{
@@ -60,7 +59,6 @@ export default {
   display:flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-color: #a53b58;
 }
 
 
