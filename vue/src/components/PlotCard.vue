@@ -49,7 +49,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center !important;
-  justify-content: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
 }
 #pic-and-button {
   display: flex;
@@ -80,13 +81,15 @@ export default {
   object-fit: contain;
   align-self: center;
   border-radius: 10px;
+  background-color: white;
 }
 #manage-plot-button{
   grid-area: button;
   margin-top: 10px;
 }
-button{
+button:focus{
   border-style: none;
+  outline: none;
 }
 
 </style>

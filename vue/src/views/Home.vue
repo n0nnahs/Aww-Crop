@@ -82,8 +82,8 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   background-color:#ba7331;
   border-radius: 10px;
 }
