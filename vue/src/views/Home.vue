@@ -1,11 +1,25 @@
 <template>
   <div class="home">
-    <h1>My Garden</h1>
+    <h1 id=my-garden>
+      <i class="fas fa-seedling"></i>
+      My Garden
+      <i class="fas fa-seedling"></i>
+      </h1>
     <div id="home-grid">
       <div id="plots">
-        <active-plots></active-plots>
-        <button id="add-new-plot-button">Add New Plot </button>
-        <inactive-plots></inactive-plots>
+          <div id="aplots">
+              <active-plots></active-plots>
+          </div>
+
+          <button id="add-new-plot-button">
+                       <i class="fas fa-seedling"></i>
+                       Add New Plot 
+                       <i class="fas fa-seedling"></i>
+          </button>
+           
+         <div id="iplots">
+             <inactive-plots></inactive-plots>
+          </div>
       </div>
       <my-crops id="my-crops"></my-crops>
     </div>
@@ -29,57 +43,62 @@ export default {
 </script>
 
 <style>
-  
-#home-grid {
-  background-color: #4e2409;
-  display: grid;
-  column-gap: 50px;
-  grid-template-columns:1fr 1fr;
-  grid-template-areas:
-    "plots my-crops";
-}
-
-#plots {
-  grid-area: plots;
-}
-
-#add-new-plot-button {
-  display: block;
-  width: 100%;
-  height: 50px;
-  margin: 20px;
-  font-size: 30px;
-  align-content: bottom;
-  border-radius: 10px;
-}
-#add-new-plot-button::before {
-  font-family: fontAwesome;
-  content: "\f4d8\00a0";
-  color: #83a126;
-}
-
-#add-new-plot-button::after {
-  font-family: fontAwesome;
-  content: "\f4d8\00a0";
-  color: #83a126;
-}
-
-#add-new-plot-button:hover {
-  display: block;
-  width: 100%;
-  margin: 20px;
-  align-content: bottom;
-  color: white;
-  background-color: #83a126;
-}
-
-#my-crops{
-  grid-area: my-crops;
-}
 
 .home {
   padding: 20px;
   background-color: #4e2409;
 }
-
+#home-grid {
+  background-color: #4e2409;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "plots my-crops";
+}
+#my-garden{
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color:#ba7331;
+  border-radius: 10px;
+}
+#plots {
+  grid-area: plots;
+  margin-top: 10px;
+  background-color:#4e2409
+}
+#my-crops{
+  grid-area: my-crops;
+  margin-top: 10px;
+}
+#add-new-plot-button {
+  grid-area: button;
+  width: 100%;
+  height: 65px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 32px;
+  align-content: bottom;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: #83a126;
+  background-color: white;
+}
+#add-new-plot-button:hover {
+  grid-area: button;
+  width: 100%;
+  height: 65px;
+  margin-bottom: 20px;
+  font-size: 32px;
+  align-content: bottom;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: #83a126;
+}
 </style>
