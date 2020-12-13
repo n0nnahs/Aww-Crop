@@ -3,7 +3,7 @@
     <div id="attractive-header">
             <img id="header-image" src="@/assets/Outstanding-Vegetable-Garden-Vectors-1.jpg" alt="Vegetable Garden">
             <h1 id="heading">Aww Crop! The Garden Planning App</h1>
-        <div id="pineapples">
+        <div id="bananas">
             <div id="login">
               <router-link style="color: #4e2409;" v-bind:to="{ name: 'login' }">Have an account already? <span style="font-style:italic;font-weight:bold"> Sign in.</span></router-link>
             </div>
@@ -15,21 +15,33 @@
     <div id="info-columns">
       <div id="plan">
         <h3>Plan your garden</h3>
-          <p>Find plants and vegetables that are suitable for your garden</p>
-          <p>Figure out what goes where using our Graphplot™ feature</p>
-          <p>Other cool stuff</p>
+          <p>
+          <i class="fas fa-seedling"></i>
+          Find plants and vegetables that are suitable for your garden<br> 
+          <i class="fas fa-seedling"></i>
+          Figure out what goes where using our Graphplot™ feature<br>
+          <i class="fas fa-seedling"></i>
+          Other cool stuff</p>
       </div>
       <div id="track">
         <h3>Track your progress</h3>
-          <p>Keep track of crop yeilds</p>
-          <p>Save notes of what works, and what doesn't</p>
-          <p>all your crops are belong to us</p>
+          <p>
+            <i class="fas fa-seedling"></i>
+            Keep track of crop yeilds<br>
+            <i class="fas fa-seedling"></i>
+            Save notes of what works, and what doesn't<br>
+            <i class="fas fa-seedling"></i>
+            all your crops are belong to us</p>
       </div>
       <div id="shop">
         <h3>Shop for supplies</h3>
-          <p>Calculate how many seeds you need for your garden</p>
-          <p>Get recommendations for seeds suitable for your garden</p>
-          <p>Discover something new!</p>
+          <p>
+            <i class="fas fa-seedling"></i>
+            Calculate how many seeds you need for your garden<br>
+            <i class="fas fa-seedling"></i>
+            Get recommendations for seeds suitable for your garden<br>
+            <i class="fas fa-seedling"></i>
+            Discover something new!</p>
       </div>
     </div>
     <div id=footer>
@@ -45,7 +57,9 @@ export default {
 </script>
 
 <style scoped>
-
+i{
+color: green;
+}
 #attractive-header{
   grid-area: attractive-header;
   text-align: center;
@@ -53,6 +67,7 @@ export default {
 #footer{
   grid-area: footer;
   text-align: left;
+  background-color: #5f2b0a; 
 }
 #login{
   grid-area: login;
@@ -65,14 +80,17 @@ export default {
 #plan{
   grid-area: plan;
   text-align: center;
+  margin: 20px;
 }
 #track{
   grid-area: track;
   text-align: center;
+  margin: 20px;
 }
 #shop{
   grid-area: shop;
   text-align: center;
+  margin: 20px;
 }
 #main-grid {
   display: grid;
@@ -92,6 +110,7 @@ export default {
     "plan track shop";
   text-align: center;
   background-color: #4e2409;
+
 }
 #header-image{
   width: 100%;
@@ -102,16 +121,16 @@ export default {
   color: #4e2409;
   font-size: 72px;
   position: absolute;
-  top: 30%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding-bottom: 10px;
 }
-#pineapples{
-width: 100%;
+#bananas{
+width: 50%;
 font-size: 24px;
 position: absolute;
-top: 50%;
+top: 30%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
@@ -127,6 +146,31 @@ h6{
   font-size: 10 px;
   color:#b24747;
 }
+/*mid-sized*/
+@media (max-width: 1200px){
+
+#heading{
+  width: 100%;
+  color: #4e2409;
+  font-size: 72px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 10px;
+}
+#bananas{
+width: 50%;
+font-size: 24px;
+position: absolute;
+top: 45%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: rgba(245, 249, 250, 0.7);
+}
+
+}
+
 
 /*tablets*/
 @media (max-width: 900px){
@@ -147,20 +191,21 @@ h6{
       #heading{
         width: 100%;
         color: #4e2409;
-        font-size: 36px;
+        font-size: 48px;
         position: absolute;
         top: 10%;
         left: 50%;
         transform: translate(-50%, -50%);
         padding-bottom: 10px;
       }
-      #pineapples{
-        width: 100%;
+      #bananas{
+        width: 75%;
         font-size: 20px;
         position: absolute;
         top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
+        background-color: rgba(245, 249, 250, 0.7);
       }
       #footer{
         grid-area: footer;
@@ -193,11 +238,11 @@ h6{
         transform: translate(-50%, -50%);
         padding-bottom: 10px;
      }
-    #pineapples{
+    #bananas{
         width: 100%;
         font-size: 14px;
         position: absolute;
-        top: 20%;
+        top: 22%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -227,16 +272,16 @@ h6{
         color: #4e2409;
         font-size: 22px;
         position: absolute;
-        top: 10%;
+        top: 7%;
         left: 50%;
         transform: translate(-50%, -50%);
         padding-bottom: 10px;
     }
-    #pineapples{
+    #bananas{
         width: 100%;
         font-size: 12px;
         position: absolute;
-        top: 17%;
+        top: 15%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
