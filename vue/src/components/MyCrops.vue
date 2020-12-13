@@ -83,7 +83,6 @@ export default {
   font-weight: bold !important;
   padding-top: 5px;
   padding-left:30px;
-
   color: #83a126;
 }
 #carp{
