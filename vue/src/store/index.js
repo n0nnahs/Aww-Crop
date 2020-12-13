@@ -32,41 +32,13 @@ export default new Vuex.Store({
       height: 10,
       width: 10
     },
-    plots: [
-      {
-        name: "Sample Plot",
-        plant: "broccoli",
-        active: true
-      },
-      {
-        name: "Sample Plot 2",
-        plant: "cauliflower",
-        active: true
-      },
-      {
-        name: "Raised bed, front yard",
-        plant: "tomatoes",
-        active: true
-      },
-      {
-        name: "Vegetable garden, side yard",
-        plant: "potatoes",
-        active: false
-      },
-      {
-        name: "Raised bed by patio",
-        plant: "radishes",
-        active: false
-      },
-      {
-        name: "35CharactersIsMaximumPlotNameSize!!",
-        plant: "peas",
-        active: false
-      },
-    ],
+    plots: [],
     header: false
   },
   mutations: {
+    SET_PLOTS(state, data) {
+      state.plots = data;
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);

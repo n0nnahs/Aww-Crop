@@ -2,7 +2,7 @@
   <div class="my-garden">
     <h2>Garden Details</h2>
     <div id="crop-list">
-        <crop v-for="crop in $store.state.crops" v-bind:crop="crop" v-bind:key="crop.name"/>
+        <crop v-for="crop in this.$store.state.crops" v-bind:crop="crop" v-bind:key="crop.id"/>
     </div>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 
 import Crop from '@/components/Crop.vue';
+import PlotService from '../services/PlotService';
 
 export default {
     name: 'my-garden',
@@ -17,6 +18,7 @@ export default {
         Crop
     }
 }
+
 </script>
 
 <style>
