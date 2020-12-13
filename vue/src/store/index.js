@@ -64,10 +64,13 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_CROPS (state, crops) {
-        state.crops = String(crops)
-      }
+    SAVE_NOTE(state, note) {
+      state.notes.push(note)
     },
+    SET_CROPS (state, crops) {
+      state.crops = String(crops)
+    },
+  },
 
   actions: {
     fetchCrops (store) {

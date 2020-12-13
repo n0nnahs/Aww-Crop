@@ -7,6 +7,9 @@ export default {
   },
   getPlotById(plotId) {
     return axios.get(`/plot?plotId=${plotId}`)
+  },
+  createNewPlot(plot) {
+    return axios.post(`/plot`, plot)
   }
 
 }
