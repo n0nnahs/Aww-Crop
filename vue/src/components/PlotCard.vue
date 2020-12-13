@@ -63,6 +63,7 @@ export default {
 }
  
 #manage-plot-button {
+  grid-area: button;
   font-size: 15px;
   margin: 5px;
   border-radius: 4px;
@@ -71,6 +72,7 @@ export default {
 }
  
 #manage-plot-button:hover {
+  grid-area: button;
   font-size: 15px;
   background-color: #83a126;
   margin: 5px;
@@ -84,9 +86,6 @@ export default {
   object-fit: contain;
   align-self: center;
   border-radius: 10px;
-}
-#manage-plot-button{
-  grid-area: button;
 }
 
 button{
