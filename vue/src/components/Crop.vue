@@ -13,12 +13,7 @@ export default {
     name: 'crop',
   props: {
     crop: Object
-  },
-    methods: {
-        showDetails() {
-   
-        }
-    }
+  }
 }
 </script>
 
