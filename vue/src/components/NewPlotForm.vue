@@ -1,6 +1,6 @@
 <template>
-    <div id="newPlot">
-        <form class="new-plot-form" @submit.prevent="createNewPlot">
+    <div id="form-section">
+        <form class="new-plot-form" @submit.prevent="createNewPlot" align="center">
             <label for="name" class="sr-only">Plot Name</label>
             <input
                 type="text"
@@ -36,7 +36,7 @@
                 autofocus
             />
             <br/>
-            <button type="submit">Add</button>
+            <button id="newPlotSubmit" type="submit">Let's Start Planting!</button>
         </form>
     </div>
 </template>
@@ -74,5 +74,30 @@ export default {
 </script>
 
 <style>
+form {
+  background-color: #a53b58;
+  margin: 0px;
+  margin-bottom: 20px;
+  column-gap: 50px;
+  border-radius: 10px;
+}
+input {
+    border-radius: 10px;
+    height: 35px;
+}
+#newPlotSubmit {
+    margin-top: 10px;
+    padding: 5px;
+    padding-right: 10px;
+    color: #fe6f15;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    color: white;
+    background-color: #83a126;
+    font-size: 20px;
+    font-weight: bold;
+
+}
 
 </style>

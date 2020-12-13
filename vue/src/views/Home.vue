@@ -10,16 +10,16 @@
           <div id="aplots">
               <active-plots></active-plots>
           </div>
-
-          <button id="add-new-plot-button" v-on:click="toggleForm">
-                       <i class="fas fa-seedling"></i>
-                       Add New Plot 
-                       <i class="fas fa-seedling"></i>
-          </button>
-          <div id="newPlotForm" v-show="showForm">
-             <new-plot-form></new-plot-form>
-          </div>
-           
+          <div id="new-plot-section">
+            <button id="add-new-plot-button" v-on:click="toggleForm">
+                        <i class="fas fa-seedling"></i>
+                        Add New Plot 
+                        <i class="fas fa-seedling"></i>
+            </button><br/>
+            <div id="newPlotForm" v-show="showForm">
+              <new-plot-form></new-plot-form>
+            </div>
+          </div> 
          <div id="iplots">
              <inactive-plots></inactive-plots>
           </div>
@@ -99,8 +99,8 @@ export default {
   grid-area: button;
   width: 100%;
   height: 65px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
   font-size: 32px;
   align-content: bottom;
   border-radius: 10px;
@@ -114,7 +114,7 @@ export default {
   grid-area: button;
   width: 100%;
   height: 65px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-size: 32px;
   align-content: bottom;
   border-radius: 10px;
@@ -123,5 +123,12 @@ export default {
   border-radius: 10px;
   color: white;
   background-color: #83a126;
+}
+#new-plot-section {
+  background-color: #a53b58;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  column-gap: 50px;
+  border-radius: 10px;
 }
 </style>
