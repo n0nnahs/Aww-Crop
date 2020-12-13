@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section id="active-plots-section">
         <h2>Active Plots</h2>
         <div class="active-plots-list">
           <plot-card v-for="plot in plots" v-bind:plot="plot" v-bind:key="plot.name" />
@@ -31,4 +31,9 @@ export default {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+#active-plots-section {
+  justify-items: center !important;
+}
+
 </style>
