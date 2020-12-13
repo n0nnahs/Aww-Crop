@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+// import CropService from '../services/CropService';
 
 Vue.use(Vuex)
 
@@ -11,6 +12,7 @@ Vue.use(Vuex)
  */
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
+// const userCrops = new Array(CropService.listAllCropsForUser('userId'));
 
 if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
@@ -20,6 +22,25 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    crops: [],
+    // crops: userCrops,
+    // crops: [
+    //   {
+    //     name: "broccoli",
+    //     amount: 666,
+    //     yield: 8000
+    //   },
+    //   {
+    //     name: "beets",
+    //     amount: 6,
+    //     yield: 9
+    //   },
+    //   {
+    //     name: "cabbage",
+    //     amount: 67,
+    //     yield: 300
+    //   }
+    // ],
     plotGrid: [
           {
             id: "",
@@ -49,7 +70,8 @@ export default new Vuex.Store({
         active: true
       },
     ],
-    header: false
+    header: false,
+    
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -70,6 +92,19 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_CROPS (state, crops) {
+        state.crops = String(crops)
+      }
+    },
+
+  actions: {
+    fetchCrops (store) {
+      return fetch(`/home/mycrops?userId=${this.userId}`)
+        .then(data => {
+          store.commit('setCrops', data.crops)
+          return store.state.crops
+        })
     }
   }
 })

@@ -8,32 +8,35 @@
       <h3 id="yield">Harvest</h3>
     </div>
     <div id="crop-list">
-        <crop v-for="crop in crops" v-bind:crop="crops" v-bind:key="crop.name"></crop>
+        <crop v-for="crop in crops" v-bind:crop="crop" v-bind:key="crop.name"></crop>
     </div>
   </div>
 </template>
 
 <script>
-import CropService from '../services/CropService';
+// import CropService from '../services/CropService';
 import Crop from '@/components/Crop.vue';
 
 export default {
     name: 'my-crops',
+    created () {
+    this.$store
+        .dispatch('fetchCrops')
+        .then(crops => {
+            this.crops = crops
+        })
+    },
     components: {
         Crop
     },
-    data(){
-      return{
-      crops: [],
-      }
-    },
-    methods: {
-        getCrops() {
-          CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
-          this.crops = response.data;
-          });
-        }
-    }
+    // methods: {
+    //     getCrops() {
+    //       CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
+    //       this.crops = response.data;
+    //       });
+    //     }
+    // }
+
 };
 </script>
 
