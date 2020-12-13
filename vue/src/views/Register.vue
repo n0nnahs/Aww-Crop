@@ -1,5 +1,5 @@
 <template>
-  <div id="register" class="text-center">
+  <div id="registerpage" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">
             <i class="fas fa-seedling"></i>
@@ -100,7 +100,10 @@ export default {
 </script>
 
 <style>
+#registerpage{
+  background-color: #4e2409;
 
+}
 .create-account-button {
   margin-bottom: 10px;
 }

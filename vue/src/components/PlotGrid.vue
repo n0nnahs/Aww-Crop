@@ -79,7 +79,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 #garden-plot-header{
   font-size: 32px !important;
   text-align: center;

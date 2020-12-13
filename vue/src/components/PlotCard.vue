@@ -20,9 +20,8 @@ export default {
  
  </script>
  
-<style>
+<style scoped>
 .card {
-    border: 2px solid black;
     border-radius: 10px;
     width: 110px;
     height: 200px;
@@ -37,7 +36,6 @@ export default {
     justify-content: space-around;
 
 }
-
 #plot-name {
   grid-area: plot-name;
   font-size: 15px;
@@ -47,39 +45,34 @@ export default {
   flex-direction: column;
   justify-content: space-around;
 } 
-
 #plot-name-div {
   display: flex;
   flex-direction: column;
   align-content: center !important;
   justify-content: center;
 }
- 
 #pic-and-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content:flex-end;
 }
- 
 #manage-plot-button {
   grid-area: button;
   font-size: 15px;
   margin: 5px;
   border-radius: 4px;
-  color: #4a7623;
-  background-color: white;
+  background-color: #83a126;
+  color: white;
 }
- 
 #manage-plot-button:hover {
   grid-area: button;
   font-size: 15px;
-  background-color: #83a126;
+  background-color: white;
   margin: 5px;
   margin-top: 10px;
-  color: white;
+  color: #83a126;
 }
- 
 #crop-image {
   grid-area: image;
   height: 90px;
@@ -92,7 +85,6 @@ export default {
   grid-area: button;
   margin-top: 10px;
 }
-
 button{
   border-style: none;
 }

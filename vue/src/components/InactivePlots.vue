@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #inactive-plots-section {
   column-gap: 50px;
   border-radius: 10px;

@@ -16,7 +16,7 @@ export default {
  
  </script>
  
-<style>
+<style scoped>
 .notecard {
   border-radius: 10px;
   width: 220px;

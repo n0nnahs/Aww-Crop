@@ -24,6 +24,8 @@ export default {
 
 <style scoped>
 
+</style>>
+
 #main-grid{
   display: grid;
   grid-auto-flow:row;

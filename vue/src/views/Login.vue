@@ -1,5 +1,5 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="loginpage" class="text-center">
     <form class="form-signin" @submit.prevent="login">  
       <h1 class="h3 mb-3 font-weight-normal">
         <i class="fas fa-seedling"></i>
@@ -83,7 +83,10 @@ export default {
 </script>
 
 <style>
+#loginpage{
+  background-color: #4e2409;
 
+}
 .user-input {
   align-content: center;
   width: 50%;

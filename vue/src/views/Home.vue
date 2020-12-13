@@ -66,7 +66,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 
 .home {
   padding: 20px;
@@ -110,6 +110,7 @@ export default {
   border-radius: 10px;
   color: #83a126;
   background-color: white;
+  border-style: none;
 }
 #add-new-plot-button:hover {
   width: 100%;

@@ -36,7 +36,7 @@ export default {
 };
 </script>
  
-<style>
+<style scoped>
 
 #active-plots-sections {
   column-gap: 50px;
