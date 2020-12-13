@@ -143,7 +143,7 @@ public class CropSqlDAO implements CropDAO {
 	private Crop mapRowToCrop(SqlRowSet results) {
 		Crop c = new Crop();
 		c.setId(results.getInt("crop_id"));
-		c.setName(results.getString("name"));
+		c.setName(results.getString("name").toLowerCase());
 		c.setYeild(results.getInt("yield_lbs_per_square_foot"));
 		c.setCropsPerSqFt(results.getInt("crops_per_square_foot"));
 		c.setSeed_cost(results.getDouble("seed_cost"));
@@ -153,9 +153,15 @@ public class CropSqlDAO implements CropDAO {
 	
 	private Crop mapRowToCropDetails(SqlRowSet results) {
 		Crop c = new Crop();
-		c.setName(results.getString("name"));
+		c.setName(results.getString("name").toLowerCase());
 		c.setAmount(results.getInt("amount"));
 		c.setTotalYield(results.getInt("yield"));
 		return c;
+	}
+
+	@Override
+	public Crop getTopCropForPlot(int plotId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
