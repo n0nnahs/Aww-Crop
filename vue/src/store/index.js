@@ -109,9 +109,9 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     SET_CROPS (state, crops) {
-        state.crops = String(crops)
-      }
+      state.crops = String(crops)
     },
+  },
 
   actions: {
     fetchCrops (store) {

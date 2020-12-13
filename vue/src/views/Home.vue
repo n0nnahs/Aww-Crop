@@ -11,11 +11,14 @@
               <active-plots></active-plots>
           </div>
 
-          <button id="add-new-plot-button">
+          <button id="add-new-plot-button" v-on:click="toggleForm">
                        <i class="fas fa-seedling"></i>
                        Add New Plot 
                        <i class="fas fa-seedling"></i>
           </button>
+          <div id="newPlotForm" v-show="showForm">
+             <new-plot-form></new-plot-form>
+          </div>
            
          <div id="iplots">
              <inactive-plots></inactive-plots>
@@ -30,17 +33,37 @@
 import ActivePlots from '../components/ActivePlots.vue';
 import MyCrops from '@/components/MyCrops.vue';
 import InactivePlots from '../components/InactivePlots.vue';
+import NewPlotForm from '../components/NewPlotForm.vue';
 
 export default {
   name: "home",
   components: {
-        MyCrops,
-        ActivePlots,
-        InactivePlots, 
-    },
+      MyCrops,
+      ActivePlots,
+      InactivePlots,
+      NewPlotForm 
+  },
+  data() {
+      return {
+          showForm: true,
+      };
+  },
+  created() {
+      this.showForm = false;
+  },
+  methods: {
+      toggleForm() {
+          if(this.showForm == false) {
+            this.showForm = true;
+          } else {
+            this.showForm = false;
+          }
+      },
+  },
 }
 
 </script>
+
 
 <style>
 

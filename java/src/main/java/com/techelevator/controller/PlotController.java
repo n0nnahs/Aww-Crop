@@ -100,10 +100,11 @@ public class PlotController {
 			return cropDao.listCropsForOnePlot(plotId);
 		}
 		return null;
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public List<Crop> listCropsForOnePlot (@PathVariable("id") int plotId){
-		return cropDao.listCropsForOnePlot(plotId);
 	}
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	public List<Crop> listCropsForOnePlot (@PathVariable("id") int plotId){
+//		return cropDao.listCropsForOnePlot(plotId);
+//	}
 	
 	
 	
