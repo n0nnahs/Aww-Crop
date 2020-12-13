@@ -20,6 +20,8 @@
 
 #nav {
   background-color: #81e5fc;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 header {
@@ -28,6 +30,10 @@ header {
   background-size: contain;
   height: 25%;
   width: 100%;
+}
+
+button{
+  border-style:none;
 }
 
 </style>
