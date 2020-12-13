@@ -9,6 +9,9 @@ public class Plot {
 	private int width;
 	private boolean active;
 	
+	private String topCrop;
+	
+
 	public Plot(int id, String name, int length, int width, boolean active) {
 		this.id = id;
 		this.name = name;
@@ -16,8 +19,16 @@ public class Plot {
 		this.width = width;
 		this.active = active;
 	}
-
+	
 	public Plot() {
+	}
+
+	public String getTopCrop() {
+		return topCrop;
+	}
+	
+	public void setTopCrop(String topCrop) {
+		this.topCrop = topCrop;
 	}
 
 	public boolean isActive() {

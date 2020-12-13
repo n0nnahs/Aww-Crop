@@ -16,34 +16,24 @@
 </template>
 
 <script>
-// import CropService from '../services/CropService';
+import CropService from '../services/CropService';
 import Crop from '@/components/Crop.vue';
 
 export default {
     name: 'my-crops',
-    // created () {
-    // this.$store
-    //     .dispatch('fetchCrops')
-    //     .then(crops => {
-    //         this.crops = crops
-    //     })
-
-    //},
-      computed: {
-    crops() {
-      return this.$store.state.crops;
-    }
-  },
+    created () {
+    this.getCrops();
+    },
     components: {
         Crop
     },
-    // methods: {
-    //     getCrops() {
-    //       CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
-    //       this.crops = response.data;
-    //       });
-    //     }
-    // }
+    methods: {
+      getCrops() {
+        CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
+        this.$store.commit("SET_CROPS", response.data);
+        });
+      }
+    }
 
 };
 </script>

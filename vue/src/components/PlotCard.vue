@@ -4,12 +4,12 @@
       <h3 id="plot-name">{{ plot.name }}</h3>
     </div>
     <div id="pic-and-button">
-      <img id="crop-image" :src="require(`../assets/${plot.plant}.jpeg`)">
+      <img id="crop-image" :src="require(`../assets/${plot.topCrop}.jpeg`)">
       <button id="manage-plot-button">Manage Plot</button>
     </div>
   </div>
 </template>
-
+ 
 <script>
 export default {
   name: 'plot-card',
@@ -17,9 +17,9 @@ export default {
     plot: Object
   }
 }
-
-</script>
-
+ 
+ </script>
+ 
 <style>
 .card {
     border: 2px solid black;
@@ -54,30 +54,32 @@ export default {
   align-content: center !important;
   justify-content: center;
 }
-
+ 
 #pic-and-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content:flex-end;
 }
-
+ 
 #manage-plot-button {
+  grid-area: button;
   font-size: 15px;
   margin: 5px;
   border-radius: 4px;
   color: #4a7623;
   background-color: white;
 }
-
+ 
 #manage-plot-button:hover {
+  grid-area: button;
   font-size: 15px;
   background-color: #83a126;
   margin: 5px;
   margin-top: 10px;
   color: white;
 }
-
+ 
 #crop-image {
   grid-area: image;
   height: 90px;

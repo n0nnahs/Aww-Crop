@@ -1,6 +1,6 @@
 <template>
   <div class="plot-component">
-      <header>
+      <header id="garden-plot-header">
           Garden Plot
       </header>
       <div id="plot-grid">
@@ -80,21 +80,24 @@ export default {
 </script>
 
 <style>
+#garden-plot-header{
+  font-size: 32px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 10px;
+  border-radius: 10px;
+}
 
 template{
     background-color: #4e2409;
 }
 
-header{
-    text-align: center;
-}
-
 .plot-component{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center; 
-    background-color: #4e2409;
+  color: white;
+  background-color: #a53b58;;
+  border-radius: 10px;
+  height: 100vh;
 }
 
 #plot-grid-table{
@@ -113,9 +116,12 @@ header{
 }
 
 #plot-grid{
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #a53b58;;
+  border-radius: 10px;
+  height: 100vh;
 }
 
 #plant{
