@@ -8,11 +8,11 @@
       </div>
     </section>
 </template>
-
+ 
 <script>
 import PlotService from '../services/PlotService';
 import PlotCard from '@/components/PlotCard.vue';
-
+ 
 export default {
   name: "active-plots",
   methods:{
@@ -35,7 +35,7 @@ export default {
   }
 };
 </script>
-
+ 
 <style>
 
 #active-plots-section {
@@ -55,9 +55,9 @@ export default {
   border-radius: 10px;
 }
 .active-plots-list {
-    display:flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 
