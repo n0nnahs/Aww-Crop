@@ -30,14 +30,13 @@ export default {
   background-color: #BA7331;
   margin: 10px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 
 }
 img {
   grid-area: image;
   max-height: 50px;
-  border-radius: 10px;
-  padding-right:8px;
+  border-radius: 3px;
 }
 #crop-name{
   grid-area: crop-name;
@@ -51,7 +50,7 @@ img {
 #crop-name:hover {
   background-color: #83a126;
   color: white;
-  border-radius: 20px;
+  border-radius: 3px;
   font-weight: bold !important;
   padding: 10px;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="main-grid" class="home">
     <h1 id=my-garden>
       <i class="fas fa-seedling"></i>
       My Garden
@@ -76,10 +76,10 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 
 .home {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   background-color: #4e2409;
 }
 #home-grid {
@@ -92,10 +92,10 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #plots {
   grid-area: plots;
@@ -107,31 +107,21 @@ export default {
   margin-top: 0px;
   margin-bottom: 20px;
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #add-new-plot-button {
   width: 100%;
-  height: 65px;
+  height: 55px;
   font-size: 32px;
-  align-content: bottom;
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
-  padding: 10px;
-  border-radius: 10px;
   color: #83a126;
   background-color: white;
   border-style: none;
 }
-#add-new-plot-button:hover {
-  width: 100%;
-  height: 65px;
-  margin-bottom: 0px;
-  font-size: 32px;
-  align-content: bottom;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
+#add-new-plot-button:hover, #add-new-plot-button:focus {
+  border-style: none;
+  outline: none;
   color: white !important;
   background-color: #83a126;
 }
@@ -149,5 +139,31 @@ export default {
 button:focus{
   border-style: none;
   outline: none;
+}
+@media (max-width: 800px){
+      #main-grid {
+        grid-template-columns: 100px;
+        grid-template-areas:
+            "my-garden"
+            "new-plot-section"
+            "aplots"
+            "my-crops"
+            "iplots";
+      } 
+      #my-garden{
+        grid-area: my-garden;
+      }
+      #new-plot-section{
+        grid-area: new-plot-section;
+      }
+      #aplots{
+        grid-area: aplots;
+      }
+      #my-crops{
+        grid-area: my-crops;
+      }
+      #iplots{
+        grid-area: iplots;
+      }
 }
 </style>

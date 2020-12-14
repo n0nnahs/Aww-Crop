@@ -22,19 +22,15 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    crops: [],
-    plotGrid: [
-          {
-            id: "",
-            x: 0,
-            y: 0
-          },
-
-    ],
-    plotSize: {
-      height: 10,
+    // crops: [],
+    // crops: userCrops,
+    plotGrid: [],
+    activePlotSize: {
+      plotId: 0,
+      length: 10,
       width: 10
     },
+    crops: [],
     plots: [],
     header: false
   },
@@ -66,9 +62,14 @@ export default new Vuex.Store({
     },
     SAVE_NOTE(state, note) {
       state.notes.push(note)
-    }
+    },
+    SET_PLOT_GRID(state, plotGrid){
+        state.plotGrid = plotGrid;
+    },
+    SET_ACTIVE_PLOT(state, activePlot){
+        state.activePlotSize = activePlot;
+    },
   },
-
   actions: {
     fetchCrops (store) {
       return fetch(`/home/mycrops?userId=${this.userId}`)
@@ -79,3 +80,4 @@ export default new Vuex.Store({
     }
   }
 })
+

@@ -28,10 +28,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 #plot-page {
   padding: 20px;
   background-color: #4e2409;
+  
 }
 #plots-body-grid {
   background-color: #4e2409;
@@ -40,22 +42,24 @@ export default {
   grid-template-columns:1fr 1fr;
   grid-template-areas:
     "plot-visual notes-area";
+  
 }
 #my-plot{
   text-align: center;
   padding-bottom: 20px;
   padding-top: 20px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #plot-visual {
   grid-area: plot-visual;
   margin-top: 10px;
-  background-color:#4e2409
+  background-color:#4e2409;
 }
 #notes-area{
   grid-area: notes-area;
   margin-top: 10px;
 }
+
 
 </style>

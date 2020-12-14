@@ -22,7 +22,7 @@ export default {
  
 <style scoped>
 .card {
-    border-radius: 10px;
+    border-radius: 3px;
     width: 110px;
     height: 200px;
     margin: 20px;
@@ -62,7 +62,7 @@ export default {
   grid-area: button;
   font-size: 15px;
   margin: 5px;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: #83a126;
   color: white;
 }
@@ -80,7 +80,7 @@ export default {
   width: 90px;
   object-fit: contain;
   align-self: center;
-  border-radius: 10px;
+  border-radius: 3px;
   background-color: white;
 }
 #manage-plot-button{

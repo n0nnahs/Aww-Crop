@@ -2,8 +2,10 @@
     <section id="active-plots-sections">
       <div id="active">
         <h2 id="raspberries">Active Plots</h2>
-        <div class="active-plots-list">
-          <plot-card v-for="plot in activePlots" v-bind:plot="plot" v-bind:key="plot.id" />
+        <div class="active-plots-list" v-for="plot in activePlots" v-bind:key="plot">
+          <router-link :to="`myplot/${plot.id}`" >
+            <plot-card v-bind:plot="plot" v-bind:key="plot.id" />
+          </router-link>
         </div>
       </div>
     </section>
@@ -36,11 +38,11 @@ export default {
 };
 </script>
  
-<style scoped>
+<style>
 
 #active-plots-sections {
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #active{
   text-align: center;
@@ -48,18 +50,21 @@ export default {
   font-weight: bold !important;
   color: white;
   background-color: #a53b58;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 20px;
 }
 #raspberries{
   background-color: #FE6F15;
-  padding: 10px;
-  border-radius: 10px; 
+  border-radius: 3px; 
+  height: 55px;
+  font-size: 32px;
+  padding-top: 8px;
 }
 .active-plots-list {
   display:flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  display: inline-block;
 }
 
 

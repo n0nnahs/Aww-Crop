@@ -3,9 +3,11 @@
       <div id="inactive">
         <h2 id="blueberries">Inactive Plots</h2>
       </div>
-        <div class="inactive-plots-list">
-          <plot-card v-for="plot in inactivePlots" v-bind:plot="plot" v-bind:key="plot.id" />
-      </div>
+        <div class="inactive-plots-list" v-for="plot in inactivePlots" v-bind:key="plot">
+          <router-link :to="`myplot/${plot.id}`" >
+            <plot-card v-bind:plot="plot" v-bind:key="plot.id" />
+          </router-link>
+        </div>
     </section>
 </template>
 
@@ -30,7 +32,7 @@ export default {
 <style scoped>
 #inactive-plots-section {
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #inactive{
   text-align: center;
@@ -38,18 +40,21 @@ export default {
   font-weight: bold !important;
   color: white;
   background-color: #a53b58;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 20px;
 }
 #blueberries{
   background-color: #FE6F15;
-  padding: 10px;
-  border-radius: 10px; 
+  height: 55px;
+  border-radius: 3px; 
+    font-size: 32px;
+  padding-top: 8px;
 }
 .inactive-plots-list {
-    display:flex;
+    display:inline-block;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
 }
 
 </style>
