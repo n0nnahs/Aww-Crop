@@ -150,9 +150,13 @@ h6{
 h3{
   font-size: 32px;
   padding-bottom: 15 px;
+  text-align: left;
 }
 #info-columns{
   font-size: 12;
+}
+p{
+  text-align:left;
 }
 /*mid-sized*/
 @media (max-width: 1200px){
@@ -176,12 +180,11 @@ left: 50%;
 transform: translate(-50%, -50%);
 background-color: rgba(245, 249, 250, 0.7);
 }
-
 }
 
 
 /*tablets*/
-@media (max-width: 900px){
+@media (max-width: 1000px){
       #main-grid {
         grid-template-columns: 100%;
         grid-template-areas:
@@ -190,11 +193,10 @@ background-color: rgba(245, 249, 250, 0.7);
             "footer";
       }
       #info-columns {
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "plan"
-            "track"
-            "shop";
+            "plan track"
+            "shop shop";
       }
       #heading{
         width: 100%;
@@ -219,8 +221,32 @@ background-color: rgba(245, 249, 250, 0.7);
         grid-area: footer;
         text-align: center;
       }
+      h3{
+        text-align: left;
+      }
+      p{
+        text-align:left;
+      }
 }
 /*mobile*/
+@media (max-width: 700px){
+      #main-grid {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "attractive-header"
+            "info-columns"
+            "footer";
+      }
+      #info-columns {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "plan"
+            "track"
+            "shop";
+     }
+
+
+}
 @media (max-width: 450px){
       #main-grid {
         grid-template-columns: 100%;
@@ -257,7 +283,13 @@ background-color: rgba(245, 249, 250, 0.7);
     #footer{
         grid-area: footer;
         text-align: center;
-    }  
+    } 
+    h3{
+      text-align: left;
+      }
+    p{
+      text-align:left;
+      } 
 }
 /*extra small mobile*/
 @media (max-width: 325px){
@@ -296,6 +328,12 @@ background-color: rgba(245, 249, 250, 0.7);
     #footer{
         grid-area: footer;
         text-align: center;
+    }
+    h3{
+      text-align: left;
+    }
+    p{
+      text-align:left;
     }
 }
 </style>

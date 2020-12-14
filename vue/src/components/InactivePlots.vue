@@ -32,7 +32,7 @@ export default {
 <style scoped>
 #inactive-plots-section {
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #inactive{
   text-align: center;
@@ -40,13 +40,13 @@ export default {
   font-weight: bold !important;
   color: white;
   background-color: #a53b58;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 20px;
 }
 #blueberries{
   background-color: #FE6F15;
   padding: 10px;
-  border-radius: 10px; 
+  border-radius: 3px; 
 }
 .inactive-plots-list {
     display:flex;

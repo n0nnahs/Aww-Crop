@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="main-grid" class="home">
     <h1 id=my-garden>
       <i class="fas fa-seedling"></i>
       My Garden
@@ -66,7 +66,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 
 .home {
   padding: 20px;
@@ -85,7 +85,7 @@ export default {
   padding-bottom: 20px;
   padding-top: 20px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #plots {
   grid-area: plots;
@@ -104,10 +104,9 @@ export default {
   height: 65px;
   font-size: 32px;
   align-content: bottom;
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
   color: #83a126;
   background-color: white;
   border-style: none;
@@ -121,7 +120,7 @@ export default {
   border-radius: 10px;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
   color: white !important;
   background-color: #83a126;
 }
@@ -132,5 +131,31 @@ export default {
 button:focus{
   border-style: none;
   outline: none;
+}
+@media (max-width: 800px){
+      #main-grid {
+        grid-template-columns: 100px;
+        grid-template-areas:
+            "my-garden"
+            "new-plot-section"
+            "aplots"
+            "my-crops"
+            "iplots";
+      } 
+      #my-garden{
+        grid-area: my-garden;
+      }
+      #new-plot-section{
+        grid-area: new-plot-section;
+      }
+      #aplots{
+        grid-area: aplots;
+      }
+      #my-crops{
+        grid-area: my-crops;
+      }
+      #iplots{
+        grid-area: iplots;
+      }
 }
 </style>

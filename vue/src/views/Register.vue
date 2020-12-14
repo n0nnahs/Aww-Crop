@@ -115,7 +115,7 @@ export default {
   padding: 5px;
   padding-right: 20px;
   padding-left: 20px;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 10px;
 }
 #create:hover{
