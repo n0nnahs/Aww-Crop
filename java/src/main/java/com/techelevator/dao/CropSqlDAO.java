@@ -177,10 +177,16 @@ public class CropSqlDAO implements CropDAO {
 	
 	private Crop mapRowToCropCoordDetails(SqlRowSet results) {
 		Crop c = new Crop();
-		c.setName(results.getString("name"));
+		c.setName(results.getString("name").toLowerCase());
 		c.setxCoordinate(results.getInt("x"));
 		c.setyCoordinate(results.getInt("y"));
 		c.setPlotId(results.getInt("plot_id"));
 		return c;
+	}
+
+	@Override
+	public Crop getTopCropForPlot(int plotId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

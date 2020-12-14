@@ -7,10 +7,11 @@
       <table id="plot-grid-table" v-bind="grid" v-if="!isLoading">
         
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
-            <td id="crop" v-for="croppy in cropRow" v-bind:key="croppy.name">
-                <img v-if='croppy.name === ""' id="plant" src="../assets/dirt.jpg" />
-                <img v-if='croppy.name !==""' id="plant" src='../assets/veggies-original.jpg' />      
-                <!--<plot-crop v-on:click="assignNewCrop(this.croppy.xCoordinate, this.croppy.yCoordinate)" v-bind='croppy.name'>{{croppy.name}}</plot-crop>-->
+            <td id="crop" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
+                <!--<img  id="plant" src="@/assets/dirt.jpg" />
+                <img v-if='croppy.name !==""' id="plant" src="../assets/peas.jpeg" />{{cropCell.name}}-->
+                <img id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />
+                
             </td>
         </tr>
       </table>
@@ -20,18 +21,19 @@
 </template>
 
 <script>
-import PlotCrop from './PlotCrop.vue';
+//import PlotCrop from './PlotCrop.vue';
 import plotService from "../services/PlotService";
 
 export default {
     name: "plot-grid",
     data(){
         return{
+            //defaultImg: 'require("../assets/dirt.jpg")',
             plotNotFound: false,
             isLoading: true,
             plotGrid: [],
             cropSquare: {
-                name: "",
+                name: "dirt",
                 xCoordinate: 0,
                 yCoordinate: 0,
                 plotId: 0
@@ -42,26 +44,33 @@ export default {
         'croppy'    
     ],
     components:{
-        PlotCrop
+        //PlotCrop
         
     },
     methods: {
+        //imgError(){this.src = this.defaultImg;},
         grid(){
             //take in height and create number of arrays in plotGrid
             //take in width and create length of arrays in plotGrid
-            // assignCrops()
 
-            // for(let i = 0; i < width; i++){
-            //     row.push("0");
-            // }
-            let width = this.$store.state.activePlotSize.width;
-            let height = this.$store.state.activePlotSize.length;
+            let urlPlotId = this.$route.params.plotId;
+            plotService.getPlotById(urlPlotId)
+                .then(response => {
+                    if(response.status === 200){    
+                        this.$store.commit("SET_ACTIVE_PLOT", response.data);
+                        let width = this.$store.state.activePlotSize.width;
+                        let height = this.$store.state.activePlotSize.length;
                         
-            for(let i = 0; i < height; i++){
-                this.plotGrid.push(new Array(width).fill(this.cropSquare))
-                        }
+                        for(let i = 0; i < height; i++){
+                            this.plotGrid.push(new Array(width).fill(this.cropSquare))
+                        }                        
+                        this.assignCrops(); 
+                    }
+                })
+                .catch(error => {
+                    console.log(error.status)
+                });
 
-            this.assignCrops();
         },
         assignCrops(){
             let urlPlotId = this.$route.params.plotId;
@@ -71,28 +80,15 @@ export default {
                     if (response.status == 200) {
                         console.log(response.status);
                         this.$store.commit("SET_PLOT_GRID", response.data);
-                        console.log("SET_PLOT_GRID");
-                        //this.$store.commit("SET_ACTIVE_PLOT", response.data.plotId);
-                        //console.log("SET_ACTIVE_GRID");
-                        
 
-                        console.log("broke the indexing");
-
-                        console.log(this.plotGrid);
                         let arr = this.$store.state.plotGrid;
-                        
-                        
+
                         arr.forEach(element => {
                             let x = element.xCoordinate;
-                            console.log(x)
                             let y = element.yCoordinate;
-                            console.log(y);
                             this.plotGrid[x][y] = element;
-                            console.log(element);
                         });
-                        console.log(this.plotGrid);
                         this.isLoading = false;
-                        console.log(this.plotGrid);
                     }
                 })
                 .catch(error => {

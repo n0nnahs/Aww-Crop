@@ -28,11 +28,9 @@ export default new Vuex.Store({
     activePlotSize: {
       plotId: 0,
       length: 10,
-    crops: [],
-    plotSize: {
-      height: 10,
       width: 10
     },
+    crops: [],
     plots: [],
     header: false
   },
@@ -68,12 +66,10 @@ export default new Vuex.Store({
     SET_PLOT_GRID(state, plotGrid){
         state.plotGrid = plotGrid;
     },
-    SET_ACTIVE_PLOT(state, plotId){
-        state.activePlotSize.plotId = plotId;
+    SET_ACTIVE_PLOT(state, activePlot){
+        state.activePlotSize = activePlot;
     },
   },
-  },
-
   actions: {
     fetchCrops (store) {
       return fetch(`/home/mycrops?userId=${this.userId}`)
@@ -84,3 +80,4 @@ export default new Vuex.Store({
     }
   }
 })
+
