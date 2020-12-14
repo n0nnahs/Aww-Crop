@@ -2,8 +2,10 @@
     <section id="active-plots-sections">
       <div id="active">
         <h2 id="raspberries">Active Plots</h2>
-        <div class="active-plots-list">
-          <plot-card v-for="plot in activePlots" v-bind:plot="plot" v-bind:key="plot.id" />
+        <div class="active-plots-list" v-for="plot in activePlots" v-bind:key="plot">
+          <router-link :to="`myplot/${plot.id}`" >
+            <plot-card v-bind:plot="plot" v-bind:key="plot.id" />
+          </router-link>
         </div>
       </div>
     </section>
