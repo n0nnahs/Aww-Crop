@@ -21,7 +21,7 @@
               <active-plots></active-plots>
           </div>
 
-         <div id="iplots">
+         <div id="iplots" v-show="notEmpty">
              <inactive-plots></inactive-plots>
           </div>
       </div >
@@ -124,15 +124,7 @@ button:focus{
   outline: none;
 }
 @media (max-width: 800px){
-      #main-grid{
-        grid-template-columns: 100%;
-        grid-template-areas:
-            "plots"
-            "my-crops";
-      }
-
-
-      /* #main-grid {
+      #main-grid {
         grid-template-columns: 100px;
         grid-template-areas:
             "my-garden"
@@ -140,7 +132,7 @@ button:focus{
             "aplots"
             "my-crops"
             "iplots";
-      }  */
+      } 
       #my-garden{
         grid-area: my-garden;
       }

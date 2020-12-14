@@ -44,11 +44,12 @@ export default {
   margin-bottom: 20px;
 }
 #blueberries{
-  background-color: #FE6F15;
-  height: 55px;
-  border-radius: 3px; 
-    font-size: 32px;
-  padding-top: 8px;
+  font-size: 32px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 10px;
+  border-radius: 3px;
 }
 .inactive-plots-list {
     display:inline-block;
