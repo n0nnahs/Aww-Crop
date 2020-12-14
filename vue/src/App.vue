@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav" v-show="$route.name !== 'welcome'">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link style="color:  #a53b58;" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link style="color:  #a53b58;" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
     <header class="header" v-show="$route.name !== 'welcome'">
     </header>
@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 #app{
   background-color: #4e2409;
   color: white;

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="main-grid" class="home">
     <h1 id=my-garden>
       <i class="fas fa-seedling"></i>
       My Garden
@@ -7,9 +7,6 @@
     </h1>
     <div id="home-grid">
       <div id="plots">
-          <div id="aplots">
-              <active-plots></active-plots>
-          </div>
           <div id="new-plot-section">
             <button id="add-new-plot-button" v-on:click="toggleForm">
                         <i class="fas fa-seedling"></i>
@@ -18,8 +15,12 @@
             </button><br/>
             <div id="newPlotForm" v-show="showForm">
               <new-plot-form></new-plot-form>
-            </div>
+           </div>
           </div> 
+          <div id="aplots">
+              <active-plots></active-plots>
+          </div>
+
          <div id="iplots">
              <inactive-plots></inactive-plots>
           </div>
@@ -65,7 +66,7 @@ export default {
 </script>
 
 
-<style>
+<style >
 
 .home {
   padding: 20px;
@@ -81,54 +82,80 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #plots {
   grid-area: plots;
   margin-top: 10px;
   background-color:#4e2409
 }
+#new-plot-section {
+  background-color: #a53b58;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  column-gap: 50px;
+  border-radius: 10px;
+}
+#add-new-plot-button {
+  width: 100%;
+  height: 65px;
+  font-size: 32px;
+  align-content: bottom;
+  border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+  color: #83a126;
+  background-color: white;
+  border-style: none;
+}
+#add-new-plot-button:hover {
+  width: 100%;
+  height: 65px;
+  margin-bottom: 0px;
+  font-size: 32px;
+  align-content: bottom;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+  color: white !important;
+  background-color: #83a126;
+}
 #my-crops{
   grid-area: my-crops;
   margin-top: 10px;
 }
-#add-new-plot-button {
-  grid-area: button;
-  width: 100%;
-  height: 65px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  font-size: 32px;
-  align-content: bottom;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-  color: #83a126;
-  background-color: white;
+button:focus{
+  border-style: none;
+  outline: none;
 }
-#add-new-plot-button:hover {
-  grid-area: button;
-  width: 100%;
-  height: 65px;
-  margin-bottom: 0px;
-  font-size: 32px;
-  align-content: bottom;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-  color: white;
-  background-color: #83a126;
-}
-#new-plot-section {
-  background-color: #a53b58;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  column-gap: 50px;
-  border-radius: 10px;
+@media (max-width: 800px){
+      #main-grid {
+        grid-template-columns: 100px;
+        grid-template-areas:
+            "my-garden"
+            "new-plot-section"
+            "aplots"
+            "my-crops"
+            "iplots";
+      } 
+      #my-garden{
+        grid-area: my-garden;
+      }
+      #new-plot-section{
+        grid-area: new-plot-section;
+      }
+      #aplots{
+        grid-area: aplots;
+      }
+      #my-crops{
+        grid-area: my-crops;
+      }
+      #iplots{
+        grid-area: iplots;
+      }
 }
 </style>

@@ -1,11 +1,13 @@
 <template>
     <section id="inactive-plots-section">
       <div id="inactive">
-        <h2>Inactive Plots</h2>
+        <h2 id="blueberries">Inactive Plots</h2>
       </div>
-        <div class="inactive-plots-list">
-          <plot-card v-for="plot in inactivePlots" v-bind:plot="plot" v-bind:key="plot.id" />
-      </div>
+        <div class="inactive-plots-list" v-for="plot in inactivePlots" v-bind:key="plot">
+          <router-link :to="`myplot/${plot.id}`" >
+            <plot-card v-bind:plot="plot" v-bind:key="plot.id" />
+          </router-link>
+        </div>
     </section>
 </template>
 
@@ -27,26 +29,29 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #inactive-plots-section {
-  background-color: #a53b58;
-  display: grid;
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #inactive{
   text-align: center;
   font-size: 32px !important;
   font-weight: bold !important;
   color: white;
-  background-color: #fe6f15;
+  background-color: #a53b58;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+#blueberries{
+  background-color: #FE6F15;
   padding: 10px;
-  padding-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 3px; 
 }
 .inactive-plots-list {
     display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
 </style>

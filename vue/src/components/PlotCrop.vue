@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div v-bind:value="croppy">
-      <img v-on:click="assignNewCrop(this.cropRow.getIndex(), this.croppy.getIndex())" v-if="croppy ===0" id="plant" src="../assets/dirt.jpg" />
-      <img v-if="croppy !==0" id="plant" src="../assets/plotPlant.jpg" />
+    <img id="plant" src="../assets/dirt.jpg" />
+    <div v-bind:value="cropCell">
+      
+      <img v-if='cropCell.name !==""' id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)" />
     </div>
   </div>
 </template>
@@ -10,14 +11,25 @@
 <script>
 export default {
     name: "plot-crop",
-        props: [
-        'CropRows',
-        'croppy'    
-            ],
+    data(){
+      return{
+        cropCell: Object
+      }
+    },
+    props: [
+         
+      ],
+    methods: {
+      cropIcon(){
+        let iconImg = "../assets/broccoli.jpeg";
+        return iconImg;
+      }
+    }
+    
 }
 </script>
 
-<style>
+<style scoped>
 
 
 </style>

@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 form {
   background-color: #a53b58;
   margin: 0px;
@@ -84,6 +84,7 @@ form {
 input {
     border-radius: 10px;
     height: 35px;
+    border-style: none;
 }
 #newPlotSubmit {
     margin-top: 10px;
@@ -97,7 +98,12 @@ input {
     background-color: #83a126;
     font-size: 20px;
     font-weight: bold;
-
 }
-
+button{
+    border-style: none;
+}
+button:focus{
+    border-style: none;
+    outline: none;
+}
 </style>

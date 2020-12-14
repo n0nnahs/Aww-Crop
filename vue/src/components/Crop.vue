@@ -27,9 +27,10 @@ export default {
     "image crop-name crop-amount expected-yield";
   padding: 10px;
   color: white;
+  background-color: #BA7331;
   margin: 10px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 
 }
 img {
@@ -50,7 +51,7 @@ img {
 #crop-name:hover {
   background-color: #83a126;
   color: white;
-  border-radius: 20px;
+  border-radius: 3px;
   font-weight: bold !important;
   padding: 10px;
 }

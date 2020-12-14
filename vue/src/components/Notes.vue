@@ -54,7 +54,7 @@ export default {
 }
 </script>
  
-<style>
+<style scoped>
 #notes-h2{
   font-size: 32px !important;
   text-align: center;
