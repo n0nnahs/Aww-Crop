@@ -10,7 +10,7 @@
             <td id="crop" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
                 <!--<img  id="plant" src="@/assets/dirt.jpg" />
                 <img v-if='croppy.name !==""' id="plant" src="../assets/peas.jpeg" />{{cropCell.name}}-->
-                <img id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />
+                    <img v-on:click="clickCrop(cropCell.xCoordinate, cropCell.yCoordinate, cropCell.plotId, cropCell.name)" id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />
                 
             </td>
         </tr>
@@ -110,8 +110,13 @@ export default {
             //sort information coming in
 
         },
-        assignNewCrop(y, x){
-            console.log(x, y);
+        clickCrop(y, x, plotId, name){
+            if(name === "dirt"){
+                console.log(x, y, plotId, "empty plot");
+            } else {
+                console.log(x, y, name)
+            }
+            
         },
 
     },
