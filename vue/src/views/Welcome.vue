@@ -150,9 +150,13 @@ h6{
 h3{
   font-size: 32px;
   padding-bottom: 15 px;
+  text-align: left;
 }
 #info-columns{
   font-size: 12;
+}
+p{
+  text-align:left;
 }
 /*mid-sized*/
 @media (max-width: 1200px){
@@ -176,7 +180,6 @@ left: 50%;
 transform: translate(-50%, -50%);
 background-color: rgba(245, 249, 250, 0.7);
 }
-
 }
 
 
@@ -219,6 +222,12 @@ background-color: rgba(245, 249, 250, 0.7);
         grid-area: footer;
         text-align: center;
       }
+      h3{
+        text-align: left;
+      }
+      p{
+        text-align:left;
+      }
 }
 /*mobile*/
 @media (max-width: 450px){
@@ -257,7 +266,13 @@ background-color: rgba(245, 249, 250, 0.7);
     #footer{
         grid-area: footer;
         text-align: center;
-    }  
+    } 
+    h3{
+      text-align: left;
+      }
+    p{
+      text-align:left;
+      } 
 }
 /*extra small mobile*/
 @media (max-width: 325px){
@@ -296,6 +311,12 @@ background-color: rgba(245, 249, 250, 0.7);
     #footer{
         grid-area: footer;
         text-align: center;
+    }
+    h3{
+      text-align: left;
+    }
+    p{
+      text-align:left;
     }
 }
 </style>

@@ -133,4 +133,30 @@ button:focus{
   border-style: none;
   outline: none;
 }
+@media (max-width: 800px){
+      #main-grid {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "header"
+            "add-plot"
+            "active-plot"
+            "my-crops"
+            "inactive-plots";
+      }
+      #my-garden{
+        grid-area: header;
+      }
+      #new-plot-section{
+        grid-area: add-plot;
+      }
+      #aplots{
+        grid-area: active-plots;
+      }
+      #my-crops{
+        grid-area: my-crops;
+      }
+      #iplots{
+        grid-area: inactive-plots;
+      }
+}
 </style>
