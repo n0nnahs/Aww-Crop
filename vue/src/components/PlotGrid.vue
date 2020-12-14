@@ -60,10 +60,21 @@ export default {
                         this.$store.commit("SET_ACTIVE_PLOT", response.data);
                         let width = this.$store.state.activePlotSize.width;
                         let height = this.$store.state.activePlotSize.length;
-                        
+
                         for(let i = 0; i < height; i++){
-                            this.plotGrid.push(new Array(width).fill(this.cropSquare))
-                        }                        
+                            
+                            let array = [];
+                            for(let j = 0; j < width; j++){
+                               let newPlant = {
+                                name: "dirt",
+                                xCoordinate: j,
+                                yCoordinate: i,
+                                plotId: urlPlotId
+                            };
+                               array.push(newPlant)
+                            }                                                
+                            this.plotGrid.push(array);                            
+                        }                       
                         this.assignCrops(); 
                     }
                 })
