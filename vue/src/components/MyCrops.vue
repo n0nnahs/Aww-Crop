@@ -47,7 +47,7 @@ export default {
 .my-crops{
   color: white;
   background-color: #a53b58;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #pineapples{
   font-size: 32px !important;
@@ -55,7 +55,7 @@ export default {
   color: white;
   background-color: #fe6f15;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #labels{
   display: grid;
@@ -69,7 +69,7 @@ export default {
   padding-right: 10px;
   background-color: white;
   color: #fe6f15;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 0px !important;
   align-items: center;
 }

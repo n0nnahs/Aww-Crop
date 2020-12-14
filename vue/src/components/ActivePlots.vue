@@ -48,13 +48,13 @@ export default {
   font-weight: bold !important;
   color: white;
   background-color: #a53b58;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 20px;
 }
 #raspberries{
   background-color: #FE6F15;
   padding: 10px;
-  border-radius: 10px; 
+  border-radius: 3px; 
 }
 .active-plots-list {
   display:flex;

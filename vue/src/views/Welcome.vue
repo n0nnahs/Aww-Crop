@@ -184,7 +184,7 @@ background-color: rgba(245, 249, 250, 0.7);
 
 
 /*tablets*/
-@media (max-width: 900px){
+@media (max-width: 1000px){
       #main-grid {
         grid-template-columns: 100%;
         grid-template-areas:
@@ -193,11 +193,10 @@ background-color: rgba(245, 249, 250, 0.7);
             "footer";
       }
       #info-columns {
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "plan"
-            "track"
-            "shop";
+            "plan track"
+            "shop shop";
       }
       #heading{
         width: 100%;
@@ -230,6 +229,24 @@ background-color: rgba(245, 249, 250, 0.7);
       }
 }
 /*mobile*/
+@media (max-width: 700px){
+      #main-grid {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "attractive-header"
+            "info-columns"
+            "footer";
+      }
+      #info-columns {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "plan"
+            "track"
+            "shop";
+     }
+
+
+}
 @media (max-width: 450px){
       #main-grid {
         grid-template-columns: 100%;
