@@ -184,7 +184,7 @@ background-color: rgba(245, 249, 250, 0.7);
 
 
 /*tablets*/
-@media (max-width: 1000px){
+@media (max-width: 1100px){
       #main-grid {
         grid-template-columns: 100%;
         grid-template-areas:
@@ -221,12 +221,6 @@ background-color: rgba(245, 249, 250, 0.7);
         grid-area: footer;
         text-align: center;
       }
-      h3{
-        text-align: left;
-      }
-      p{
-        text-align:left;
-      }
 }
 /*mobile*/
 @media (max-width: 700px){
@@ -243,8 +237,31 @@ background-color: rgba(245, 249, 250, 0.7);
             "plan"
             "track"
             "shop";
+        margin-left: 175px;
      }
+}
+@media (max-width: 650px){
+      #info-columns {
+        margin-left: 150px;
+      }
 
+}
+@media (max-width: 600px){
+      #info-columns {
+        margin-left: 100px;
+      }
+
+}
+@media (max-width: 550px){
+      #info-columns {
+        margin-left: 75px;
+      }
+
+}
+@media (max-width: 500px){
+      #info-columns {
+        margin-left: 65px;
+      }
 
 }
 @media (max-width: 450px){
@@ -284,12 +301,21 @@ background-color: rgba(245, 249, 250, 0.7);
         grid-area: footer;
         text-align: center;
     } 
+      #info-columns {
+        margin-left: 40px;
+      }
     h3{
       text-align: left;
       }
     p{
       text-align:left;
       } 
+}
+@media (max-width: 400px){
+      #info-columns {
+        margin-left: 15px;
+      }
+
 }
 /*extra small mobile*/
 @media (max-width: 325px){

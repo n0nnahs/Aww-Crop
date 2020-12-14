@@ -21,11 +21,11 @@
               <active-plots></active-plots>
           </div>
 
-         <div id="iplots">
+         <div id="iplots" v-show="notEmpty">
              <inactive-plots></inactive-plots>
           </div>
-      </div>
-      <my-crops id="my-crops"></my-crops>
+      </div >
+      <my-crops id="my-crops" ></my-crops>
     </div>
   </div>
 </template>
@@ -69,7 +69,7 @@ export default {
 <style >
 
 .home {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   background-color: #4e2409;
 }
 #home-grid {
@@ -82,8 +82,8 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
 }
@@ -97,30 +97,21 @@ export default {
   margin-top: 0px;
   margin-bottom: 20px;
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #add-new-plot-button {
   width: 100%;
-  height: 65px;
+  height: 55px;
   font-size: 32px;
-  align-content: bottom;
   border-radius: 3px;
   text-align: center;
-  padding: 10px;
   color: #83a126;
   background-color: white;
   border-style: none;
 }
-#add-new-plot-button:hover {
-  width: 100%;
-  height: 65px;
-  margin-bottom: 0px;
-  font-size: 32px;
-  align-content: bottom;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 3px;
+#add-new-plot-button:hover, #add-new-plot-button:focus {
+  border-style: none;
+  outline: none;
   color: white !important;
   background-color: #83a126;
 }

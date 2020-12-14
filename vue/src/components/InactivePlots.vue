@@ -44,14 +44,18 @@ export default {
   margin-bottom: 20px;
 }
 #blueberries{
-  background-color: #FE6F15;
+  font-size: 32px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
   padding: 10px;
-  border-radius: 3px; 
+  border-radius: 3px;
 }
 .inactive-plots-list {
-    display:flex;
+    display:inline-block;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
 }
 
 </style>

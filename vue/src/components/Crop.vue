@@ -1,7 +1,7 @@
 <template>
     <div id="main-grid" class="crop">
       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
-      <button id="crop-name">{{crop.name}}</button>
+      <h3 id="crop-name">{{crop.name}}</h3>
       <h3 id="crop-amount">{{crop.amount}} ft²</h3>
       <h3 id="expected-yield">{{crop.yield}} lbs</h3>
   </div>
@@ -31,30 +31,33 @@ export default {
   margin: 10px;
   background-color:#ba7331;
   border-radius: 3px;
-
 }
+#main-grid:hover{
+    background-color: #83a126;
+    text-decoration: none !important; 
+}
+
 img {
   grid-area: image;
   max-height: 50px;
-  border-radius: 10px;
-  padding-right:8px;
+  border-radius: 3px;
 }
 #crop-name{
   grid-area: crop-name;
-  background: none;
-  border: none;
   color:white;
   font-size: 20px;
-  padding-left: 0px;
-  text-align:center !important;
+  padding-top: 7px;
+  padding-left: 5px;
+  align-self:center;
+  justify-self: center;
 }
-#crop-name:hover {
+/* #crop-name:hover {
   background-color: #83a126;
   color: white;
   border-radius: 3px;
   font-weight: bold !important;
   padding: 10px;
-}
+} */
 #crop-amount{
   grid-area: crop-amount;
   background: none;

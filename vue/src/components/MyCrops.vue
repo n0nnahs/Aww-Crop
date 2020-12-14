@@ -9,8 +9,10 @@
       <h3 id="amount">Planted</h3>
       <h3 id="yield">Harvest</h3>
     </div>
-    <div id="crop-list">
-        <crop v-for="crop in $store.state.crops" v-bind:crop="crop" v-bind:key="crop.name"></crop>
+    <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
+      <router-link style="text-decoration: none;" :to="`cropdetails/${crop.name}`" >
+         <crop  v-bind:crop="crop" v-bind:key="crop.name"></crop>
+      </router-link>
     </div>
   </div>
 </template>
@@ -104,7 +106,7 @@ export default {
 }
 #crop-list{
   margin-top: 0px;
-  border-radius: 10px;
+  border-radius: 3px;
   color:white;
 }
 
