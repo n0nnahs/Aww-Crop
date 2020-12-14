@@ -20,65 +20,60 @@ export default {
  
  </script>
  
-<style>
+<style scoped>
 .card {
-    border: 2px solid black;
     border-radius: 10px;
     width: 110px;
     height: 200px;
     margin: 20px;
     background-color: #ba7331 !important;
     display: grid;
-    grid-template-rows:1fr 2fr 1fr;
+    grid-template-rows:50px 100px 50px;
     grid-template-areas:
           "plot-name image button";
-
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center; */
-}
+    justify-content: space-around;
 
+}
 #plot-name {
+  grid-area: plot-name;
   font-size: 15px;
   text-align: center;
   margin: 5px; 
-  grid-area: plot-name;
   display:flex;
   flex-direction: column;
-  flex-flow: column wrap;
+  justify-content: space-around;
 } 
-
 #plot-name-div {
   display: flex;
   flex-direction: column;
   align-content: center !important;
-  justify-content: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
 }
- 
 #pic-and-button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content:flex-end;
 }
- 
 #manage-plot-button {
   grid-area: button;
   font-size: 15px;
   margin: 5px;
   border-radius: 4px;
-  color: #4a7623;
-  background-color: white;
+  background-color: #83a126;
+  color: white;
 }
- 
 #manage-plot-button:hover {
   grid-area: button;
   font-size: 15px;
-  background-color: #83a126;
+  background-color: white;
   margin: 5px;
-  color: white;
+  margin-top: 10px;
+  color: #83a126;
 }
- 
 #crop-image {
   grid-area: image;
   height: 90px;
@@ -86,10 +81,18 @@ export default {
   object-fit: contain;
   align-self: center;
   border-radius: 10px;
+  background-color: white;
 }
-
+#manage-plot-button{
+  grid-area: button;
+  margin-top: 10px;
+}
+button:focus{
+  border-style: none;
+  outline: none;
+}
 button{
   border-style: none;
+  outline: none;
 }
-
 </style>

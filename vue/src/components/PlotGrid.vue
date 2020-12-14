@@ -1,8 +1,8 @@
 <template>
   <div class="plot-component">
-      <header id="garden-plot-header">
+      <h2 id="garden-plot-header">
           Garden Plot
-      </header>
+      </h2>
       <div id="plot-grid">
       <table id="plot-grid-table" v-bind="grid" v-if="!isLoading">
         
@@ -115,6 +115,7 @@ export default {
 </script>
 
 <style>
+
 #garden-plot-header{
   font-size: 32px !important;
   text-align: center;
@@ -136,7 +137,6 @@ template{
   color: white;
   background-color: #a53b58;;
   border-radius: 10px;
-  height: 100vh;
 }
 
 #plot-grid-table{
@@ -146,12 +146,14 @@ template{
     margin: 10px;
     max-width: 100%;
     height: auto;
+    background-color: #4e2409;
 }
 
 #crop{
     border: .5vw solid rgb(87, 53, 22);
-    height: 3vw;
-    width: 3vw;
+    height: 3.25vw;
+    width: 3.25vw;
+    padding: 0vw;
 }
 
 #plot-grid{
@@ -166,6 +168,7 @@ template{
 #plant{
   height:3.25vw;
   width: 3.25vw;
+  padding: 0vw;
 }
 
 
