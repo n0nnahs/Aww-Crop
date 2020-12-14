@@ -31,11 +31,11 @@
             </div>
           </div> 
 
-         <div id="iplots">
+         <div id="iplots" v-show="notEmpty">
              <inactive-plots></inactive-plots>
           </div>
-      </div>
-      <my-crops id="my-crops"></my-crops>
+      </div >
+      <my-crops id="my-crops" ></my-crops>
     </div>
   </div>
 </template>
