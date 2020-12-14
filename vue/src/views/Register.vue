@@ -1,7 +1,11 @@
 <template>
-  <div id="register" class="text-center">
+  <div id="registerpage" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Come grow with us!<br>Create your new account below.</h1>
+      <h1 class="h3 mb-3 font-weight-normal">
+            <i class="fas fa-seedling"></i>
+            Come grow with us!
+            <i class="fas fa-seedling"></i>
+            <br>Create your new account below.</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -33,11 +37,11 @@
         required
       />
       </br>
-      <button class="create-account-button" type="submit">
+      <button id="create" class="create-account-button" type="submit">
         Create Account
       </button>
       </br>
-      <router-link :to="{ name: 'login' }">Already have an account? Click here to sign in.</router-link>
+      <router-link style="color: #83a126;" v-bind:to="{ name: 'login' }">Already have an account? Click here to sign in.</router-link>
     </form>
   </div>
 </template>
@@ -96,9 +100,35 @@ export default {
 </script>
 
 <style>
+#registerpage{
+  background-color: #4e2409;
 
+}
 .create-account-button {
   margin-bottom: 10px;
 }
-
+#create{
+  font-size: 24px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#create:hover{
+  background-color: #83a126;
+}
+i{
+  color:#83a126;
+}
+button{
+  outline: none;
+}
+button:focus{
+  border-style: none;
+  outline: none;
+}
 </style>

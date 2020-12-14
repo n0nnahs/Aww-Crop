@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 #app{
   background-color: #4e2409;
   color: white;
