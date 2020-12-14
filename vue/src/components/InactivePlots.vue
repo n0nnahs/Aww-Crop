@@ -51,9 +51,10 @@ export default {
   padding-top: 8px;
 }
 .inactive-plots-list {
-    display:flex;
+    display:inline-block;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
 }
 
 </style>
