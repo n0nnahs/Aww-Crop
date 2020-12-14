@@ -21,7 +21,7 @@
               <active-plots></active-plots>
           </div>
 
-         <div id="iplots" v-show="notEmpty">
+         <div id="iplots" v-show="!isEmpty">
              <inactive-plots></inactive-plots>
           </div>
       </div >

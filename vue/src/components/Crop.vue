@@ -51,13 +51,6 @@ img {
   align-self:center;
   justify-self: center;
 }
-/* #crop-name:hover {
-  background-color: #83a126;
-  color: white;
-  border-radius: 3px;
-  font-weight: bold !important;
-  padding: 10px;
-} */
 #crop-amount{
   grid-area: crop-amount;
   background: none;
