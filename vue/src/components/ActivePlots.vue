@@ -62,6 +62,7 @@ export default {
   display:flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  display: inline-block;
 }
 
 
