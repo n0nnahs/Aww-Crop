@@ -38,7 +38,7 @@ export default {
 }
 
 #plot-name{
-background-color: rgba(255, 255, 255, 0.6);
+background-color: rgba(255, 255, 255, 0.8);
 font-size: 18px !important;
 position: absolute;
 left: -5%;
@@ -56,7 +56,7 @@ justify-content: space-around;
 padding:10px;
 }
 #plot-name:hover {
-background-color: rgba(67, 184, 13, 0.6);
+background-color: rgba(67, 184, 13, 0.8);
 font-size: 20px !important;
 position: absolute;
 left: -5%;
