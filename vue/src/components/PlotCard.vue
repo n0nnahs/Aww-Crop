@@ -91,5 +91,8 @@ button:focus{
   border-style: none;
   outline: none;
 }
-
+button{
+  border-style: none;
+  outline: none;
+}
 </style>

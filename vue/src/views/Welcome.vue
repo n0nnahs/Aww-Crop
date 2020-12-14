@@ -81,17 +81,17 @@ color: green;
 }
 #plan{
   grid-area: plan;
-  text-align: left;
+  text-align: center;
   margin: 20px;
 }
 #track{
   grid-area: track;
-  text-align: left;
+  text-align: center;
   margin: 20px;
 }
 #shop{
   grid-area: shop;
-  text-align: left;
+  text-align: center;
   margin: 20px;
 }
 #main-grid {

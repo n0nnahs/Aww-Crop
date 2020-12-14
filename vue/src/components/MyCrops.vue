@@ -63,6 +63,8 @@ export default {
   grid-template-areas:
     "icon carp amount yield";
   margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 5px;
   padding-right: 10px;
   background-color: white;

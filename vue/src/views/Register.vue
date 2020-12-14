@@ -116,7 +116,6 @@ export default {
   padding-right: 20px;
   padding-left: 20px;
   border-radius: 10px;
-  outline: none;
   margin-bottom: 10px;
 }
 #create:hover{
@@ -124,5 +123,12 @@ export default {
 }
 i{
   color:#83a126;
+}
+button{
+  outline: none;
+}
+button:focus{
+  border-style: none;
+  outline: none;
 }
 </style>

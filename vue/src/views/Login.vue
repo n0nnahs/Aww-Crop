@@ -111,7 +111,12 @@ form {
 }
 #loginbutton:hover{
   background-color: #83a126;
-
-
+}
+button{
+  outline: none;
+}
+button:focus{
+  border-style: none;
+  outline: none;
 }
 </style>

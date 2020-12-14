@@ -102,4 +102,8 @@ input {
 button{
     border-style: none;
 }
+button:focus{
+    border-style: none;
+    outline: none;
+}
 </style>

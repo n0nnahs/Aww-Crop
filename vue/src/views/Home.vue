@@ -82,8 +82,8 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   background-color:#ba7331;
   border-radius: 10px;
 }
@@ -128,5 +128,9 @@ export default {
 #my-crops{
   grid-area: my-crops;
   margin-top: 10px;
+}
+button:focus{
+  border-style: none;
+  outline: none;
 }
 </style>
