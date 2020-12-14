@@ -3,9 +3,11 @@
       <div id="inactive">
         <h2 id="blueberries">Inactive Plots</h2>
       </div>
-        <div class="inactive-plots-list">
-          <plot-card v-for="plot in inactivePlots" v-bind:plot="plot" v-bind:key="plot.id" />
-      </div>
+        <div class="inactive-plots-list" v-for="plot in inactivePlots" v-bind:key="plot">
+          <router-link :to="`myplot/${plot.id}`" >
+            <plot-card v-bind:plot="plot" v-bind:key="plot.id" />
+          </router-link>
+        </div>
     </section>
 </template>
 
