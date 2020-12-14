@@ -10,7 +10,7 @@
       <h3 id="yield">Harvest</h3>
     </div>
     <div id="crop-list">
-        <crop v-for="crop in crops" v-bind:crop="crop" v-bind:key="crop.name"></crop>
+        <crop v-for="crop in $store.state.crops" v-bind:crop="crop" v-bind:key="crop.name"></crop>
     </div>
   </div>
 </template>
@@ -22,16 +22,16 @@ import Crop from '@/components/Crop.vue';
 export default {
     name: 'my-crops',
     created () {
-    this.getCrops();
+      CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
+        this.$store.commit("SET_CROPS", response.data);
+        });
     },
     components: {
         Crop
     },
     methods: {
       getCrops() {
-        CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
-        this.$store.commit("SET_CROPS", response.data);
-        });
+        
       }
     }
 
@@ -40,6 +40,10 @@ export default {
 
 <style>
 
+#labels h3{
+  padding: 0px;
+  margin: 0px;
+}
 .my-crops{
   color: white;
   background-color: #a53b58;;
@@ -65,16 +69,15 @@ export default {
   background-color: white;
   color: #fe6f15;
   border-radius: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 0px !important;
+  align-items: center;
 }
 #icon{
   grid-area: icon;
   text-align: center;
-  font-size: 16px !important;
+  font-size: 25px !important;
   font-weight: bold !important;
   padding-top: 5px;
-  padding-left:30px;
-
   color: #83a126;
 }
 #carp{
@@ -99,7 +102,6 @@ export default {
 }
 #crop-list{
   margin-top: 0px;
-  background-color:#ba7331;
   border-radius: 10px;
   color:white;
 }

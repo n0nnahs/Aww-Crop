@@ -53,7 +53,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center !important;
-  justify-content: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
 }
  
 #pic-and-button {
@@ -86,10 +87,12 @@ export default {
   object-fit: contain;
   align-self: center;
   border-radius: 10px;
+  background-color: white;
 }
 
-button{
+button, button:focus{
   border-style: none;
+  outline: none;
 }
 
 </style>

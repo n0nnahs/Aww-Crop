@@ -7,7 +7,7 @@ const http = axios.create({
 export default {
 
   listAllCropsForUser(userId) {
-    return http.get(`/crops?userId=${userId}`)
+    return http.get(`/crops?user_id=${userId}`)
   },
 
   listCropsForOnePlot() {
