@@ -38,11 +38,11 @@ export default {
 };
 </script>
  
-<style scoped>
+<style>
 
 #active-plots-sections {
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #active{
   text-align: center;
@@ -55,13 +55,16 @@ export default {
 }
 #raspberries{
   background-color: #FE6F15;
-  padding: 10px;
   border-radius: 3px; 
+  height: 55px;
+  font-size: 32px;
+  padding-top: 8px;
 }
 .active-plots-list {
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
+  display: inline-block;
 }
 
 

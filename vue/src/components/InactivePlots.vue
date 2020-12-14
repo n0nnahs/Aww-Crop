@@ -45,13 +45,16 @@ export default {
 }
 #blueberries{
   background-color: #FE6F15;
-  padding: 10px;
+  height: 55px;
   border-radius: 3px; 
+    font-size: 32px;
+  padding-top: 8px;
 }
 .inactive-plots-list {
-    display:flex;
+    display:inline-block;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
 }
 
 </style>

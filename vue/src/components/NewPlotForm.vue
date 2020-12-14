@@ -79,10 +79,10 @@ form {
   margin: 0px;
   margin-bottom: 20px;
   column-gap: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 input {
-    border-radius: 10px;
+    border-radius: 3px;
     height: 35px;
     border-style: none;
 }
@@ -91,7 +91,7 @@ input {
     padding: 5px;
     padding-right: 10px;
     color: #fe6f15;
-    border-radius: 10px;
+    border-radius: 3px;
     margin-bottom: 10px;
     width: 90%;
     color: white;

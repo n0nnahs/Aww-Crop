@@ -104,7 +104,7 @@ export default {
 }
 #crop-list{
   margin-top: 0px;
-  border-radius: 10px;
+  border-radius: 3px;
   color:white;
 }
 

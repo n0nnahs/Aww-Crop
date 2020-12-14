@@ -61,7 +61,7 @@ export default {
   color: white;
   background-color: #fe6f15;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .notes-list {
@@ -73,7 +73,7 @@ export default {
 #notes-section {
   color: white;
   background-color: #a53b58;;
-  border-radius: 10px;
+  border-radius: 3px;
   height: 100vh;
 }
 

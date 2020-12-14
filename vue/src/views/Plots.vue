@@ -49,7 +49,7 @@ export default {
   padding-bottom: 20px;
   padding-top: 20px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #plot-visual {
   grid-area: plot-visual;
