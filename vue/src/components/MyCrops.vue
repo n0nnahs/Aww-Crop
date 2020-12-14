@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 #labels h3{
   padding: 0px;
@@ -46,9 +46,8 @@ export default {
 }
 .my-crops{
   color: white;
-  background-color: #a53b58;;
+  background-color: #a53b58;
   border-radius: 10px;
-  height: 100vh;
 }
 #pineapples{
   font-size: 32px !important;
@@ -64,6 +63,8 @@ export default {
   grid-template-areas:
     "icon carp amount yield";
   margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 5px;
   padding-right: 10px;
   background-color: white;
@@ -78,6 +79,7 @@ export default {
   font-size: 25px !important;
   font-weight: bold !important;
   padding-top: 5px;
+  padding-left:30px;
   color: #83a126;
 }
 #carp{

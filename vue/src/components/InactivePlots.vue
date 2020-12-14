@@ -1,7 +1,7 @@
 <template>
     <section id="inactive-plots-section">
       <div id="inactive">
-        <h2>Inactive Plots</h2>
+        <h2 id="blueberries">Inactive Plots</h2>
       </div>
         <div class="inactive-plots-list">
           <plot-card v-for="plot in inactivePlots" v-bind:plot="plot" v-bind:key="plot.id" />
@@ -27,10 +27,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #inactive-plots-section {
-  background-color: #a53b58;
-  display: grid;
   column-gap: 50px;
   border-radius: 10px;
 }
@@ -39,14 +37,19 @@ export default {
   font-size: 32px !important;
   font-weight: bold !important;
   color: white;
-  background-color: #fe6f15;
-  padding: 10px;
-  padding-bottom: 5px;
+  background-color: #a53b58;
   border-radius: 10px;
+  margin-bottom: 20px;
+}
+#blueberries{
+  background-color: #FE6F15;
+  padding: 10px;
+  border-radius: 10px; 
 }
 .inactive-plots-list {
     display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
 </style>

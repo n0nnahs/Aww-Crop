@@ -27,6 +27,7 @@ export default {
     "image crop-name crop-amount expected-yield";
   padding: 10px;
   color: white;
+  background-color: #BA7331;
   margin: 10px;
   background-color:#ba7331;
   border-radius: 10px;

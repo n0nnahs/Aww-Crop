@@ -1,7 +1,11 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="loginpage" class="text-center">
     <form class="form-signin" @submit.prevent="login">  
-      <h1 class="h3 mb-3 font-weight-normal">Welcome, farmer!<br/>Please sign in below.</h1>
+      <h1 class="h3 mb-3 font-weight-normal">
+        <i class="fas fa-seedling"></i>
+        Welcome, farmer!
+        <i class="fas fa-seedling"></i>
+        <br/>Please sign in below.</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -33,9 +37,9 @@
         required
       />
       <br/>
-      <button type="submit">Sign in</button>
+      <button id=loginbutton type="submit">Sign in</button>
       <br/>
-      <router-link :to="{ name: 'register' }">Register for new account</router-link>
+      <router-link style="color: #83a126;" v-bind:to="{ name: 'register' }">Register for new account</router-link>
     </form>
   </div>
 </template>
@@ -79,7 +83,10 @@ export default {
 </script>
 
 <style>
+#loginpage{
+  background-color: #4e2409;
 
+}
 .user-input {
   align-content: center;
   width: 50%;
@@ -90,5 +97,26 @@ form {
   height: 100%;
   margin-top: 10px;
 }
-
+#loginbutton{
+  font-size: 24px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 10px;
+}
+#loginbutton:hover{
+  background-color: #83a126;
+}
+button{
+  outline: none;
+}
+button:focus{
+  border-style: none;
+  outline: none;
+}
 </style>
