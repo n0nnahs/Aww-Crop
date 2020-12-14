@@ -56,8 +56,9 @@ CREATE TABLE notes
     note_id serial PRIMARY KEY,
     plot_id int NOT NULL,
     note varchar(1000),
+    date date NOT NULL default current_timestamp,
     
-    constraint fk_notes_plot foreign key (note_id) references plot (plot_id)
+    constraint fk_notes_plot foreign key (plot_id) references plot (plot_id)
 );
 
 CREATE TABLE plot_coords
