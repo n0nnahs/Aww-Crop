@@ -59,9 +59,9 @@ export default {
   border-radius: 3px; 
 }
 .active-plots-list {
-  display:flex;
+  display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
 }
 
 
