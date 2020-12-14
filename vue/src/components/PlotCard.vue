@@ -132,7 +132,7 @@ padding:10px;
   width: 90px;
   object-fit: contain;
   align-self: center;
-  border-radius: 10px;
+  border-radius: 3px;
   background-color: white;
 }
 #manage-plot-button{

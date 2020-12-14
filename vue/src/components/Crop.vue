@@ -39,7 +39,7 @@ export default {
 img {
   grid-area: image;
   max-height: 50px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 #crop-name{
   grid-area: crop-name;

@@ -174,6 +174,10 @@ public class CropSqlDAO implements CropDAO {
 		c.setTotalYield(results.getInt("yield"));
 		return c;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> f17a18179c5adb631192b6b2c83ad5e7d0292c6b
 	
 	private Crop mapRowToCropCoordDetails(SqlRowSet results) {
 		Crop c = new Crop();
