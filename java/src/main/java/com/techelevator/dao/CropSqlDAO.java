@@ -174,7 +174,7 @@ public class CropSqlDAO implements CropDAO {
 		c.setTotalYield(results.getInt("yield"));
 		return c;
 	}
-<<<<<<< HEAD
+
 	
 	private Crop mapRowToCropCoordDetails(SqlRowSet results) {
 		Crop c = new Crop();
@@ -184,8 +184,6 @@ public class CropSqlDAO implements CropDAO {
 		c.setPlotId(results.getInt("plot_id"));
 		return c;
 	}
-=======
->>>>>>> 2d495a0271d0e6229af37949a364846d67b71bf0
 
 	@Override
 	public Crop getTopCropForPlot(int plotId) {

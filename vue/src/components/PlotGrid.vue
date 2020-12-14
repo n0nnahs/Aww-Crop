@@ -133,7 +133,7 @@ export default {
   color: white;
   background-color: #fe6f15;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 #error{
@@ -147,7 +147,7 @@ template{
 .plot-component{
   color: white;
   background-color: #a53b58;;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 #plot-grid-table{
@@ -172,7 +172,7 @@ template{
   justify-content: center;
   color: white;
   background-color: #a53b58;;
-  border-radius: 10px;
+  border-radius: 3px;
   height: 100vh;
 }
 
