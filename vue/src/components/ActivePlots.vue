@@ -38,7 +38,7 @@ export default {
 };
 </script>
  
-<style scoped>
+<style>
 
 #active-plots-sections {
   column-gap: 50px;
@@ -64,6 +64,7 @@ export default {
   display:flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  display: inline-block;
 }
 
 
