@@ -54,11 +54,12 @@ export default {
   margin-bottom: 20px;
 }
 #raspberries{
-  background-color: #FE6F15;
-  border-radius: 3px; 
-  height: 55px;
-  font-size: 32px;
-  padding-top: 8px;
+  font-size: 32px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 10px;
+  border-radius: 3px;
 }
 .active-plots-list {
   display:flex;
