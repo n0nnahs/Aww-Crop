@@ -10,8 +10,11 @@ public class Crop {
 	private String description;
 	private int amount;
 	private int totalYield;
+	private int xCoordinate;
+	private int yCoordinate;
+	private int plotId;
 	
-	
+
 	public Crop(int id, String name, int yeild, int cropsPerSqFt, double seed_cost, String description) {
 		this.id = id;
 		this.name = name;
@@ -84,6 +87,24 @@ public class Crop {
 	}
 	public void setTotalYield(int totalYield) {
 		this.totalYield = totalYield;
+	}
+	public int getxCoordinate() {
+		return xCoordinate;
+	}
+	public void setxCoordinate(int xCoordinate) {
+		this.xCoordinate = xCoordinate;
+	}
+	public int getyCoordinate() {
+		return yCoordinate;
+	}
+	public void setyCoordinate(int yCoordinate) {
+		this.yCoordinate = yCoordinate;
+	}	
+	public int getPlotId() {
+		return plotId;
+	}
+	public void setPlotId(int plotId) {
+		this.plotId = plotId;
 	}
 
 }

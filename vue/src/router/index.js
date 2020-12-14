@@ -62,7 +62,7 @@ const router = new Router({
       }
     },
     {
-      path: "/plots",
+      path: "/myplot/:plotId",
       name: "plots",
       component: Plots,
       meta: {
