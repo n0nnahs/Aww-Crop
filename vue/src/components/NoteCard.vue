@@ -18,7 +18,7 @@ export default {
  
 <style scoped>
 .notecard {
-  border-radius: 10px;
+  border-radius: 3px;
   width: 220px;
   height: 200px;
   margin: 20px;
@@ -51,7 +51,7 @@ export default {
   font-size: 15px;
   margin: 5px;
   align-content: bottom;
-  border-radius: 10px;
+  border-radius: px;
 }
  
 #edit-note-button:hover {
