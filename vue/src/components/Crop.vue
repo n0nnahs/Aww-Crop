@@ -31,13 +31,15 @@ export default {
   margin: 10px;
   background-color:#ba7331;
   border-radius: 3px;
-
 }
+#main-grid.hover{
+    background-color: #83a126;
+}
+
 img {
   grid-area: image;
   max-height: 50px;
   border-radius: 10px;
-  padding-right:8px;
 }
 #crop-name{
   grid-area: crop-name;
