@@ -62,17 +62,12 @@ public class GardenController {
 	}
 	
 	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
-	public List<Crop> listlistAllCropsForOnePlot(@RequestParam int plotId){
+	public List<Crop> listAllCropCoordsForOnePlot(@RequestParam int plotId){
 						   
 		if(plotId > 0) {
 			return cropDao.listCropCoordinatesForOnePlot(plotId);
 		}
 		return null;
-	}
-	
-
-	
-
-	 
+	}	 
 
 }
