@@ -13,6 +13,7 @@ import ActivePlots from '../components/ActivePlots.vue'
 import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
 import Notes from '../components/Notes.vue'
+import SeedList from '../views/SeedList.vue'
 
 Vue.use(Router)
 
@@ -81,6 +82,14 @@ const router = new Router({
       path: "/plot/:userID",
       name: "plot",
       component: PlotList,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/seedlist",
+      name: "seed-list",
+      component: SeedList,
       meta: {
         requiresAuth: false
       }
