@@ -10,8 +10,8 @@ export default {
     return http.get(`/crops?user_id=${userId}`)
   },
 
-  listCropsForOnePlot() {
-    return http.get('/plot/myplot')
+  listCropsForOnePlot(plotId) {
+    return http.get(`/crops?plot_id=${plotId}`)
   }
 
 }
