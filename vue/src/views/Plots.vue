@@ -1,8 +1,8 @@
 <template>
   <div id="plot-page">
-    <h1 id="my-plot">
+    <h1 id="my-plot" v-bind:key="myPlot.name" >
       <i class="fas fa-seedling"></i>
-      My Plot
+        {{this.myPlot.name}}
       <i class="fas fa-seedling"></i>
     </h1>
     <div id="plots-body-grid">
@@ -18,13 +18,45 @@
 
 <script>
 import plotGrid from "../components/PlotGrid";
-import Notes from "../components/Notes.vue" 
+import Notes from "../components/Notes.vue";
+import plotService from "../services/PlotService";
 
 export default {
   components: { 
     plotGrid,
     Notes
   },
+  data(){
+    return {
+      myPlot: {
+        id: "",
+        name: "Lettuce Do Our Best",
+        length: "",
+        width: "",
+        active: ""
+      }
+    }
+  },
+  methods: {
+
+    getPlotName(){
+     let urlPlotId = this.$route.params.plotId;
+            plotService.getPlotById(urlPlotId)
+                .then(response => {
+                    if(response.status === 200){      
+                        this.$store.commit("SET_PLOT", response.data);
+                        this.myPlot.name = this.$store.state.plot.name;
+                    }
+                })     
+                .catch(error => {
+                    console.log(error.status)
+                });
+          }
+
+  },
+  created(){
+    this.getPlotName;
+  }
 }
 </script>
 

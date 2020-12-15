@@ -16,10 +16,13 @@ import PlotCard from '@/components/PlotCard.vue';
 
 export default {
   name: "inactive-plots",
-  computed: {
+
+   computed: {
+
     inactivePlots() {
       return this.$store.state.plots.filter((plot) => {
-        return plot.active === false;
+      return plot.active === false;
+        
       });
     }
   },
