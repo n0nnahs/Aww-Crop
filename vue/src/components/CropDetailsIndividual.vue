@@ -1,7 +1,16 @@
 <template>
   <div id="details-container">
     <h2 id="crop-name-h2">{{ crop.name }}</h2>
-    <textarea v-model="crop" />
+    <div id="details-grid">
+      <div id="left-column">
+        <img id="crop-image" :src="crop.main_image_path" />
+      </div>
+      <div id="right-column">
+        <h5 v-bind="crop.description">{{ crop.description }}</h5>
+        <h5 v-bind="crop.sun_requirements">SUN REQUIREMENTS: {{ crop.sun_requirements }}</h5>
+        <h5 v-bind="crop.sowing_method">SOWING METHOD: {{ crop.sowing_method }}</h5>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,18 +26,32 @@ export default {
   },
   created() {
     CropDetailService.get(this.$route.params.name).then((response) => {
-      this.crop.name = response.data.data.attributes.name;
-      this.crop.description = response.data.data.attributes.description;
+      this.crop = response.data.data.attributes;
     });
   }
 };
 </script>
 
 <style scoped>
-textarea {
-  width: 100%;
-  height: 300px;
+#details-grid {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "left-column right-column";
 }
+#left-column {
+  margin: 10px;
+}
+#right-column {
+  margin: 10px;
+}
+h5 {
+  background-color: #BA7331;
+  border-radius: 3px;
+  padding: 10px;
+}
+
 .back {
   margin-top: 20px;
 }
@@ -43,6 +66,11 @@ textarea {
   color: white;
   background-color: #fe6f15;
   padding: 10px;
+  border-radius: 3px;
+}
+#crop-image {
+  max-width:100%;
+  height:auto;
   border-radius: 3px;
 }
 </style>

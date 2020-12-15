@@ -34,7 +34,7 @@ export default {
   padding-bottom: 20px;
   padding-top: 20px;
   background-color:#ba7331;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 #back-button {
@@ -42,10 +42,9 @@ export default {
   height: 65px;
   font-size: 32px;
   align-content: bottom;
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
   color: #83a126;
   background-color: white;
   border-style: none;
@@ -56,10 +55,9 @@ export default {
   margin-bottom: 0px;
   font-size: 32px;
   align-content: bottom;
-  border-radius: 10px;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
   color: white !important;
   background-color: #83a126;
 }
