@@ -20,7 +20,7 @@
           <div id="aplots">
               <active-plots id="activeplots" ></active-plots>
           </div>
-          <div id="iplots" >
+          <div id="iplots">
              <inactive-plots id="inactiveplots"></inactive-plots>
           </div>
       </div >
@@ -111,6 +111,9 @@ export default {
 }
 #iplots{
   background-color: #a53b58;
+}
+#inactiveplots.plotcard:empty{
+  display:none;
 }
 #add-new-plot-button {
   width: 100%;
