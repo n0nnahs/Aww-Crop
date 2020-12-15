@@ -19,13 +19,9 @@
 
 <script>
 import plotGrid from "../components/PlotGrid";
-<<<<<<< HEAD
 import Notes from "../components/Notes.vue" 
 import MyCrops from '../components/MyCrops.vue';
-=======
-import Notes from "../components/Notes.vue";
 import plotService from "../services/PlotService";
->>>>>>> 86dba5041ac21f2b6ffd2c51750a45ecbb17888e
 
 export default {
   components: { 
@@ -34,15 +30,6 @@ export default {
     MyCrops
   },
   data(){
-<<<<<<< HEAD
-    return{
-      isLoading: true
-    }
-  },
-  created(){
-
-    return this.isLoading
-=======
     return {
       myPlot: {
         id: "",
@@ -72,7 +59,6 @@ export default {
   },
   created(){
     this.getPlotName;
->>>>>>> 86dba5041ac21f2b6ffd2c51750a45ecbb17888e
   }
 }
 </script>

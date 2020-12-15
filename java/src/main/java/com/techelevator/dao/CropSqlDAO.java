@@ -145,7 +145,42 @@ public class CropSqlDAO implements CropDAO {
 		return plotCrops;
 	}
 	
+	public void updateCoordinateData(int plotId, Crop crop) {
+		String cropName = crop.getName();
+		if(checkCropCoordinates(crop)) {
+			String sql = "UPDATE plot_coords SET crop_id = ? WHERE x = ? AND y = ?";
+			jdbc.update(sql, cropName, crop.getxCoordinate(), crop.getyCoordinate());
+
+		} else {
+			String sqlElse = "INSERT INTO plot_coords (coords_id, crop_id, plot_id, x, y) " + 
+					"VALUES (DEFAULT, ?, ?, ?, ?)";
+			int cropId = getCropId(cropName);
+			jdbc.update(sqlElse, cropId, plotId, crop.getxCoordinate(), crop.getyCoordinate());
+		}
+	}
+
+	public int getCropId(String cropName) {
+		int output = 0;
+		String sql = "SELECT crop_id FROM crops\n" + 
+				"WHERE name ILIKE ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, cropName);
+		while(results.next()) {
+			output = results.getInt("crop_id");
+		}
+		return output;
+	}
 	
+	public boolean checkCropCoordinates(Crop crop) {
+		boolean output = false;
+		String sql = "SELECT * FROM plot_coords " + 
+				"WHERE plot_id = ? AND x = ? AND y = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, crop.getPlotId(), crop.getxCoordinate(), crop.getyCoordinate());
+		while(results.next()) {
+			if(results.getInt("crop_id") >= 1)
+			output = true;
+		}
+		return output;
+	}
 	
 	private Crop mapRowToCrop(SqlRowSet results) {
 		Crop c = new Crop();

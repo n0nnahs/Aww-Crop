@@ -71,9 +71,9 @@ public class GardenController {
 	}
 	
 	@RequestMapping(value = "/myplot", method = RequestMethod.POST)
-	public void addCropCoordinateData(@RequestParam int plotId) {
+	public void addCropCoordinateData(@RequestParam int plotId, @RequestBody Crop crop) {
 		if(plotId > 0) {
-			return cropDao.updateCoordinateData(plotId);
+			cropDao.updateCoordinateData(plotId, crop);
 		}
 	}
 	
