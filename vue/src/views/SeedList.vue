@@ -1,12 +1,7 @@
 <template>
   <div id="main-grid" class="home">
-    <h1 id=my-garden>
-      <i class="fas fa-seedling"></i>
-      My Shopping List
-      <i class="fas fa-seedling"></i>
-    </h1>
     <div id="home-grid">
-      <shopping-list></shopping-list>
+        <shopping-list></shopping-list>
     </div>
   </div>
 </template>

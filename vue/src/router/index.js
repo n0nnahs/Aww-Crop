@@ -14,6 +14,7 @@ import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
 import Notes from '../components/Notes.vue'
 import SeedList from '../views/SeedList.vue'
+import Print from '../views/Print.vue'
 
 Vue.use(Router)
 
@@ -90,6 +91,14 @@ const router = new Router({
       path: "/seedlist",
       name: "seed-list",
       component: SeedList,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/seedlist/print",
+      name: "print",
+      component: Print,
       meta: {
         requiresAuth: false
       }

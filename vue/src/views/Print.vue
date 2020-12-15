@@ -12,13 +12,8 @@
     </div>
     <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
 
-         <shop-item  v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
+         <shop-item v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
 
-    </div>
-    <div id="button">
-      <router-link to="/seedlist/print">
-        <button>Printer Friendly Version</button>
-      </router-link>
     </div>
   </div>
 </template>
@@ -48,21 +43,24 @@ export default {
 </script>
 
 <style scoped>
-
+#app {
+    background-color: white;
+}
 #labels h3{
   padding: 0px;
   margin: 0px;
 }
 .shopping-list{
-  color: white;
-  background-color: #a53b58;
+  color: black;
+  background-color: white;
   border-radius: 3px;
+  height: 100vh;
 }
 #pineapples{
   font-size: 32px !important;
   text-align: center;
-  color: white;
-  background-color: #ba7331;
+  color: black;
+  background-color: white;
   padding: 10px;
   border-radius: 3px;
 }
@@ -77,7 +75,7 @@ export default {
   padding: 5px;
   padding-right: 10px;
   background-color: white;
-  color: #fe6f15;
+  color: black;
   border-radius: 3px 3px 0px 0px;
   margin-bottom: 0px !important;
   align-items: center;
@@ -106,7 +104,12 @@ export default {
 #crop-list{
   margin-top: 0px;
   border-radius: 3px;
-  color:white;
+  color:black;
+  background-color: white;
+}
+#item {
+  color:black;
+  background-color: white;
 }
 button {
   margin: 10px;
