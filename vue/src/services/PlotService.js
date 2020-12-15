@@ -13,6 +13,12 @@ export default {
   },
     createNewPlot(plot) {
     return axios.post(`/plot`, plot)
+  },
+  plantNewCrop(crop){
+    return axios.post(`/crops/myplot?plotId=${crop.plotId}`, crop)
+  },
+  updateCrop(crop){
+    return axios.put(`/crops/myplot?plotId=${crop.plotId}`, crop)
   }
 
 }

@@ -1,17 +1,12 @@
 <template>
-  <div class="plot-component">
-      <h2 id="garden-plot-header">
-          Garden Plot
-      </h2>
+  <div class="plot-component" v-if="!isLoading">
+      <h2 id="garden-plot-header">Garden Plot</h2>
+      <planter></planter>
       <div id="plot-grid">
-      <table id="plot-grid-table" v-bind="grid" v-if="!isLoading">
-        
+      <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
-            <td id="crop" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
-                <!--<img  id="plant" src="@/assets/dirt.jpg" />
-                <img v-if='croppy.name !==""' id="plant" src="../assets/peas.jpeg" />{{cropCell.name}}-->
-                    <img v-on:click="clickCrop(cropCell.xCoordinate, cropCell.yCoordinate, cropCell.plotId, cropCell.name)" id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />
-                
+            <td id="crop" class="square" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
+                <img class="content" v-on:click="clickCrop(cropCell.xCoordinate, cropCell.yCoordinate, cropCell.plotId, cropCell.name)" id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />     
             </td>
         </tr>
       </table>
@@ -21,7 +16,7 @@
 </template>
 
 <script>
-//import PlotCrop from './PlotCrop.vue';
+import Planter from './Planter.vue';
 import plotService from "../services/PlotService";
 
 export default {
@@ -33,10 +28,10 @@ export default {
             isLoading: true,
             plotGrid: [],
             cropSquare: {
-                name: "dirt",
-                xCoordinate: 0,
-                yCoordinate: 0,
-                plotId: 0
+                name: "",
+                xCoordinate: "",
+                yCoordinate: "",
+                plotId: ""
             }
         }
     },
@@ -44,8 +39,7 @@ export default {
         'croppy'    
     ],
     components:{
-        //PlotCrop
-        
+        Planter  
     },
     methods: {
         //imgError(){this.src = this.defaultImg;},
@@ -150,25 +144,28 @@ template{
 }
 
 .plot-component{
-  color: white;
-  background-color: #a53b58;;
-  border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #a53b58;;
+    border-radius: 3px;
+    padding-top: 10%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 10%;
 }
 
 #plot-grid-table{
-    display: absolute;
     table-layout: fixed;
-    justify-content: center;
-    margin: 10px;
-    max-width: 100%;
-    height: auto;
+    margin-bottom: 20%;
     background-color: #4e2409;
+    padding-bottom: 30%;
 }
 
 #crop{
     border: .5vw solid rgb(87, 53, 22);
-    height: 3.25vw;
-    width: 3.25vw;
+    height: 3.25vh;
+    width: 3.25vh;
     padding: 0vw;
 }
 

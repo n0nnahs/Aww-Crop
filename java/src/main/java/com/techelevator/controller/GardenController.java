@@ -70,6 +70,13 @@ public class GardenController {
 		return null;
 	}
 	
+	@RequestMapping(value = "/myplot", method = RequestMethod.POST)
+	public void addCropCoordinateData(@RequestParam int plotId) {
+		if(plotId > 0) {
+			return cropDao.updateCoordinateData(plotId);
+		}
+	}
+	
 
 	
 
