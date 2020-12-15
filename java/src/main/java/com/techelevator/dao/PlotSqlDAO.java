@@ -101,31 +101,45 @@ public class PlotSqlDAO implements PlotDAO {
 	}
 
 	@Override
-	public List<Note> getAllNotesForPlot(int plotId) {
+	public List<Note> getAllNotesForUser(int userId) {
 		List<Note> notesForPlot = new ArrayList<>();
-		String sql = "SELECT note_id, plot_id, note "
+		String sql = "SELECT note_id, plot_id, note, date "
 				+ "FROM notes "
-				+ "WHERE plot_id = ?";
-		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+				+ "JOIN users_plot USING(plot_id) "
+				+ "WHERE user_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
+		
 		while(results.next()) {
-			notesForPlot.add(mapRowToNote(results));
+			Note n = mapRowToNote(results);
+			notesForPlot.add(n);
 		}
 		
 		return notesForPlot;
 	}
 
+	@Override
+	public void addNewNote(Note newNote) {
+		String sql = "INSERT INTO notes (plot_id, note) "
+					+"VALUES(?, ?)";
+		jdbc.update(sql, newNote.getPlot_id(), newNote.getNote());
+		
+	}
+	
+	@Override
+	public void updateNote(Note updatedNote, int id) {
+		String sql = "UPDATE notes SET note = ? WHERE note_id = ?";
+		
+		jdbc.update(sql, updatedNote.getNote(), id);
+	}
+	
 	private Note mapRowToNote(SqlRowSet results) {
 		Note n = new Note();
 		
 		n.setNote(results.getString("note"));
 		n.setNote_id(results.getInt("note_id"));
 		n.setPlot_id(results.getInt("plot_id"));
-		return null;
+		n.setDate(results.getDate("date"));
+		return n;
 	}
 
-	@Override
-	public void addNewNote(Note newNote) {
-		// TODO Auto-generated method stub
-		
-	}
 }

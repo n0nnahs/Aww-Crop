@@ -109,12 +109,15 @@ export default {
   column-gap: 50px;
   border-radius: 3px;
 }
+<<<<<<< HEAD
 #iplots{
   background-color: #a53b58;
 }
 #inactiveplots.plotcard:empty{
   display:none;
 }
+=======
+>>>>>>> cd339c2af53b4642e44595e378e755330d609956
 #add-new-plot-button {
   width: 100%;
   height: 55px;

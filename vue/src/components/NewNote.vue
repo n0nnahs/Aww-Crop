@@ -10,7 +10,7 @@
       </form>
     </div>
     <div class="notes-list">
-      <note-card v-for="note in plotNotes" v-bind:note="note" v-bind:key="note.plotId" />
+      <note-card v-for="note in notes" v-bind:note="note" v-bind:key="note.plotId" />
     </div>
   </section>
 </template>
@@ -24,17 +24,16 @@ export default {
   data() {
     return {
       note: {
-        plotId: '',
+        plotId: this.$route.params.plotId,
         message: '',
-        date: ''
+        date: Date().toISOString().slice(0,10),
       }
     }
   },
   computed: {
-    plotNotes() {
-      let plot_id = this.$route.params.plotId;
+    notes() {
       return this.$store.state.notes.filter((note) => {
-        return note.plot_id == plot_id;
+        return note.plotId === "202";
       });
     }
   },
