@@ -1,5 +1,5 @@
 <template>
-  <div id="main-grid" class="home">
+  <div id="main-gridz" class="home">
     <h1 id=my-garden>
       <i class="fas fa-seedling"></i>
       My Garden
@@ -14,14 +14,14 @@
                         <i class="fas fa-seedling"></i>
             </button><br/>
             <div id="newPlotForm" v-show="showForm">
-              <new-plot-form></new-plot-form>
+              <new-plot-form id="newplotform"></new-plot-form>
            </div>
           </div> 
           <div id="aplots">
-              <active-plots></active-plots>
+              <active-plots id="activeplots" ></active-plots>
           </div>
           <div id="iplots" >
-             <inactive-plots></inactive-plots>
+             <inactive-plots id="inactiveplots"></inactive-plots>
           </div>
       </div >
       <my-crops id="my-crops" ></my-crops>
@@ -65,8 +65,18 @@ export default {
 </script>
 
 
-<style >
+<style scoped>
 
+@media (min-width: 801px){
+      #main-gridz {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "my-garden my garden"
+            "new-plot-section"
+            "activeplots my-crops"
+            "inactiveplots my-crops";
+      } 
+  
 .home {
   padding: 0 20px 20px 20px;
   background-color: #4e2409;
@@ -85,11 +95,12 @@ export default {
   padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
+  margin-top: 10px;
 }
 #plots {
   grid-area: plots;
   margin-top: 10px;
-  background-color:#4e2409
+  background-color:#4e2409;
 }
 #new-plot-section {
   background-color: #a53b58;
@@ -125,30 +136,91 @@ button:focus{
   border-style: none;
   outline: none;
 }
+}
 @media (max-width: 800px){
-      #main-grid {
-        grid-template-columns: 100px;
-        grid-template-areas:
-            "my-garden"
-            "new-plot-section"
-            "aplots"
-            "my-crops"
-            "iplots";
-      } 
-      #my-garden{
-        grid-area: my-garden;
-      }
-      #new-plot-section{
-        grid-area: new-plot-section;
-      }
-      #aplots{
-        grid-area: aplots;
-      }
-      #my-crops{
-        grid-area: my-crops;
-      }
-      #iplots{
-        grid-area: iplots;
-      }
+#main-gridz {
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "my-garden"
+    "new-plot-section"
+    "activeplots"
+    "my-crops"
+    "inactiveplots";
+  background-color: #4e2409;
+  padding:10px;
+} 
+#my-garden{
+  grid-area: my-garden;
+}
+#new-plot-section{
+  grid-area: new-plot-section;
+}
+#aplots{
+  grid-area: activeplots;
+}
+#my-crops{
+  grid-area: my-crops;
+}
+#iplots{
+  grid-area: inactiveplots;
+  display: none;
+}
+
+#my-garden{
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color:#ba7331;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#new-plot-section {
+  background-color: #4e2409 !important;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  column-gap: 50px;
+  border-radius: 3px;
+}
+#add-new-plot-button {
+  width: 100%;
+  height: 55px;
+  font-size: 32px;
+  border-radius: 3px;
+  text-align: center;
+  color: #83a126;
+  background-color: white;
+  border-style: none;
+  margin-top: 10px;
+}
+#add-new-plot-button:hover, #add-new-plot-button:focus {
+  border-style: none;
+  outline: none;
+  color: white !important;
+  background-color: #83a126;
+}
+#plots{
+  background-color: #4e2409;
+}
+#iplots{
+  background-color: #a53b58;
+}
+#aplots{
+  background-color: #a53b58;
+}
+#my-crops{
+  padding-bottom: 5px;
+}
+}
+@media (max-width: 400px){
+#my-garden{
+  font-size: 32px;
+}
+#add-new-plot-button{
+  font-size: 24px;
+}
+#add-new-plot-button:hover{
+  font-size: 24px;
+}
 }
 </style>
