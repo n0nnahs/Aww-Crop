@@ -16,8 +16,10 @@ public interface PlotDAO {
 
 	void userPlot(int userId, int plotId);
 	
-	List<Note> getAllNotesForPlot(int plotId);
+	List<Note> getAllNotesForUser(int plotId);
 	
 	void addNewNote(Note newNote);
+
+	void updateNote(Note updatedNote, int id);
 	
 }

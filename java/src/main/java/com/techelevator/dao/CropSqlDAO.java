@@ -72,7 +72,7 @@ public class CropSqlDAO implements CropDAO {
 	}
 	
 	@Override
-	public List<Crop> listAllCropsInPlot(int plotId){
+	public List<Crop> listAllCropsInActivePlots(int plotId){
 		List<Crop> cropsInPlot = new ArrayList<>();
 		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
 			       + "FROM crops "
@@ -96,7 +96,7 @@ public class CropSqlDAO implements CropDAO {
 				+ "JOIN plot USING (plot_id) "
 				+ "JOIN users_plot USING (plot_id) "
 				+ "JOIN users USING (user_id) "
-				+ "WHERE user_id = ? "
+				+ "WHERE user_id = ? AND active = true "
 				+ "GROUP BY crops.name, crops.crop_id, yield_lbs_per_square_foot";
 		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
 		while(results.next()) {
@@ -106,7 +106,6 @@ public class CropSqlDAO implements CropDAO {
 		
 		return cropsForUser;
 	}
-
 
 	
 	@Override
@@ -146,7 +145,6 @@ public class CropSqlDAO implements CropDAO {
 	}
 	
 	
-	
 	private Crop mapRowToCrop(SqlRowSet results) {
 		Crop c = new Crop();
 		c.setId(results.getInt("crop_id"));
@@ -169,9 +167,5 @@ public class CropSqlDAO implements CropDAO {
 		return c;
 	}
 
-	@Override
-	public Crop getTopCropForPlot(int plotId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }
