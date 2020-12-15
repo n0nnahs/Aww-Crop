@@ -31,7 +31,7 @@ export default {
 <style scoped>
 
 #plot-page {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   background-color: #4e2409;
   
 }
@@ -46,8 +46,8 @@ export default {
 }
 #my-plot{
   text-align: center;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
 }

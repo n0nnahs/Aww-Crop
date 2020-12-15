@@ -302,7 +302,7 @@ BEGIN TRANSACTION;
  (
      101,
      101,
-     'This is the best plot there ever was.'
+     'This is not the best plot there ever was, this is just a tribute.'
  );
 
 COMMIT TRANSACTION;

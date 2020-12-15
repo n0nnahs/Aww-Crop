@@ -88,7 +88,8 @@ public class CropSqlDAO implements CropDAO {
 				+ "JOIN plot_coords pc USING (crop_id) "
 				+ "JOIN plot p USING (plot_id) "
 				+ "JOIN users_plot up USING (plot_id) "
-				+ "WHERE up.user_id = ?";
+				+ "WHERE up.user_id = ?"
+				+ "AND active = true";
 		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
 		while(results.next()) {
 			Crop c = mapRowToCrop(results);
