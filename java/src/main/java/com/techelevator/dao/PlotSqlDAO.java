@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 
 import com.techelevator.model.Crop;
+import com.techelevator.model.Note;
 import com.techelevator.model.Plot;
 
 
@@ -97,5 +98,34 @@ public class PlotSqlDAO implements PlotDAO {
 		p.setActive(results.getBoolean("active"));
 		
 		return p;
+	}
+
+	@Override
+	public List<Note> getAllNotesForPlot(int plotId) {
+		List<Note> notesForPlot = new ArrayList<>();
+		String sql = "SELECT note_id, plot_id, note "
+				+ "FROM notes "
+				+ "WHERE plot_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+		while(results.next()) {
+			notesForPlot.add(mapRowToNote(results));
+		}
+		
+		return notesForPlot;
+	}
+
+	private Note mapRowToNote(SqlRowSet results) {
+		Note n = new Note();
+		
+		n.setNote(results.getString("note"));
+		n.setNote_id(results.getInt("note_id"));
+		n.setPlot_id(results.getInt("plot_id"));
+		return null;
+	}
+
+	@Override
+	public void addNewNote(Note newNote) {
+		// TODO Auto-generated method stub
+		
 	}
 }
