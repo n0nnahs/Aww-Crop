@@ -45,7 +45,7 @@ CREATE TABLE crops
 (
     crop_id serial PRIMARY KEY,
     name varchar(25),
-    yield_lbs_per_square_foot int,
+    yield_lbs_per_square_foot decimal(10, 2),
     crops_per_square_foot int,
     seed_cost decimal(10, 2),
     description varchar(1000)

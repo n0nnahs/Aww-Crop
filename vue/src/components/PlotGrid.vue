@@ -1,7 +1,7 @@
 <template>
   <div class="plot-component">
       <h2 id="garden-plot-header">
-          Garden Plot
+          Find Your Inner Peas 
       </h2>
       <div id="plot-grid">
       <table id="plot-grid-table" v-bind="grid" v-if="!isLoading">
