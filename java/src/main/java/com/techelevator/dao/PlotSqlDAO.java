@@ -107,25 +107,37 @@ public class PlotSqlDAO implements PlotDAO {
 				+ "FROM notes "
 				+ "WHERE plot_id = ?";
 		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+		
 		while(results.next()) {
-			notesForPlot.add(mapRowToNote(results));
+			Note n = mapRowToNote(results);
+			notesForPlot.add(n);
 		}
 		
 		return notesForPlot;
 	}
 
+	@Override
+	public void addNewNote(Note newNote) {
+		String sql = "INSERT INTO notes (plot_id, note) "
+					+"VALUES(?, ?)";
+		jdbc.update(sql, newNote.getPlot_id(), newNote.getNote());
+		
+	}
+	
+	@Override
+	public void updateNote(Note updatedNote, int id) {
+		String sql = "UPDATE notes SET note = ? WHERE note_id = ?";
+		
+		jdbc.update(sql, updatedNote.getNote(), id);
+	}
+	
 	private Note mapRowToNote(SqlRowSet results) {
 		Note n = new Note();
 		
 		n.setNote(results.getString("note"));
 		n.setNote_id(results.getInt("note_id"));
 		n.setPlot_id(results.getInt("plot_id"));
-		return null;
+		return n;
 	}
 
-	@Override
-	public void addNewNote(Note newNote) {
-		// TODO Auto-generated method stub
-		
-	}
 }

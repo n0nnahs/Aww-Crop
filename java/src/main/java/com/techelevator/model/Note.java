@@ -12,6 +12,16 @@ public class Note {
 		this.plot_id = plot_id;
 	}
 	
+	public Note(String note, int plot_id) {
+		this.note = note;
+		this.plot_id = plot_id;
+	}
+	
+	public Note(int note_id, String note) {
+		this.note = note;
+		this.note_id = note_id;
+	}
+	
 	public Note() {
 	}
 

@@ -19,5 +19,7 @@ public interface PlotDAO {
 	List<Note> getAllNotesForPlot(int plotId);
 	
 	void addNewNote(Note newNote);
+
+	void updateNote(Note updatedNote, int id);
 	
 }
