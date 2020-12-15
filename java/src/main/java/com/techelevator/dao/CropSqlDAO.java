@@ -26,8 +26,14 @@ public class CropSqlDAO implements CropDAO {
 	@Override
 	public List<Crop> listAll() {
 		List<Crop> allCrops = new ArrayList<>();
-		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
-			       + "FROM crops";
+		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, "
+				+ "COUNT (coords_id) AS amount, "
+				+ "        (COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, description "
+				+ "FROM crops JOIN plot_coords USING (crop_id) "
+				+ "JOIN plot USING (plot_id) "
+				+ "JOIN users_plot USING (plot_id) "
+				+ "JOIN users USING (user_id) "
+				+ "GROUP BY crops.name, crops.crop_id, yield_lbs_per_square_foot";
 		SqlRowSet results = jdbc.queryForRowSet(sql);
 		while(results.next()) {
 			Crop c = mapRowToCrop(results);
@@ -83,13 +89,15 @@ public class CropSqlDAO implements CropDAO {
 	@Override
 	public List<Crop> listAllCropsForUser(int userId) {
 		List<Crop> cropsForUser = new ArrayList<>();
-		String sql = "SELECT crop_id, c.name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
-				+ "FROM crops "
-				+ "JOIN plot_coords pc USING (crop_id) "
-				+ "JOIN plot p USING (plot_id) "
-				+ "JOIN users_plot up USING (plot_id) "
-				+ "WHERE up.user_id = ?"
-				+ "AND active = true";
+		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, "
+				+ "COUNT (coords_id) AS amount, "
+				+ "        (COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, description "
+				+ "FROM crops JOIN plot_coords USING (crop_id) "
+				+ "JOIN plot USING (plot_id) "
+				+ "JOIN users_plot USING (plot_id) "
+				+ "JOIN users USING (user_id) "
+				+ "WHERE user_id = ? "
+				+ "GROUP BY crops.name, crops.crop_id, yield_lbs_per_square_foot";
 		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
 		while(results.next()) {
 			Crop c = mapRowToCrop(results);
@@ -99,30 +107,12 @@ public class CropSqlDAO implements CropDAO {
 		return cropsForUser;
 	}
 
-	@Override
-	public List<Crop> listCropsForViewFarm(int userId) {
-		List<Crop> myCrops = new ArrayList<>();
-		String sql = "SELECT crops.name AS name, " +
-				     "COUNT (coords_id) AS amount, " +
-				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield " +
-				     "FROM crops JOIN plot_coords USING (crop_id) " +
-				     "JOIN plot USING (plot_id) " +
-				     "JOIN users_plot USING (plot_id) " +
-				     "JOIN users USING (user_id) " +
-				     "WHERE user_id = ? " +
-				     "GROUP BY crops.name, yield_lbs_per_square_foot ";
-		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
-		while(results.next()) {
-			Crop c = mapRowToCropDetails(results);
-			myCrops.add(c);
-		}
-	  return myCrops;
-	}
+
 	
 	@Override
 	public List<Crop> listCropsForOnePlot(int plotId) {
 		List<Crop> plotCrops = new ArrayList<>();
-		String sql = "SELECT crops.name AS name, " +
+		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, " +
 				     "COUNT (coords_id) AS amount, " +
 				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield " +
 				     "FROM crops JOIN plot_coords USING (crop_id) " +
@@ -133,7 +123,7 @@ public class CropSqlDAO implements CropDAO {
 				     "GROUP BY crops.name, yield_lbs_per_square_foot ";
 		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
 		while(results.next()) {
-			Crop c = mapRowToCropDetails(results);
+			Crop c = mapRowToCrop(results);
 			plotCrops.add(c);
 		}
 		return plotCrops;
@@ -165,12 +155,6 @@ public class CropSqlDAO implements CropDAO {
 		c.setCropsPerSqFt(results.getInt("crops_per_square_foot"));
 		c.setSeed_cost(results.getDouble("seed_cost"));
 		c.setDescription(results.getString("description"));
-		return c;
-	}
-	
-	private Crop mapRowToCropDetails(SqlRowSet results) {
-		Crop c = new Crop();
-		c.setName(results.getString("name").toLowerCase());
 		c.setAmount(results.getInt("amount"));
 		c.setTotalYield(results.getInt("yield"));
 		return c;
