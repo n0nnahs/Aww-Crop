@@ -3,7 +3,7 @@
       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
       <h3 id="crop-name">{{crop.name}}</h3>
       <h3 id="crop-amount">{{crop.amount}} ft²</h3>
-      <h3 id="expected-yield">{{crop.yield}} lbs</h3>
+      <h3 id="expected-yield">{{crop.totalYield}} lbs</h3>
   </div>
 </template>
 
