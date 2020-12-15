@@ -74,9 +74,9 @@ public class PlotController {
 		return null;
 	}
 
-	@RequestMapping(value = "/notes/{plot_id}", method = RequestMethod.GET)
-	public List<Note> getAllNotesForPlot(@PathVariable int plot_id){
-		return dao.getAllNotesForPlot(plot_id);
+	@RequestMapping(value = "/notes/{user_id}", method = RequestMethod.GET)
+	public List<Note> getAllNotesForPlot(@PathVariable int user_id){
+		return dao.getAllNotesForUser(user_id);
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)

@@ -1,7 +1,7 @@
 <template>
   <div class="notecard">
     <h3 id="note-date">{{ note.date }}</h3>
-    <p id="note-body">{{ note.message }}</p>
+    <p id="note-body">{{ note.note }}</p>
     <button id="edit-note-button">Edit Note</button>
   </div>
 </template>

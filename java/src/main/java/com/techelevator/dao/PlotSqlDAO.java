@@ -101,12 +101,13 @@ public class PlotSqlDAO implements PlotDAO {
 	}
 
 	@Override
-	public List<Note> getAllNotesForPlot(int plotId) {
+	public List<Note> getAllNotesForUser(int userId) {
 		List<Note> notesForPlot = new ArrayList<>();
-		String sql = "SELECT note_id, plot_id, note "
+		String sql = "SELECT note_id, plot_id, note, date "
 				+ "FROM notes "
-				+ "WHERE plot_id = ?";
-		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
+				+ "JOIN users_plot USING(plot_id) "
+				+ "WHERE user_id = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sql, userId);
 		
 		while(results.next()) {
 			Note n = mapRowToNote(results);
@@ -137,6 +138,7 @@ public class PlotSqlDAO implements PlotDAO {
 		n.setNote(results.getString("note"));
 		n.setNote_id(results.getInt("note_id"));
 		n.setPlot_id(results.getInt("plot_id"));
+		n.setDate(results.getDate("date"));
 		return n;
 	}
 

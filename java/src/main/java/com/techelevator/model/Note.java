@@ -1,10 +1,13 @@
 package com.techelevator.model;
 
+import java.sql.Date;
+
 public class Note {
 	
 	public String note;
 	public int note_id;
 	public int plot_id;
+	public Date date;
 	
 	public Note(String note, int note_id, int plot_id) {
 		this.note = note;
@@ -42,6 +45,14 @@ public class Note {
 	}
 	public void setPlot_id(int plot_id) {
 		this.plot_id = plot_id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

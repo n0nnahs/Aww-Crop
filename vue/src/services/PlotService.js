@@ -17,8 +17,8 @@ export default {
   createNewNote(note){
       return axios.post('/plot/notes', note)
   },
-  getNotesForPlot(plotId){
-      return axios.get(`/plot/notes/${plotId}`)
+  getNotes(userId){
+      return axios.get(`/plot/notes/${userId}`)
   },
   updateNote(note, note_id){
       return axios.put(`/plot/notes/update/${note_id}, note`)
