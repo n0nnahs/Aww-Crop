@@ -8,7 +8,7 @@ public interface CropDAO {
 
 	List<Crop> listAll();
 	
-	List<Crop> listAllCropsInPlot(int plotId);
+	List<Crop> listAllCropsInActivePlots(int plotId);
 	
 	Crop getCropByName(String name);
 	

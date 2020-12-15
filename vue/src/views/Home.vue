@@ -109,9 +109,6 @@ export default {
   column-gap: 50px;
   border-radius: 3px;
 }
-#iplots{
-  background-color: #a53b58;
-}
 #add-new-plot-button {
   width: 100%;
   height: 55px;

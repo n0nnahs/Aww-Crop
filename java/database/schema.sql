@@ -48,7 +48,8 @@ CREATE TABLE crops
     yield_lbs_per_square_foot decimal(10, 2),
     crops_per_square_foot int,
     seed_cost decimal(10, 2),
-    description varchar(1000)
+    description varchar(1000),
+    api_name varchar(50)
 );
 
 CREATE TABLE notes
