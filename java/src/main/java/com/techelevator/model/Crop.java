@@ -55,8 +55,8 @@ public class Crop {
 	public double getYeild() {
 		return yeild;
 	}
-	public void setYeild(double d) {
-		this.yeild = d;
+	public void setYeild(double yeild) {
+		this.yeild = yeild;
 	}
 	public int getCropsPerSqFt() {
 		return cropsPerSqFt;
@@ -85,8 +85,8 @@ public class Crop {
 	public double getTotalYield() {
 		return totalYield;
 	}
-	public void setTotalYield(double d) {
-		this.totalYield = d;
+	public void setTotalYield(double totalYield) {
+		this.totalYield = totalYield;
 	}
 	public int getxCoordinate() {
 		return xCoordinate;
