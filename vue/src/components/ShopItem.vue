@@ -2,15 +2,15 @@
     <div id="main-grid" class="crop">
       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
       <h3 id="crop-name">{{crop.name}}</h3>
-      <h3 id="crop-amount">{{crop.amount}} ft²</h3>
-      <h3 id="cost">{{crop.yield}} lbs</h3>
+      <h3 id="crop-amount">{{crop.amount}} plants</h3>
+      <h3 id="cost">${{crop.yield}}</h3>
   </div>
 </template>
 
 <script>
 
 export default {
-    name: 'crop',
+    name: 'shop-item',
   props: {
     crop: Object
   }
@@ -69,7 +69,7 @@ img {
   justify-self: center;
 
 }
-#expected-yield{
+#cost{
   grid-area: cost;
   background: none;
   color:white;

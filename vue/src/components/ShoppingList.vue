@@ -11,7 +11,7 @@
     </div>
     <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
 
-         <crop  v-bind:crop="crop" v-bind:key="crop.name"></crop>
+         <shop-item  v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
 
     </div>
   </div>
@@ -19,7 +19,9 @@
 
 <script>
 import CropService from '../services/CropService';
-import Crop from '@/components/Crop.vue';
+// import Crop from '@/components/Crop.vue';
+import ShopItem from '@/components/ShopItem.vue';
+// import ShopItem from './ShopItem.vue';
 
 export default {
     name: 'shopping-list',
@@ -29,7 +31,8 @@ export default {
         });
     },
     components: {
-        Crop
+        
+        ShopItem
     },
     methods: {
       getCrops() {

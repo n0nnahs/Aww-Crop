@@ -51,9 +51,9 @@ export default {
   background-color: #4e2409;
   display: grid;
   column-gap: 20px;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
   grid-template-areas:
-    "plots my-crops";
+    "shopping-list";
 }
 #my-garden{
   text-align: center;

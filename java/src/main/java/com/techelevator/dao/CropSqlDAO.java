@@ -160,7 +160,7 @@ public class CropSqlDAO implements CropDAO {
 		Crop c = new Crop();
 		c.setId(results.getInt("crop_id"));
 		c.setName(results.getString("name").toLowerCase());
-		c.setYeild(results.getInt("yield_lbs_per_square_foot"));
+		c.setYeild(results.getDouble("yield_lbs_per_square_foot"));
 		c.setCropsPerSqFt(results.getInt("crops_per_square_foot"));
 		c.setSeed_cost(results.getDouble("seed_cost"));
 		c.setDescription(results.getString("description"));
@@ -171,7 +171,7 @@ public class CropSqlDAO implements CropDAO {
 		Crop c = new Crop();
 		c.setName(results.getString("name").toLowerCase());
 		c.setAmount(results.getInt("amount"));
-		c.setTotalYield(results.getInt("yield"));
+		c.setTotalYield(results.getDouble("yield"));
 		return c;
 	}
 	
