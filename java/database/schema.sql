@@ -45,7 +45,7 @@ CREATE TABLE crops
 (
     crop_id serial PRIMARY KEY,
     name varchar(25),
-    yield_lbs_per_square_foot int,
+    yield_lbs_per_square_foot decimal(10, 2),
     crops_per_square_foot int,
     seed_cost decimal(10, 2),
     description varchar(1000)
@@ -56,8 +56,9 @@ CREATE TABLE notes
     note_id serial PRIMARY KEY,
     plot_id int NOT NULL,
     note varchar(1000),
+    date date NOT NULL default current_timestamp,
     
-    constraint fk_notes_plot foreign key (note_id) references plot (plot_id)
+    constraint fk_notes_plot foreign key (plot_id) references plot (plot_id)
 );
 
 CREATE TABLE plot_coords

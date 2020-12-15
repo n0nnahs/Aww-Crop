@@ -20,8 +20,7 @@
           <div id="aplots">
               <active-plots></active-plots>
           </div>
-
-         <div id="iplots" v-show="notEmpty">
+          <div id="iplots" >
              <inactive-plots></inactive-plots>
           </div>
       </div >
@@ -98,6 +97,9 @@ export default {
   margin-bottom: 20px;
   column-gap: 50px;
   border-radius: 3px;
+}
+#iplots{
+  background-color: #a53b58;
 }
 #add-new-plot-button {
   width: 100%;

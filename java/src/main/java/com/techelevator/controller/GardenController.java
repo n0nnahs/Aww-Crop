@@ -36,7 +36,7 @@ public class GardenController {
             				  @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
 		//if you want to return a list of all crops for the users farm
 		if(userId > 0) {
-			return cropDao.listCropsForViewFarm(userId);
+			return cropDao.listAllCropsForUser(userId);
 		}
 		
 		//if you want to look up a list of crops by the plot 

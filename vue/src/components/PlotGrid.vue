@@ -1,7 +1,14 @@
 <template>
+<<<<<<< HEAD
   <div class="plot-component" v-if="!isLoading">
       <h2 id="garden-plot-header">Garden Plot</h2>
       <planter></planter>
+=======
+  <div class="plot-component">
+      <h2 id="garden-plot-header">
+          Find Your Inner Peas 
+      </h2>
+>>>>>>> 86dba5041ac21f2b6ffd2c51750a45ecbb17888e
       <div id="plot-grid">
       <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">

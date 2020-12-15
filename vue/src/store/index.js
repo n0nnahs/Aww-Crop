@@ -20,6 +20,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    showInactivePlots: false,
     token: currentToken || '',
     user: currentUser || {},
     // crops: [],
@@ -32,9 +33,20 @@ export default new Vuex.Store({
     },
     crops: [],
     plots: [],
-    header: false
+    header: false,
+    plot: {
+      id: "",
+      name: "",
+      length: "",
+      width: "",
+      active: ""
+    }
+
   },
   mutations: {
+    SET_PLOT(state, data) {
+      state.plot = data;
+    },
     SET_PLOTS(state, data) {
       state.plots = data;
     },
