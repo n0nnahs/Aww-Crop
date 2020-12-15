@@ -1,6 +1,6 @@
 <template>
   <div id="plot-page">
-    <h1 id="my-plot" v-bind:key="myPlot.name" >
+    <h1 id="my-plot">
       <i class="fas fa-seedling"></i>
         {{this.myPlot.name}}
       <i class="fas fa-seedling"></i>
@@ -30,7 +30,7 @@ export default {
     return {
       myPlot: {
         id: "",
-        name: "Lettuce Do Our Best",
+        name: "",
         length: "",
         width: "",
         active: ""
@@ -55,7 +55,7 @@ export default {
 
   },
   created(){
-    this.getPlotName;
+    this.getPlotName();
   }
 }
 </script>
