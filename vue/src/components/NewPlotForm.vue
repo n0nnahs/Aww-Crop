@@ -61,7 +61,7 @@ export default {
             .createNewPlot(this.plot)
             .then(response => {
                 if (response.status == 201) {
-                    this.$router.push("/plots");
+                    this.$router.go("/");
                 }
             })
             .catch(error => {
