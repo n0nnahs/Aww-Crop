@@ -6,11 +6,12 @@
       <i class="fas fa-seedling"></i>
     </h1>
     <div id="plots-body-grid">
-      <div id="plot-visual">
+      <div id="plot-visual" >
         <plot-grid></plot-grid>
       </div>
       <div id="notes-area">
         <notes></notes>
+        <my-crops></my-crops>
       </div>
     </div>
   </div>
@@ -18,13 +19,15 @@
 
 <script>
 import plotGrid from "../components/PlotGrid";
-import Notes from "../components/Notes.vue";
+import Notes from "../components/Notes.vue" 
+import MyCrops from '../components/MyCrops.vue';
 import plotService from "../services/PlotService";
 
 export default {
   components: { 
     plotGrid,
-    Notes
+    Notes,
+    MyCrops
   },
   data(){
     return {
@@ -66,6 +69,7 @@ export default {
   padding: 0 20px 20px 20px;
   background-color: #4e2409;
   
+  
 }
 #plots-body-grid {
   background-color: #4e2409;
@@ -86,7 +90,9 @@ export default {
 #plot-visual {
   grid-area: plot-visual;
   margin-top: 10px;
-  background-color:#4e2409;
+  background-color:#a53b58;
+  overflow: scroll;
+  scrollbar-color: rgba(67, 184, 13, 0.8);
 }
 #notes-area{
   grid-area: notes-area;
