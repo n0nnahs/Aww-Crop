@@ -146,9 +146,10 @@ public class CropSqlDAO implements CropDAO {
 	
 	public void updateCoordinateData(int plotId, Crop crop) {
 		String cropName = crop.getName();
+		int id = getCropId(cropName);
 		if(checkCropCoordinates(crop)) {
 			String sql = "UPDATE plot_coords SET crop_id = ? WHERE x = ? AND y = ?";
-			jdbc.update(sql, cropName, crop.getxCoordinate(), crop.getyCoordinate());
+			jdbc.update(sql, id, crop.getxCoordinate(), crop.getyCoordinate());
 
 		} else {
 			String sqlElse = "INSERT INTO plot_coords (coords_id, crop_id, plot_id, x, y) " + 
