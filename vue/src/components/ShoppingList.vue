@@ -122,6 +122,9 @@ button {
   border-radius: 3px;
   color: white;
   background-color: #83a126;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #randy:hover{
   margin: 10px;

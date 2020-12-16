@@ -31,9 +31,9 @@ export default {
     PlotCard
   },
   created() {
-        PlotService.getPlots(this.$store.state.user.id).then(response => {
-          this.$store.commit("SET_PLOTS", response.data);
-        });
+        // PlotService.getPlots(this.$store.state.user.id).then(response => {
+        //   this.$store.commit("SET_PLOTS", response.data);
+        // });
       
   }
 };

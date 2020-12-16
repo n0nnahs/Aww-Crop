@@ -21,7 +21,7 @@
               <active-plots id="activeplots" ></active-plots>
           </div>
           <div id="iplots" v-show="showInactivePlots">
-             <inactive-plots id="inactiveplots" ></inactive-plots>
+             <inactive-plots id="inactiveplots" :inactiveArray="inactiveArray"></inactive-plots>
           </div>
       </div>
       <my-crops id="my-crops"></my-crops>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import PlotService from '../services/PlotService';
 import ActivePlots from '../components/ActivePlots.vue';
 import MyCrops from '@/components/MyCrops.vue';
 import InactivePlots from '../components/InactivePlots.vue';
@@ -51,8 +52,12 @@ export default {
       };
   },
   created() {
-      this.showForm = false;
-      this.toShowOrNotToShow();
+          PlotService.getPlots(this.$store.state.user.id).then(response => {
+          this.$store.commit("SET_PLOTS", response.data);
+          this.showForm = false;
+          this.toShowOrNotToShow();
+        });
+
 
   },
   methods: {
@@ -67,6 +72,8 @@ export default {
       this.inactiveArray = this.$store.state.plots.filter((plot) => {
       return plot.active === false;
       });
+      console.log(this.inactiveArray);
+      console.log("goodbye world");
         if (this.inactiveArray.length > 0) {
           this.showInactivePlots = true; 
         } else {

@@ -12,11 +12,14 @@
 </template>
 
 <script>
+
 import PlotCard from '@/components/PlotCard.vue';
 
 export default {
   name: "inactive-plots",
-
+  props: {
+    inactiveArray: Array
+  },
    computed: {
 
     inactivePlots() {
