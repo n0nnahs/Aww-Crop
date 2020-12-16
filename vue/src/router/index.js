@@ -13,8 +13,10 @@ import ActivePlots from '../components/ActivePlots.vue'
 import MyCrops from '../components/MyCrops.vue'
 import Crop from '../components/Crop.vue'
 import Notes from '../components/Notes.vue'
+import CropDetails from '../views/CropDetails.vue'
 import SeedList from '../views/SeedList.vue'
 import Print from '../views/Print.vue'
+import PlotCrop from '../components/PlotCrop.vue'
 
 Vue.use(Router)
 
@@ -88,6 +90,14 @@ const router = new Router({
       }
     },
     {
+      path: "/crop-details/:name",
+      name: "crop-details",
+      component: CropDetails,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/seedlist",
       name: "seed-list",
       component: SeedList,
@@ -117,6 +127,15 @@ const router = new Router({
       path: "/sample-plot",
       name: "sample-plot",
       component: ActivePlots, InactivePlots,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      /*for testing/viewing, will be deleted*/
+      path: "/plot-crop",
+      name: "plot-crop",
+      component: PlotCrop,
       meta: {
         requiresAuth: false
       }

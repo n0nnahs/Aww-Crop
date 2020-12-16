@@ -1,35 +1,113 @@
 <template>
-  <div>
-    <img id="plant" src="../assets/dirt.jpg" />
-    <div v-bind:value="cropCell">
-      
-      <img v-if='cropCell.name !==""' id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)" />
+  <div class="plot-crop-container">
+    <h2 id="crops-planted-h2">Crops in This Plot</h2>
+    <div id="labels">
+      <h3 id="icon">
+        <i class="fas fa-seedling"></i>
+      </h3>
+      <h3 id="crop-name">Crop</h3>
+      <h3 id="amount">Planted</h3>
+      <h3 id="yield">Harvest</h3>
+    </div>
+    <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
+      <router-link style="text-decoration: none;" :to="`crop-details/${crop.name}`" >
+         <crop  v-bind:crop="crop" v-bind:key="crop.name"></crop>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import CropService from '../services/CropService';
+import Crop from '@/components/Crop.vue';
+
 export default {
-    name: "plot-crop",
-    data(){
-      return{
-        cropCell: Object
-      }
+    name: 'my-crops',
+    created () {
+      CropService.listCropsForOnePlot(this.$store.state.plot.id).then(response => {
+        this.$store.commit("SET_CROPS", response.data);
+        });
     },
-    props: [
-         
-      ],
+    components: {
+        Crop
+    },
     methods: {
-      cropIcon(){
-        let iconImg = "../assets/broccoli.jpeg";
-        return iconImg;
+      getCrops() {
+        
       }
     }
-    
-}
+
+};
 </script>
 
 <style scoped>
 
+#labels h3{
+  padding: 0px;
+  margin: 0px;
+}
+.plot-crop-container{
+  color: white;
+  background-color: #a53b58;
+  border-radius: 3px;
+}
+#crops-planted-h2{
+  font-size: 32px !important;
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 10px;
+  border-radius: 3px;
+}
+#labels{
+  display: grid;
+  grid-template-columns:1fr 2fr 2fr 2fr;
+  grid-template-areas:
+    "icon carp amount yield";
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  padding-right: 10px;
+  background-color: white;
+  color: #fe6f15;
+  border-radius: 3px;
+  margin-bottom: 0px !important;
+  align-items: center;
+}
+#icon{
+  grid-area: icon;
+  text-align: center;
+  font-size: 25px !important;
+  font-weight: bold !important;
+  padding-top: 5px;
+  padding-left:30px;
+  color: #83a126;
+}
+#crop-name{
+  grid-area: carp;
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  padding-left: 20px;
+}
+#amount{
+  grid-area: amount;
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  padding-left: 15px;
+}
+#yield{
+  grid-area: yield;
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+#crop-list{
+  margin-top: 0px;
+  border-radius: 3px;
+  color:white;
+}
 
 </style>
