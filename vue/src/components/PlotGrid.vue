@@ -1,7 +1,7 @@
 <template>
   <div class="plot-component" v-if="this.plotIsLoading">
       <h2 id="garden-plot-header">
-          Find Your Inner Peas 
+          Find Your Inner Peas
       </h2>
       <planter id="planter-choice" v-if="!this.planterViewable" v-bind="cropSquare"></planter>
       <div id="plot-grid">

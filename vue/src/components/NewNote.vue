@@ -1,9 +1,6 @@
 <template>
   <section id="notes-section">
     <div>
-      <h2 id="notes-h2">Notes</h2>
-    </div>
-    <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
         <textarea class="message-input" placeholder="Note" v-model="note.message" />
         <button class="wendy">Save Note</button>
@@ -61,14 +58,14 @@ textarea{
   width: 100%;
   border-radius: 3px;
 }
-#notes-h2{
+/* #notes-h2{
   font-size: 32px !important;
   text-align: center;
   color: white;
   background-color: #fe6f15;
   padding: 10px;
   border-radius: 3px;
-}
+} */
 
 .notes-list {
   display:flex;

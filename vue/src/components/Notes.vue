@@ -1,12 +1,11 @@
 <template>
   <section id="notes-section">
     <div>
-      <h2 id="notes-h2">Notes</h2>
-    </div>
-    <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
         <textarea class="message-input" placeholder="Note" v-model="newNote.note" />
-        <button>Save Note</button>
+      <div id="medvitz">
+        <button id="tom">Save Note</button>
+      </div>
       </form>
     </div>
     <div class="notes-list">
@@ -104,5 +103,31 @@ textarea{
 .new-note-form input, .new-note-form button {
     margin: 10px;
     font-size: 1rem;
+}
+#tom{
+  width: 30%;
+  font-size: 18px;
+  border-radius: 3px;
+  text-align: center;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: #83a126;
+  color: white;
+  border-style: none;
+}
+#tom:hover{
+  width: 30%;
+  font-size: 18px;
+  border-radius: 3px;
+  text-align: center;
+  border-radius: 3px;
+  color: #83a126;
+  background-color: white;
+  border-style: none;
+}
+#medvitz{
+  display: flex;
+  justify-content: space-around;
+
 }
 </style>
