@@ -131,6 +131,8 @@ textarea{
 #medvitz{
   display: flex;
   justify-content: space-around;
-
+}
+.message-input{
+  outline-color:#83a126 !important;
 }
 </style>
