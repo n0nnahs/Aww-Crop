@@ -90,4 +90,14 @@ public class PlotController {
 	public void updateNote(@Valid @RequestBody Note updateNote, @PathVariable int id) {
 		dao.updateNote(updateNote, id);
 	}
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	@RequestMapping(value = "/abandon/{plotId}", method = RequestMethod.PUT)
+	public void abandonPlot(@PathVariable int plotId) {
+		dao.abandonPlot(plotId);
+	}
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	@RequestMapping(value = "/activate/{plotId}", method = RequestMethod.PUT)
+	public void activatePlot(@PathVariable int plotId) {
+		dao.abandonPlot(plotId);
+	}
 }
