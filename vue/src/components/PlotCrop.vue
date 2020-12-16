@@ -8,6 +8,7 @@
       </h3>
       <h3 id="crop-name">Crop</h3>
       <h3 id="amount">Planted</h3>
+      <h3 id="square">Plants/ft&sup2;</h3>
       <h3 id="yield">Harvest</h3>
     </div>
     <div id="crop-list" v-for="crop in cropsForPlot" v-bind:key="crop">
@@ -67,9 +68,9 @@ export default {
 }
 #labels{
   display: grid;
-  grid-template-columns:1fr 2fr 2fr 2fr;
+  grid-template-columns:1fr 2fr 2fr 2fr 2fr;
   grid-template-areas:
-    "icon carp amount yield";
+    "icon carp amount square yield";
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -92,6 +93,13 @@ export default {
 }
 #crop-name{
   grid-area: carp;
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  padding-left: 20px;
+}
+#square{
+  grid-area: square;
   text-align: center;
   font-size: 20px !important;
   font-weight: bold !important;

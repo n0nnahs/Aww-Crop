@@ -3,6 +3,7 @@
       <img id="crop-image" :src="require(`../assets/${crop.name}.jpeg`)">  
       <h3 id="crop-name">{{crop.name}}</h3>
       <h3 id="crop-amount">{{crop.amount}} ft²</h3>
+      <h3 id="crop-square">{{crop.cropsPerSqFt}}</h3>
       <h3 id="expected-yield">{{crop.totalYield}} lbs</h3>
   </div>
 </template>
@@ -22,9 +23,9 @@ export default {
 #main-grid{
   display: grid;
   grid-auto-flow:row;
-  grid-template-columns:1fr 2fr 2fr 2fr;
+  grid-template-columns:1fr 2fr 2fr 2fr 2fr;
   grid-template-areas:
-    "image crop-name crop-amount expected-yield";
+    "image crop-name crop-amount crop-square expected-yield";
   padding: 10px;
   color: white;
   background-color: #BA7331;
@@ -60,7 +61,15 @@ img {
   padding-left: 5px;
   align-self:center;
   justify-self: center;
-
+}
+#crop-square{
+  grid-area: crop-square;
+  color:white;
+  font-size: 20px;
+  padding-top: 7px;
+  padding-left: 5px;
+  align-self:center;
+  justify-self: center;
 }
 #expected-yield{
   grid-area: expected-yield;
