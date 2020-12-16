@@ -1,5 +1,8 @@
 <template>
   <div class="shopping-list">
+    <div id="back-button">
+      <button @click="$router.go(-1)">Go Back</button>
+    </div>
     <h1 id=pineapples>
       <i class="fas fa-seedling"></i>
       My Shopping List
@@ -11,9 +14,7 @@
       <h3 id="cost">Approximate Cost</h3>
     </div>
     <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
-
          <shop-item v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
-
     </div>
   </div>
 </template>
@@ -116,9 +117,9 @@ button {
   border-radius: 3px;
   align-self:center;
 }
-#button {
+#back-button {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 </style>
