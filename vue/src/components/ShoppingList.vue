@@ -14,7 +14,7 @@
 
     </div>
     <div id="button">
-      <router-link to="/seedlist/print">
+      <router-link :to="{ name: 'print', params: { plotId: this.$route.params.plotId }}">
         <button id="randy">Printer Friendly Version</button>
       </router-link>
     </div>
