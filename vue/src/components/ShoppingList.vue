@@ -1,9 +1,7 @@
 <template>
   <div class="shopping-list">
     <h1 id=pineapples>
-      <i class="fas fa-seedling"></i>
       My Shopping List
-      <i class="fas fa-seedling"></i>
     </h1>
     <div id="labels">
       <h3 id="carp">Crop</h3>
@@ -125,17 +123,18 @@ button {
 #randy{
   margin: 10px;
   border-radius: 3px;
-  color: white;
-  background-color: #83a126;
+  background-color: white;
+  color: #83a126;
   padding: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bold;
 }
 #randy:hover{
   margin: 10px;
   border-radius: 3px;
-  background-color: white;
-  color: #83a126;
+  color: white;
+  background-color: #83a126;
 }
 @media (max-width: 400px){
 #pineapples{

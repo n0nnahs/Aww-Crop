@@ -157,7 +157,6 @@ export default {
   border-radius: 3px;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
   color: white !important;
   background-color: #83a126;
 }

@@ -1,9 +1,6 @@
 <template>
   <section id="notes-section">
     <div>
-      <h2 id="notes-h2">Notes</h2>
-    </div>
-    <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
         <textarea class="message-input" placeholder="Note" v-model="newNote.note" />
       <div id="medvitz">

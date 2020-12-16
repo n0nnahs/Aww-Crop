@@ -1,6 +1,7 @@
 <template>
   <div class="plot-crop-container">
-    <h2 id="crops-planted-h2">Crops in This Plot</h2>
+    <h2 id="crops-planted-h2">
+      Crops in This Plot</h2>
     <div id="labels">
       <h3 id="icon">
         <i class="fas fa-seedling"></i>
