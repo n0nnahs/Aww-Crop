@@ -34,6 +34,13 @@ export default new Vuex.Store({
     crops: [],
     plots: [],
     header: false,
+    notes: [],
+    note:{
+      date: '',
+      note: '',
+      note_id: '',
+      plot_id: ''
+    },
     plot: {
       id: "",
       name: "",
@@ -52,6 +59,9 @@ export default new Vuex.Store({
     },
     SET_CROPS(state, data){
       state.crops = data;
+    },
+    SET_NOTES(state, data){
+      state.notes = data;
     },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;

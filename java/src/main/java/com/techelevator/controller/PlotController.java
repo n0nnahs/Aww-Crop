@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ import com.techelevator.dao.CropDAO;
 import com.techelevator.dao.PlotDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Crop;
+import com.techelevator.model.Note;
 import com.techelevator.model.Plot;
 
 @RestController
@@ -38,18 +40,7 @@ public class PlotController {
 		this.cropDao = cropDao;
 	}
 	
-//	@RequestMapping(value = "", method = RequestMethod.GET)
-//	public List<Plot> list(@RequestParam(value = "user_id", defaultValue = "0") int userId,
-//						   @RequestParam(value = "plot_id", defaultValue = "0") int plotId){
-//		if(userId > 0) {
-//			return dao.listAllForUser(userId);
-//		}
-//		if(plotId > 0) {
-////			return dao.plotById(plotId);
-//		}
-//		return null;
-//	}
-//	
+
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public List<Plot> list(@PathVariable("id") int userId){
 		return dao.listAllForUser(userId);
@@ -57,42 +48,23 @@ public class PlotController {
 
     @ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public void createPlot(@Valid @RequestBody Plot newPlot, Principal p) {
+	public int createPlot(@Valid @RequestBody Plot newPlot, Principal p) {
     	
 		//creates a new plot and returns the new plots ID
     	int plotId = dao.create(newPlot);
     	
 		//adds the new plot and the user who created the plot to the user_plot table
 		dao.userPlot(daoUser.findIdByUsername(p.getName()), plotId);
+		return plotId;
 	}
     
-// Randy's testing code below...will delete //
-    
-    @RequestMapping(value = "/{user_id}", method = RequestMethod.GET)
-	public List<Plot> breakfast(@PathVariable int user_id){
-		if(user_id > 0) {
-			return dao.listAllForUser(user_id);
-		}
-		return null;
-    }
-    
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public Plot lunch(@RequestParam int plotId){
 
+	@RequestMapping(value = "/{plotId}", method = RequestMethod.GET)
+	public Plot lunch(@PathVariable("plotId") int plotId){
 			return dao.plotById(plotId);
 
 	}
     
-//    @ResponseStatus(HttpStatus.CREATED)
-//	@RequestMapping(value = "", method = RequestMethod.POST)
-//	public void createPlot(@RequestParam int userId, @Valid @RequestBody Plot newPlot) {
-//		int plotId = dao.create(newPlot);
-//		
-//		dao.userPlot(userId, plotId);
-//	}
-   
-// Randy's testing code above...will delete //
-	
 	
 	@RequestMapping(value = "/myplot", method = RequestMethod.GET)
 	public List<Crop> listCropsForOnePlot (@RequestParam int plotId){
@@ -101,11 +73,21 @@ public class PlotController {
 		}
 		return null;
 	}
-//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//	public List<Crop> listCropsForOnePlot (@PathVariable("id") int plotId){
-//		return cropDao.listCropsForOnePlot(plotId);
-//	}
+
+	@RequestMapping(value = "/notes/{user_id}", method = RequestMethod.GET)
+	public List<Note> getAllNotesForPlot(@PathVariable int user_id){
+		return dao.getAllNotesForUser(user_id);
+	}
 	
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = "/notes", method = RequestMethod.POST)
+	public void createNewNote(@Valid @RequestBody Note newNote) {
+		dao.addNewNote(newNote);
+	}
 	
-	
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	@RequestMapping(value = "/notes/update/{id}", method = RequestMethod.PUT)
+	public void updateNote(@Valid @RequestBody Note updateNote, @PathVariable int id) {
+		dao.updateNote(updateNote, id);
+	}
 }

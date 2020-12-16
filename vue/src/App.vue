@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav" v-show="$route.name !== 'welcome'">
+    <div id="nav" v-show="$route.name !== 'welcome' && $route.name !== 'print'">
       <router-link style="color:  #a53b58;" v-bind:to="{ name: 'home' }">Home</router-link> 
       <span v-if="$store.state.token != ''">&nbsp;|&nbsp;</span>
       <router-link style="color:  #a53b58;" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
-    <header class="header" v-show="$route.name !== 'welcome'">
+    <header class="header" v-show="$route.name !== 'welcome' && $route.name !== 'print'">
     </header>
     <router-view />
   </div>
