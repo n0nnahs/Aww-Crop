@@ -25,6 +25,10 @@
             <button class="btn btn-submit" v-on:click="assignPlotInfo">Submit</button>
             <button class="btn btn-cancel" v-on:click="cancelClick" type="cancel">Cancel</button>
       </form>
+      <div>
+        <input type='checkbox' v-model="inactivePlot" v-on:change='inactivatePlot' />
+        Check to make plot inactive.
+        </div>
   </div>
 </template>
 
@@ -36,6 +40,7 @@ export default {
     props: [ 'cropSquare' ],
     data(){
         return {
+            inactivePlot: false,
             vName: "",
             vegetable: {
                 name: "",
@@ -44,14 +49,40 @@ export default {
                 yCoordinate: ""
             },
             errorMsg: "",
-            isLoading: false
+            isLoading: false,
+            
         }
     },
     methods: {
-        onChange: function(e){
-            let name = e.target.value;
-            console.log('name ', name );
-            this.vegetable.name = name;
+        plotStatus(){
+            this.$store.state.plots.array.forEach(element => {
+                if(element.active === false){
+                    this.inactivePlot = true;
+                }
+            });
+        },
+        inactivatePlot(){
+            if(this.inactivePlot){
+                PlotService.updatePlotActive(this.$route.params.plotId)
+                .then( response => {
+                    if(response.status === 201){
+                        console.log("updated");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error.status);
+                })
+            } else {
+                PlotService.updatePlotInactive(this.$route.params.plotId)
+                .then( response => {
+                    if(response.status === 201){
+                        console.log("updated");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error.status);
+                })
+            }
         },
         cancelClick(){
             this.$parent.planterViewable = true;
@@ -100,6 +131,7 @@ export default {
     },
     created(){
         this.assignPlotInfo();
+        this.plotStatus();
         }
     }
 }

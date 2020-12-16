@@ -28,5 +28,11 @@ export default {
   },
   updateCrop(crop){
     return axios.put(`/crops/myplot?plotId=${crop.plotId}`, crop)
+  },
+  updatePlotActive(plotId){
+    return axios.put(`/activate/${plotId}`)
+  },
+  updatePlotInactive(plotId){
+    return axios.put(`/abandon/${plotId}`)
   }
 }

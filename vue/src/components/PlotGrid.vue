@@ -3,7 +3,8 @@
       <h2 id="garden-plot-header">
           Find Your Inner Peas 
       </h2>
-      <planter id="planter-choice" v-if="!this.planterViewable" v-bind="cropSquare"></planter>
+      <!--v-if="!this.planterViewable"-->
+      <planter id="planter-choice"  v-bind="cropSquare"></planter>
       <div id="plot-grid">
       <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
@@ -193,14 +194,14 @@ template{
 
 #crop{
     border: .5vw solid rgb(87, 53, 22);
-    height: 5vw;
-    width: 5vw;
+
     padding: 0vw;
 }
 
 #plant{
-  height:5vw;
-  width: 5vw;
+  height:6vw;
+  width: 6vw;
+  flex: 1 1 auto;
   padding: 0vw;
 }
 
