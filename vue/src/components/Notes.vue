@@ -2,7 +2,7 @@
   <section id="notes-section">
     <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
-        <textarea class="message-input" placeholder="Note" v-model="newNote.note" />
+        <textarea class="message-input" placeholder="Note" v-model="newNote.note" required></textarea>
       <div id="medvitz">
         <button id="tom">Save Note</button>
       </div>

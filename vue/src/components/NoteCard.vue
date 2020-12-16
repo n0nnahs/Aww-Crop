@@ -19,7 +19,7 @@ export default {
          PlotService.deleteNote(this.note.note_id).then(response => {
            if(response.status === 202){
              alert("Note successfully deleted");
-            //  this.$router.go('/');
+              this.$router.go('/');
            }
          })
       }
