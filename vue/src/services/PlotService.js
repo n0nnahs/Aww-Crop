@@ -28,5 +28,5 @@ export default {
   },
   updateCrop(crop){
     return axios.put(`/crops/myplot?plotId=${crop.plotId}`, crop)
-
+  }
 }

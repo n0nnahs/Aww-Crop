@@ -203,5 +203,11 @@ public class CropSqlDAO implements CropDAO {
 		return c;
 	}
 
+	@Override
+	public Crop getTopCropForPlot(int plotId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

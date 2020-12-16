@@ -1,9 +1,9 @@
 <template>
-  <div class="plot-component">
+  <div class="plot-component" v-if="this.plotIsLoading">
       <h2 id="garden-plot-header">
           Find Your Inner Peas 
       </h2>
-      <planter></planter>
+      <planter id="planter-choice" v-if="!this.planterViewable" v-bind="cropSquare"></planter>
       <div id="plot-grid">
       <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
@@ -27,7 +27,8 @@ export default {
         return{
             //defaultImg: 'require("../assets/dirt.jpg")',
             plotNotFound: false,
-            isLoading: true,
+            planterViewable: true,
+            plotIsLoading: false,
             plotGrid: [],
             cropSquare: {
                 name: "",
@@ -48,7 +49,6 @@ export default {
         grid(){
             //take in height and create number of arrays in plotGrid
             //take in width and create length of arrays in plotGrid
-
             let urlPlotId = this.$route.params.plotId;
             plotService.getPlotById(urlPlotId)
                 .then(response => {
@@ -77,7 +77,6 @@ export default {
                 .catch(error => {
                     console.log(error.status)
                 });
-
         },
         assignCrops(){
             let urlPlotId = this.$route.params.plotId;
@@ -85,7 +84,7 @@ export default {
             plotService.getPlotCoordId(urlPlotId)
                 .then(response => {
                     if (response.status == 200) {
-                        console.log(response.status);
+                        console.log(response.status, "crops came in");
                         this.$store.commit("SET_PLOT_GRID", response.data);
 
                         let arr = this.$store.state.plotGrid;
@@ -95,7 +94,9 @@ export default {
                             let y = element.yCoordinate;
                             this.plotGrid[x][y] = element;
                         });
-                        this.isLoading = false;
+                        console.log("still working")
+                        this.plotIsLoading = true;
+                        console.log("should show")
                     }
                 })
                 .catch(error => {
@@ -107,10 +108,19 @@ export default {
 
         },
         clickCrop(y, x, plotId, name){
+            this.planterViewable = false;
             if(name === "dirt"){
                 console.log(x, y, plotId, "empty plot");
+                this.cropSquare.name = "empty";
+                this.cropSquare.xCoordinate = x;
+                this.cropSquare.yCoordinate = y;
+                this.cropSquare.plotId = this.$route.params.plotId;
             } else {
                 console.log(x, y, name)
+                this.cropSquare.name = name;
+                this.cropSquare.xCoordinate = x;
+                this.cropSquare.yCoordinate = y;
+                this.cropSquare.plotId = this.$route.params.plotId;
             }
             
         },
@@ -137,6 +147,10 @@ export default {
   border-radius: 3px;
 }
 
+#planter-choice{
+    text-align: center;
+}
+
 #error{
     color: red;
 }
@@ -147,13 +161,11 @@ template{
 
 .plot-component{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     color: white;
     background-color: #a53b58;;
     border-radius: 3px;
-    padding-top: 10%;
-    padding-right: 5%;
-    padding-left: 5%;
     padding-bottom: 10%;
 }
 

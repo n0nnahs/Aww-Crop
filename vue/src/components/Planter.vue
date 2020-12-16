@@ -1,30 +1,30 @@
 <template>
-  <div v-bind="cropSquare">
-      <form v-on:submit.prevent="assignName" class="cardForm">
-            <label for="cars">Choose a vegetable:</label>
-            <select id="vegetables" name="Vegetables">               
-                <option value="beets">{{value}}</option>
-                <option value="broccoli">{{value}}</option>
-                <option value="brussels-sprouts">{{value}}</option>
-                <option value="cabbage">{{value}}</option>
-                <option value="carrots">{{value}}</option>
-                <option value="cauliflower">{{value}}</option>
-                <option value="celery">{{value}}</option>
-                <option value="corn">{{value}}</option>
-                <option value="cucumbers">{{value}}</option>
-                <option value="lettuce">{{value}}</option>
-                <option value="onions">{{value}}</option>
-                <option value="peas">{{value}}</option>
-                <option value="peppers">{{value}}</option>
-                <option value="potatoes">{{value}}</option>
-                <option value="radishes">{{value}}</option>
-                <option value="spinach">{{value}}</option>
-                <option value="tomatoes">{{value}}</option>
-                <option value="turnips">{{value}}</option>
-                <option value="dirt">{{value}}</option>
+  <div v-bind="cropSquare"  >
+      <form v-on:submit.prevent="submitNewCropToDatabase" class="cardForm" >
+            <select id="vegetables" name="vegetable" v-model="vName">
+                <option value="">Select a vegetable</option>
+                <option value="beets">Beets</option>
+                <option value="broccoli">Broccoli</option>
+                <option value="brussels-sprouts">Brussels-Sprouts</option>
+                <option value="cabbage">Cabbage</option>
+                <option value="carrots">Carrots</option>
+                <option value="cauliflower">Cauliflower</option>
+                <option value="celery">Celery</option>
+                <option value="corn">Corn</option>
+                <option value="cucumbers">Cucumbers</option>
+                <option value="lettuce">Lettuce</option>
+                <option value="onions">Onions</option>
+                <option value="peas">Peas</option>
+                <option value="peppers">Peppers</option>
+                <option value="potatoes">Potatoes</option>
+                <option value="radishes">Radishes</option>
+                <option value="spinach">Spinach</option>
+                <option value="tomatoes">Tomatoes</option>
+                <option value="turnips">Turnips</option>
+                <option value="dirt">Dirt</option>
             </select>
-            <button class="btn btn-submit">Submit</button>
-            <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
+            <button class="btn btn-submit" v-on:click="assignPlotInfo">Submit</button>
+            <button class="btn btn-cancel" type="cancel">Cancel</button>
       </form>
   </div>
 </template>
@@ -37,32 +37,39 @@ export default {
     props: [ 'cropSquare' ],
     data(){
         return {
+            vName: "",
             vegetable: {
                 name: "",
                 plotId: "",
                 xCoordinate: "",
                 yCoordinate: ""
             },
-            errorMsg: ""
+            errorMsg: "",
+            isLoading: false
         }
     },
     methods: {
-        assignPlotInfo(){
-            this.vegetable.name = this.cropSquare.name;
-            this.vegetable.plotId = this.cropSquare.plotId;
-            this.vegetable.xCoordinate = this.cropSquare.xCoordinate;
-            this.vegetable.yCoordinate = this.cropSquare.yCoordinate;
+        onChange: function(e){
+            let name = e.target.value;
+            console.log('name ', name );
+            this.vegetable.name = name;
         },
-        assignName(plantName){
-            this.vegetable.name = plantName;
-            if(this.vegetable.name !== ""){
-                this.submitNewCropToDatabase();
-            }
+        assignName(){
+            console.log(this.vegetable)
+            
+        },        
+        assignPlotInfo(){
+            console.log("assignplotinfor");
+            this.vegetable.name = this.vName;
+            this.vegetable.plotId = this.$attrs.plotId;
+            this.vegetable.xCoordinate = this.$attrs.xCoordinate;
+            this.vegetable.yCoordinate = this.$attrs.yCoordinate;
         },
         submitNewCropToDatabase(){
+            this.assignPlotInfo();
             PlotService.plantNewCrop(this.vegetable).then(response => {
                 if(response.status === 201){
-                    //route back
+                    console.log("win");
                 }
             })
             .catch((error) => {
@@ -84,8 +91,11 @@ export default {
                 console.log(this.errorMsg);
             })
     },
-    created(){
+    computed: {
 
+    },
+    created(){
+        this.assignPlotInfo();
         }
     }
 }
