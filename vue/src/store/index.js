@@ -32,8 +32,18 @@ export default new Vuex.Store({
     },
     crops: [],
     plots: [],
+    cropsForPlot: [],
     header: false,
     notes: [],
+    crop: {
+      crop_id: '',
+      name: '',
+      yield_lbs_per_square_foot: '',
+      crops_per_square_foot: '',
+      seed_cost: '',
+      description: '',
+      api_name: ''
+    },
     note:{
       date: '',
       note: '',
@@ -80,6 +90,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_PLOT_CROPS(state, crops){
+      state.cropsForPlot = crops;
     },
     SAVE_NOTE(state, note) {
       state.notes.push(note)

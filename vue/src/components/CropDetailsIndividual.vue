@@ -58,7 +58,6 @@ h5 {
 #details-container{
   color: white;
   background-color: #a53b58;
-  border-radius: 3px;
 }
 #crop-name-h2{
   font-size: 32px !important;

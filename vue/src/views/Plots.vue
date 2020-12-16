@@ -15,7 +15,12 @@
         <plot-crop></plot-crop>
       </div>
       <div id="notes-area">
-        <notes></notes>
+          <button id="view-notes" v-on:click="toggleNotes">
+            <i class="fas fa-seedling"></i>
+              View Notes 
+            <i class="fas fa-seedling"></i>
+          </button><br/>
+        <notes v-show="showNotes"></notes>
       </div>
       <div id="shopping-list">
         <shopping-list></shopping-list>
@@ -40,6 +45,7 @@ export default {
   },
   data(){
     return {
+      showNotes: false,
       myPlot: {
         id: "",
         name: "",
@@ -63,7 +69,15 @@ export default {
                 .catch(error => {
                     console.log(error.status)
                 });
+          },
+
+    toggleNotes() {
+          if(this.showNotes == false) {
+            this.showNotes = true;
+          } else {
+            this.showNotes = false;
           }
+    },
 
   },
   created(){
@@ -87,6 +101,7 @@ export default {
 #my-plot{
   grid-area: my-plot;
   text-align: center;
+  margin-top: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color:#ba7331;
@@ -109,9 +124,29 @@ export default {
 }
 #notes-area{
   grid-area: notes-area;
+  overflow:auto;
+  background-color: #a53b58;
 }
 #shopping-list{
   margin-top:20px;
+}
+#view-notes{
+  width: 100%;
+  font-size: 32px !important;
+  text-align: center;
+  color: #83a126;
+  background-color: white;
+  padding: 8px;
+  border-radius: 3px;
+}
+#view-notes:hover{
+  width: 100%;
+  font-size: 32px !important;
+  text-align: center;
+  background-color: #83a126;
+  color: white;
+  padding: 8px;
+  border-radius: 3px;
 }
 @media (max-width: 800px){
 
@@ -147,7 +182,11 @@ export default {
     grid-area: shopping-list;
   }
 }
-
+@media (max-width: 400px){
+#my-plot{
+  font-size: 32px;
+}
+}
 
 
 </style>

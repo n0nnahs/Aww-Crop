@@ -1,16 +1,14 @@
 <template>
   <div class="shopping-list">
     <h1 id=pineapples>
-      <i class="fas fa-seedling"></i>
       My Shopping List
-      <i class="fas fa-seedling"></i>
     </h1>
     <div id="labels">
       <h3 id="carp">Crop</h3>
       <h3 id="amount">Amount Needed</h3>
       <h3 id="cost">Approximate Cost</h3>
     </div>
-    <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
+    <div id="crop-list" v-for="crop in cropsForPlot" v-bind:key="crop">
 
          <shop-item  v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
 
@@ -29,10 +27,15 @@ import ShopItem from '@/components/ShopItem.vue';
 
 export default {
     name: 'shopping-list',
+    data(){
+      return{
+        cropsForPlot:[],
+      }
+    },
     created () {
-      CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
-        this.$store.commit("SET_CROPS", response.data);
-        });
+      CropService.listCropsForOnePlot(this.$route.params.plotId).then(response => {
+        this.cropsForPlot = response.data;
+      });
     },
     components: {
         
@@ -120,14 +123,42 @@ button {
 #randy{
   margin: 10px;
   border-radius: 3px;
-  color: white;
-  background-color: #83a126;
+  background-color: white;
+  color: #83a126;
+  padding: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bold;
 }
 #randy:hover{
   margin: 10px;
   border-radius: 3px;
-  background-color: white;
-  color: #83a126;
+  color: white;
+  background-color: #83a126;
 }
-
+@media (max-width: 400px){
+#pineapples{
+  font-size: 24px !important;
+}
+#carp{
+  grid-area: carp;
+  text-align: left;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding-left: 40px !important;
+}
+#amount{
+  grid-area: amount;
+  text-align: left;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding-left: 15px;
+}
+#cost{
+  grid-area: cost;
+  text-align: center;
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+}
 </style>
