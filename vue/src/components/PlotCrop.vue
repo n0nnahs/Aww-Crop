@@ -10,7 +10,7 @@
       <h3 id="yield">Harvest</h3>
     </div>
     <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
-      <router-link style="text-decoration: none;" :to="{ name: 'crop-details', params: { name: crop.name }}" >
+      <router-link style="text-decoration: none;" :to="{ name: 'crop-details', params: { name: crop.api_name }}" >
          <crop  v-bind:crop="crop" v-bind:key="crop.name"></crop>
       </router-link>
     </div>
@@ -34,7 +34,7 @@ export default {
     CropService.listCropsForOnePlot(this.$store.state.plot.id).then(response => {
       this.$store.commit("SET_CROPS", response.data);
     });
-  }
+  } 
 };
 </script>
 
