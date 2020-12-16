@@ -16,6 +16,7 @@
       </div>
       <div id="notes-area">
         <notes></notes>
+        <my-crops></my-crops>
       </div>
       <div id="notes-area">
         <shopping-list></shopping-list>
@@ -26,9 +27,9 @@
 
 <script>
 import plotGrid from "../components/PlotGrid";
-import plotCrop from "../components/PlotCrop";
-import Notes from "../components/Notes.vue";
-import shoppingList from "../components/ShoppingList.vue";
+import Notes from "../components/Notes.vue" 
+import plotCrop from '../components/PlotCrop.vue';
+import shoppingList from '../components/ShoppingList.vue';
 import plotService from "../services/PlotService";
 
 export default {
