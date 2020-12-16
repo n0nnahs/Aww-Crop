@@ -23,8 +23,8 @@
           <div id="iplots" v-show="showInactivePlots">
              <inactive-plots id="inactiveplots" ></inactive-plots>
           </div>
-      </div >
-      <my-crops id="my-crops" ></my-crops>
+      </div>
+      <my-crops id="my-crops"></my-crops>
     </div>
   </div>
 </template>
@@ -92,7 +92,7 @@ export default {
       } 
   
 .home {
-  padding: 0 20px 20px 20px;
+  padding: 20px;
   background-color: #4e2409;
 }
 #home-grid {
@@ -105,8 +105,8 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   background-color:#ba7331;
   border-radius: 3px;
   margin-top: 10px;
@@ -121,7 +121,7 @@ export default {
   margin-top: 0px;
   margin-bottom: 20px;
   column-gap: 50px;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 #iplots{
   background-color: #a53b58;
@@ -131,19 +131,36 @@ export default {
 }
 #add-new-plot-button {
   width: 100%;
-  height: 55px;
+  height: 65px;
   font-size: 32px;
-  border-radius: 3px;
+  align-content: bottom;
+  border-radius: 10px;
   text-align: center;
+  padding: 10px;
+  border-radius: 10px;
   color: #83a126;
   background-color: white;
   border-style: none;
 }
-#add-new-plot-button:hover, #add-new-plot-button:focus {
-  border-style: none;
-  outline: none;
+#add-new-plot-button:hover {
+  width: 100%;
+  height: 65px;
+  margin-bottom: 0px;
+  font-size: 32px;
+  align-content: bottom;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
   color: white !important;
   background-color: #83a126;
+}
+#new-plot-section {
+  background-color: #a53b58;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  column-gap: 50px;
+  border-radius: 10px;
 }
 #my-crops{
   grid-area: my-crops;
