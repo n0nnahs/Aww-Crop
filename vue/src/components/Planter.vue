@@ -23,7 +23,7 @@
                 <option value="dirt">Dirt</option>
             </select>
             <button class="btn btn-submit" v-on:click="assignPlotInfo">Submit</button>
-            <button class="btn btn-cancel" type="cancel">Cancel</button>
+            <button class="btn btn-cancel" v-on:click="cancelClick" type="cancel">Cancel</button>
       </form>
   </div>
 </template>
@@ -52,6 +52,9 @@ export default {
             let name = e.target.value;
             console.log('name ', name );
             this.vegetable.name = name;
+        },
+        cancelClick(){
+            this.$parent.planterViewable = true;
         },
         assignName(){
             console.log(this.vegetable)
@@ -103,5 +106,12 @@ export default {
 </script>
 
 <style>
+
+.btn-submit:hover{
+    background-color: green;
+}
+.btn-cancel:hover{
+    background-color: red;
+}
 
 </style>

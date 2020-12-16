@@ -152,7 +152,7 @@ public class CropSqlDAO implements CropDAO {
 			String sqlDelete = "DELETE FROM plot_coords WHERE plot_id = ? AND x = ? AND y = ?";
 			jdbc.update(sqlDelete, plotId, crop.getxCoordinate(), crop.getyCoordinate());
 		} else if(checkCropCoordinates(crop)) {
-			String sql = "UPDATE plot_coords SET plot_id = ? crop_id = ? WHERE x = ? AND y = ?";
+			String sql = "UPDATE plot_coords SET crop_id = ? WHERE plot_id = ? AND x = ? AND y = ?";
 			jdbc.update(sql, plotId, id, crop.getxCoordinate(), crop.getyCoordinate());
 
 		} else {
