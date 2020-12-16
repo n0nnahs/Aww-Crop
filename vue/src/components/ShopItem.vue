@@ -1,8 +1,8 @@
 <template>
     <div id="main-grid" class="crop" v-bind:style=" print ? 'background-color: white;' : 'background-color: #BA7331;' "> 
       <h3 id="crop-name" v-bind:style=" print ? 'color: black;' : 'color: white;' ">{{crop.name}}</h3>
-      <h3 id="crop-amount" v-bind:style=" print ? 'color: black;' : 'color: white;' ">{{crop.amount}} {{plantsss}}</h3>
-      <h3 id="cost" v-bind:style=" print ? 'color: black;' : 'color: white;' ">${{(crop.seed_cost * crop.amount).toFixed(2)}}</h3>
+      <h3 id="crop-amount" v-bind:style=" print ? 'color: black;' : 'color: white;' ">{{crop.amount * crop.cropsPerSqFt}} {{plantsss}}</h3>
+      <h3 id="cost" v-bind:style=" print ? 'color: black;' : 'color: white;' ">${{(crop.seed_cost * (crop.amount * crop.cropsPerSqFt)).toFixed(2)}}</h3>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     },
     computed: {
         plantsss() {
-            if(this.crop.amount > 1) {
+            if(this.crop.amount * this.crop.cropsPerSqFt > 1) {
                 return 'plants'
             } else {
                 return 'plant'
