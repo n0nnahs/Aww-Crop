@@ -67,9 +67,11 @@ export default {
         },
         submitNewCropToDatabase(){
             this.assignPlotInfo();
+            console.log(this.vegetable);
             PlotService.plantNewCrop(this.vegetable).then(response => {
                 if(response.status === 201){
                     console.log("win");
+                    this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);;
                 }
             })
             .catch((error) => {
