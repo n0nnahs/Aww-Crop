@@ -26,8 +26,8 @@
             <button class="btn btn-cancel" v-on:click="cancelClick" type="cancel">Cancel</button>
       </form>
       <div>
-        <input type='checkbox' v-model="inactivePlot" v-on:change='inactivatePlot' />
-        Check to make plot inactive.
+        <!--<input type='button' v-bind="inactivePlot" v-on:click='inactivatePlot' />-->
+        
         </div>
   </div>
 </template>
@@ -56,14 +56,14 @@ export default {
     methods: {
         plotStatus(){
             this.$store.state.plots.array.forEach(element => {
-                if(element.active === false){
+                if(element.active === false && element.id === this.$route.params.plotId){
                     this.inactivePlot = true;
                 }
             });
         },
         inactivatePlot(){
             if(this.inactivePlot){
-                PlotService.updatePlotActive(this.$route.params.plotId)
+                PlotService.updatePlotInactive(this.$route.params.plotId)
                 .then( response => {
                     if(response.status === 201){
                         console.log("updated");
@@ -73,7 +73,7 @@ export default {
                     console.log(error.status);
                 })
             } else {
-                PlotService.updatePlotInactive(this.$route.params.plotId)
+                PlotService.updatePlotActive(this.$route.params.plotId)
                 .then( response => {
                     if(response.status === 201){
                         console.log("updated");
