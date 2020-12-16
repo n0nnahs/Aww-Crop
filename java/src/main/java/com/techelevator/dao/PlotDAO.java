@@ -20,6 +20,8 @@ public interface PlotDAO {
 	
 	void addNewNote(Note newNote);
 
+	void deleteNote(int id);
+
 	void updateNote(Note updatedNote, int id);
 	
 }

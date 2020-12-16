@@ -2,15 +2,28 @@
   <div class="notecard">
     <h3 id="note-date">{{ note.date }}</h3>
     <p id="note-body">{{ note.note }}</p>
-    <button id="edit-note-button">Edit Note</button>
+    <button id="edit-note-button" v-on:click="deleteNote">Delete Note</button>
   </div>
 </template>
  
 <script>
+import PlotService from '../services/PlotService'
 export default {
   name: 'note-card',
   props: {
     note: Object
+  }, 
+  methods: {
+    deleteNote(){
+      if(confirm("Are you sure you want to delete this note? This action cannot be undone!")){
+         PlotService.deleteNote(this.note.note_id).then(response => {
+           if(response.status === 202){
+             alert("Note successfully deleted");
+            //  this.$router.go('/');
+           }
+         })
+      }
+    }
   }
 }
  

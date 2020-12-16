@@ -48,7 +48,7 @@ export default {
     saveNote() {
       PlotService.createNewNote(this.newNote).then(response => {
         if(response.status == 201){
-          this.$parent.$router.go("/myplot/101");
+          this.$parent.$router.go("/");
           alert("Note created");
         }
       }).catch(error => {
