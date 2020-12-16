@@ -21,7 +21,7 @@ export default {
       return axios.get(`/plot/notes/${userId}`)
   },
   updateNote(note, note_id){
-      return axios.put(`/plot/notes/update/${note_id}, note`)
+      return axios.put(`/plot/notes/update/${note_id}`, note)
   },
   plantNewCrop(crop){
     return axios.post(`/crops/myplot?plotId=${crop.plotId}`, crop)
