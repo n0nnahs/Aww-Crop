@@ -7,11 +7,18 @@
         <i class="fas fa-seedling"></i>
         <br/>Please sign in below.</h1>
       <div
+        id="oops"
         class="alert alert-danger"
         role="alert"
         v-if="invalidCredentials"
-      >Invalid username or password!</div>
+
+      >
+      <img id="mrYuck" src ="../assets/error.jpeg" >
+      Oh my gourd! Invalid username or password!
+      <img id="mrYucks" src ="../assets/error.jpeg" >
+      </div>
       <div
+      id="yesss"
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
@@ -56,7 +63,8 @@ export default {
         username: "",
         password: ""
       },
-      invalidCredentials: false
+      invalidCredentials: false,
+      loginErrorMsg: 'Oh my gourd! There were problems logging in this user.',
     };
   },
   methods: {
@@ -72,9 +80,11 @@ export default {
         })
         .catch(error => {
           const response = error.response;
+          this.loginErrorMsg = 'Oh my gourd!  Invalid username or password!'
 
           if (response.status === 401) {
             this.invalidCredentials = true;
+            this.loginErrorMsg = 'Oh my gourd!  Invalid username or password!'
           }
         });
     }
@@ -97,6 +107,14 @@ form {
   height: 100%;
   margin-top: 10px;
 }
+#username:focus {
+  outline-color: #83a126 !important;
+}
+#password:focus {
+  outline-color: #83a126 !important;
+}
+
+
 #loginbutton{
   font-size: 24px !important;
   text-align: center;
@@ -118,5 +136,27 @@ button{
 button:focus{
   border-style: none;
   outline: none;
+}
+#oops{
+  padding:0px;
+  margin: 0px;
+  margin-bottom: 20px;
+  background-color: white;
+  color:#4e2409;
+}
+#mrYuck{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  height: 100px;
+  padding: 5px;
+}
+#mrYucks{
+  height: 100px;
+  padding: 5px;
+}
+#yesss{
+  background-color:#83a126;
+  color:white;
+  border: none;
 }
 </style>
