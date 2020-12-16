@@ -99,6 +99,9 @@ input {
     font-size: 20px;
     font-weight: bold;
 }
+#newPlotSubmit:focus{
+  outline:none;
+}
 button{
     border-style: none;
 }

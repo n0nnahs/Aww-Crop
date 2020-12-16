@@ -125,6 +125,9 @@ textarea{
   background-color: white;
   border-style: none;
 }
+#tom:focus{
+  outline:none;
+}
 #medvitz{
   display: flex;
   justify-content: space-around;

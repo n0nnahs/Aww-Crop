@@ -136,6 +136,9 @@ button {
   color: white;
   background-color: #83a126;
 }
+#randy:focus{
+  outline:none;
+}
 @media (max-width: 400px){
 #pineapples{
   font-size: 24px !important;
