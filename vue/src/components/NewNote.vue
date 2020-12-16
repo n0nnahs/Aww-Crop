@@ -66,7 +66,9 @@ textarea{
   padding: 10px;
   border-radius: 3px;
 } */
-
+.message-input:focus{
+  outline-color:#83a126 !important;
+}
 .notes-list {
   display:flex;
   justify-content: space-evenly;
