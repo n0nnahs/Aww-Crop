@@ -14,7 +14,6 @@
                 <option value="cucumbers">Cucumbers</option>
                 <option value="lettuce">Lettuce</option>
                 <option value="onions">Onions</option>
-                <option value="peas">Peas</option>
                 <option value="peppers">Peppers</option>
                 <option value="potatoes">Potatoes</option>
                 <option value="radishes">Radishes</option>
