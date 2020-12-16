@@ -17,7 +17,7 @@
     </div>
     <div id="button">
       <router-link to="/seedlist/print">
-        <button>Printer Friendly Version</button>
+        <button id="randy">Printer Friendly Version</button>
       </router-link>
     </div>
   </div>
@@ -62,7 +62,7 @@ export default {
   font-size: 32px !important;
   text-align: center;
   color: white;
-  background-color: #ba7331;
+  background-color: #fe6f15;
   padding: 10px;
   border-radius: 3px;
 }
@@ -85,21 +85,21 @@ export default {
 
 #carp{
   grid-area: carp;
-  text-align: center;
+  text-align: left;
   font-size: 20px !important;
   font-weight: bold !important;
-  padding-left: 20px;
+  padding-left: 40px !important;
 }
 #amount{
   grid-area: amount;
-  text-align: center;
+  text-align: left;
   font-size: 20px !important;
   font-weight: bold !important;
   padding-left: 15px;
 }
 #cost{
   grid-area: cost;
-  text-align: center;
+  text-align: left;
   font-size: 20px !important;
   font-weight: bold !important;
 }
@@ -115,7 +115,19 @@ button {
 }
 #button {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
+}
+#randy{
+  margin: 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: #83a126;
+}
+#randy:hover{
+  margin: 10px;
+  border-radius: 3px;
+  background-color: white;
+  color: #83a126;
 }
 
 </style>

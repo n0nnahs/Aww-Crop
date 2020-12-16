@@ -1,17 +1,24 @@
 <template>
   <div id="plot-page">
-    <h1 id="my-plot" v-bind:key="myPlot.name" >
+    <h1 id="my-plot">
       <i class="fas fa-seedling"></i>
         {{this.myPlot.name}}
       <i class="fas fa-seedling"></i>
     </h1>
     <div id="plots-body-grid">
-      <div id="plot-visual" >
-        <plot-grid></plot-grid>
+      <div id="plot-visual">
+        <plot-grid id="sean"></plot-grid>
+      </div>
+    </div>
+    <div id="everything-else">
+      <div id="plot-crops">
+        <plot-crop></plot-crop>
       </div>
       <div id="notes-area">
         <notes></notes>
-        <my-crops></my-crops>
+      </div>
+      <div id="shopping-list">
+        <shopping-list></shopping-list>
       </div>
     </div>
   </div>
@@ -20,20 +27,22 @@
 <script>
 import plotGrid from "../components/PlotGrid";
 import Notes from "../components/Notes.vue" 
-import MyCrops from '../components/MyCrops.vue';
+import plotCrop from '../components/PlotCrop.vue';
+import shoppingList from '../components/ShoppingList.vue';
 import plotService from "../services/PlotService";
 
 export default {
   components: { 
     plotGrid,
+    plotCrop,
     Notes,
-    MyCrops
+    shoppingList
   },
   data(){
     return {
       myPlot: {
         id: "",
-        name: "Lettuce Do Our Best",
+        name: "",
         length: "",
         width: "",
         active: ""
@@ -58,7 +67,7 @@ export default {
 
   },
   created(){
-    this.getPlotName;
+    this.getPlotName();
   }
 }
 </script>
@@ -68,36 +77,77 @@ export default {
 #plot-page {
   padding: 0 20px 20px 20px;
   background-color: #4e2409;
-  
-  
-}
-#plots-body-grid {
-  background-color: #4e2409;
-  display: grid;
-  column-gap: 20px;
+  display:grid;
   grid-template-columns:1fr 1fr;
+  column-gap: 20px;
   grid-template-areas:
-    "plot-visual notes-area";
-  
+    "my-plot my-plot"
+    "plots-body-grid everything-else";
 }
 #my-plot{
+  grid-area: my-plot;
   text-align: center;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
 }
+#plots-body-grid {
+  grid-area: plots-body-grid;
+  background-color: #a53b58;
+  margin-top:10px;
+}
 #plot-visual {
-  grid-area: plot-visual;
-  margin-top: 10px;
-  background-color:#a53b58;
-  overflow: scroll;
-  scrollbar-color: rgba(67, 184, 13, 0.8);
+  background-color:#4e2409;
+}
+#everything-else{
+  grid-area:everything-else;
+}
+#plot-crops{
+  margin-top:10px;
+  margin-bottom:20px;
 }
 #notes-area{
   grid-area: notes-area;
-  margin-top: 10px;
 }
+#shopping-list{
+  margin-top:20px;
+}
+@media (max-width: 800px){
+
+#plot-page {
+  padding: 0 20px 20px 20px;
+  background-color: #4e2409;
+  display:grid;
+  grid-template-columns:100%;
+  padding: 0 20px 20px 20px;
+  column-gap: 20px;
+  grid-template-areas:
+    "my-plot"
+    "plots-body-grid"
+    "everything-else"
+    /* "plot-crops"
+    "notes-area"
+    "shopping-list" */
+    ;
+  }
+  #my-plot{
+    grid-area: my-plot;
+  }
+  #plots-body-grid{
+    grid-area: plots-body-grid;
+  }
+  #plot-crops{
+    grid-area: plot-crops;
+  }
+  #notes-area{
+    grid-area: notes-area;
+  }
+  #shopping-list{
+    grid-area: shopping-list;
+  }
+}
+
 
 
 </style>

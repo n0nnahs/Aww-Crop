@@ -50,6 +50,7 @@ export default {
   color: white;
   background-color: #a53b58;
   border-radius: 3px;
+  padding-bottom:5px;
 }
 #crops-planted-h2{
   font-size: 32px !important;
