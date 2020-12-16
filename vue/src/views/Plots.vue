@@ -147,7 +147,11 @@ export default {
     grid-area: shopping-list;
   }
 }
-
+@media (max-width: 400px){
+#my-plot{
+  font-size: 32px;
+}
+}
 
 
 </style>

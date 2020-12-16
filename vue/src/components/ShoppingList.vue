@@ -129,5 +129,29 @@ button {
   background-color: white;
   color: #83a126;
 }
-
+@media (max-width: 400px){
+#pineapples{
+  font-size: 24px !important;
+}
+#carp{
+  grid-area: carp;
+  text-align: left;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding-left: 40px !important;
+}
+#amount{
+  grid-area: amount;
+  text-align: left;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding-left: 15px;
+}
+#cost{
+  grid-area: cost;
+  text-align: center;
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+}
 </style>
