@@ -1,6 +1,6 @@
 <template>
   <div v-bind="cropSquare"  >
-      <form v-on:submit.prevent="submitNewCropToDatabase" class="cardForm" >
+      <form v-on:submit="submitNewCropToDatabase" class="cardForm" >
             <select id="vegetables" name="vegetable" v-model="vName">
                 <option value="">Select a vegetable</option>
                 <option value="beets">Beets</option>
@@ -73,7 +73,7 @@ export default {
             PlotService.plantNewCrop(this.vegetable).then(response => {
                 if(response.status === 201){
                     console.log("win");
-                    this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);;
+                    this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);
                 }
             })
             .catch((error) => {
