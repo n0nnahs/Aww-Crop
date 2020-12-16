@@ -90,8 +90,8 @@ export default {
                         let arr = this.$store.state.plotGrid;
 
                         arr.forEach(element => {
-                            let x = element.xCoordinate;
-                            let y = element.yCoordinate;
+                            let x = element.yCoordinate;
+                            let y = element.xCoordinate;
                             this.plotGrid[x][y] = element;
                         });
                         console.log("still working")
@@ -111,15 +111,15 @@ export default {
             this.planterViewable = false;
             if(name === "dirt"){
                 console.log(x, y, plotId, "empty plot");
-                this.cropSquare.name = "empty";
-                this.cropSquare.xCoordinate = x;
-                this.cropSquare.yCoordinate = y;
+                this.cropSquare.name = "dirt";
+                this.cropSquare.xCoordinate = y;
+                this.cropSquare.yCoordinate = x;
                 this.cropSquare.plotId = this.$route.params.plotId;
             } else {
                 console.log(x, y, name)
                 this.cropSquare.name = name;
-                this.cropSquare.xCoordinate = x;
-                this.cropSquare.yCoordinate = y;
+                this.cropSquare.xCoordinate = y;
+                this.cropSquare.yCoordinate = x;
                 this.cropSquare.plotId = this.$route.params.plotId;
             }
             
