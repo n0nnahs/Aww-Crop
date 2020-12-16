@@ -2,7 +2,7 @@
   <section id="notes-section">
     <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
-        <textarea class="message-input" placeholder="Note" v-model="newNote.note" />
+        <textarea class="message-input" placeholder="Note" v-model="newNote.note" required></textarea>
       <div id="medvitz">
         <button id="tom">Save Note</button>
       </div>
@@ -40,15 +40,13 @@ export default {
     NoteCard
   },
   created(){
-    PlotService.getNotes(this.$store.state.user.id).then(response => {
-      this.$store.commit("SET_NOTES", response.data);
-    });
+
   },
   methods: {
     saveNote() {
       PlotService.createNewNote(this.newNote).then(response => {
         if(response.status == 201){
-          this.$parent.$router.go("/myplot/101");
+          this.$parent.$router.go("/");
           alert("Note created");
         }
       }).catch(error => {

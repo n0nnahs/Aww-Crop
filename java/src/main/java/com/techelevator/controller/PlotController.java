@@ -86,10 +86,15 @@ public class PlotController {
 	}
 	
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	@RequestMapping(value = "/notes/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/notes/{id}/update", method = RequestMethod.PUT)
 	public void updateNote(@Valid @RequestBody Note updateNote, @PathVariable int id) {
 		dao.updateNote(updateNote, id);
 	}
+	
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	@RequestMapping(value = "/notes/delete", method = RequestMethod.DELETE)
+	public void deleteNote(@RequestParam int noteId) {
+		dao.deleteNote(noteId);
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	@RequestMapping(value = "/abandon/{plotId}", method = RequestMethod.PUT)
 	public void abandonPlot(@PathVariable int plotId) {
