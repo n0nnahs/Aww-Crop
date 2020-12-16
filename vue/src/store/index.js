@@ -32,6 +32,7 @@ export default new Vuex.Store({
     },
     crops: [],
     plots: [],
+    cropsForPlot: [],
     header: false,
     notes: [],
     note:{
@@ -80,6 +81,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_PLOT_CROPS(state, crops){
+      state.cropsForPlot = crops;
     },
     SAVE_NOTE(state, note) {
       state.notes.push(note)

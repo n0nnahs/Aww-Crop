@@ -1,6 +1,6 @@
 <template>
   <div v-bind="cropSquare"  >
-      <form v-on:submit.prevent="submitNewCropToDatabase" class="cardForm" >
+      <form v-on:submit="submitNewCropToDatabase" class="cardForm" >
             <select id="vegetables" name="vegetable" v-model="vName">
                 <option value="">Select a vegetable</option>
                 <option value="beets">Beets</option>
@@ -23,7 +23,7 @@
                 <option value="dirt">Dirt</option>
             </select>
             <button class="btn btn-submit" v-on:click="assignPlotInfo">Submit</button>
-            <button class="btn btn-cancel" type="cancel">Cancel</button>
+            <button class="btn btn-cancel" v-on:click="cancelClick" type="cancel">Cancel</button>
       </form>
   </div>
 </template>
@@ -53,6 +53,9 @@ export default {
             console.log('name ', name );
             this.vegetable.name = name;
         },
+        cancelClick(){
+            this.$parent.planterViewable = true;
+        },
         assignName(){
             console.log(this.vegetable)
             
@@ -70,7 +73,7 @@ export default {
             PlotService.plantNewCrop(this.vegetable).then(response => {
                 if(response.status === 201){
                     console.log("win");
-                    this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);;
+                    this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);
                 }
             })
             .catch((error) => {
@@ -103,5 +106,12 @@ export default {
 </script>
 
 <style>
+
+.btn-submit:hover{
+    background-color: #83a126;
+}
+.btn-cancel:hover{
+    background-color: red;
+}
 
 </style>

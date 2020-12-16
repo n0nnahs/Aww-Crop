@@ -13,7 +13,7 @@
       <h3 id="amount">Amount Needed</h3>
       <h3 id="cost">Approximate Cost</h3>
     </div>
-    <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
+    <div id="crop-list" v-for="crop in cropsForPlot" v-bind:key="crop">
          <shop-item v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
     </div>
   </div>
@@ -25,10 +25,15 @@ import ShopItem from '@/components/ShopItem.vue';
 
 export default {
     name: 'shopping-list',
+    data(){
+      return{
+        cropsForPlot:[],
+      }
+    },
     created () {
-      CropService.listAllCropsForUser(this.$store.state.user.id).then(response => {
-        this.$store.commit("SET_CROPS", response.data);
-        });
+      CropService.listCropsForOnePlot(this.$route.params.plotId).then(response => {
+        this.cropsForPlot = response.data;
+      });
     },
     components: {
         
