@@ -35,7 +35,6 @@ export default {
 <style scoped>
 #details-grid {
   display: grid;
-  column-gap: 10px;
   grid-template-columns:1fr 1fr;
   grid-template-areas:
     "left-column right-column";
