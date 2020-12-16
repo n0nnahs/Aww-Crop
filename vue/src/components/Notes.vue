@@ -5,7 +5,7 @@
     </div>
     <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
-        <textarea class="message-input" placeholder="Note" v-model="note.message" />
+        <textarea class="message-input" placeholder="Note" v-model="newNote.note" />
         <button>Save Note</button>
       </form>
     </div>
@@ -23,10 +23,9 @@ export default {
   name: "notes",
   data() {
     return {
-      note: {
-        plotId: '',
-        message: '',
-        date: ''
+      newNote: {
+        plot_id: parseInt(this.$route.params.plotId),
+        note: '',
       }
     }
   },
@@ -42,14 +41,29 @@ export default {
     NoteCard
   },
   created(){
-
+    PlotService.getNotes(this.$store.state.user.id).then(response => {
+      this.$store.commit("SET_NOTES", response.data);
+    });
   },
   methods: {
     saveNote() {
-      this.$store.commit('SAVE_NOTE', this.note);
+      PlotService.createNewNote(this.newNote).then(response => {
+        if(response.status == 201){
+          this.$parent.$router.go("/myplot/101");
+          alert("Note created");
+        }
+      }).catch(error => {
+          if (error.response) {
+            this.errorMsg = "Error submitting new board. Response received was '" + error.response.statusText + "'.";
+          } else if (error.request) {
+            this.errorMsg = "Error submitting new note. Server could not be reached.";
+        } else {
+            this.errorMsg = "Error submitting new note. Request could not be created.";
+        }
+      })
       this.note = {
-        message: '',
-        date: '',
+        plot_id: parseInt(this.$route.params.plotId),
+        note: '',
       };
     }
   }

@@ -13,7 +13,9 @@ public class Crop {
 	private int xCoordinate;
 	private int yCoordinate;
 	private int plotId;
+	private String api_name;
 	
+
 
 	public Crop(int id, String name, double yeild, int cropsPerSqFt, double seed_cost, String description) {
 		this.id = id;
@@ -106,5 +108,14 @@ public class Crop {
 	public void setPlotId(int plotId) {
 		this.plotId = plotId;
 	}
+	
+	public String getApi_name() {
+		return api_name;
+	}
+
+	public void setApi_name(String api_name) {
+		this.api_name = api_name;
+	}
+
 
 }
