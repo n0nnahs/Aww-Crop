@@ -10,7 +10,7 @@
       <h3 id="yield">Harvest</h3>
     </div>
     <div id="crop-list" v-for="crop in $store.state.crops" v-bind:key="crop">
-      <router-link style="text-decoration: none;" :to="`crop-details/${crop.name}`" >
+      <router-link style="text-decoration: none;" :to="{ name: 'crop-details', params: { name: crop.name }}" >
          <crop  v-bind:crop="crop" v-bind:key="crop.name"></crop>
       </router-link>
     </div>
@@ -22,21 +22,19 @@ import CropService from '../services/CropService';
 import Crop from '@/components/Crop.vue';
 
 export default {
-    name: 'my-crops',
-    created () {
-      CropService.listCropsForOnePlot(this.$store.state.plot.id).then(response => {
-        this.$store.commit("SET_CROPS", response.data);
-        });
-    },
-    components: {
-        Crop
-    },
-    methods: {
-      getCrops() {
-        
-      }
+  name: 'my-crops',
+  components: {
+    Crop
+  },
+  methods: {
+    getCrops() {    
     }
-
+  },
+  created () {
+    CropService.listCropsForOnePlot(this.$store.state.plot.id).then(response => {
+      this.$store.commit("SET_CROPS", response.data);
+    });
+  }
 };
 </script>
 
