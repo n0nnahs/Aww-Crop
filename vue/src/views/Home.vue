@@ -20,8 +20,8 @@
           <div id="aplots">
               <active-plots id="activeplots" ></active-plots>
           </div>
-          <div id="iplots">
-             <inactive-plots id="inactiveplots"></inactive-plots>
+          <div id="iplots" v-show="showInactivePlots">
+             <inactive-plots id="inactiveplots" ></inactive-plots>
           </div>
       </div >
       <my-crops id="my-crops" ></my-crops>
@@ -46,20 +46,34 @@ export default {
   data() {
       return {
           showForm: true,
+          showInactivePlots: true,
+          inactiveArray : []
       };
   },
   created() {
       this.showForm = false;
+      this.toShowOrNotToShow();
+
   },
   methods: {
-      toggleForm() {
+    toggleForm() {
           if(this.showForm == false) {
             this.showForm = true;
           } else {
             this.showForm = false;
           }
-      },
-  },
+    },
+    toShowOrNotToShow() {
+      this.inactiveArray = this.$store.state.plots.filter((plot) => {
+      return plot.active === false;
+      });
+        if (this.inactiveArray.length > 0) {
+          this.showInactivePlots = true; 
+        } else {
+          this.showInactivePlots = false; 
+        }
+    }
+  }
 }
 
 </script>
@@ -109,15 +123,12 @@ export default {
   column-gap: 50px;
   border-radius: 3px;
 }
-<<<<<<< HEAD
 #iplots{
   background-color: #a53b58;
 }
 #inactiveplots.plotcard:empty{
   display:none;
 }
-=======
->>>>>>> cd339c2af53b4642e44595e378e755330d609956
 #add-new-plot-button {
   width: 100%;
   height: 55px;

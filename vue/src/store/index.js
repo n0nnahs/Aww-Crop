@@ -20,7 +20,6 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    showInactivePlots: false,
     token: currentToken || '',
     user: currentUser || {},
     // crops: [],
