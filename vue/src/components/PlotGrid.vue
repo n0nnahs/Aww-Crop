@@ -8,7 +8,9 @@
       <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
             <td id="crop" class="square" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
+                <a class="tile" href="#" onclick="this.focus()">
                 <img class="content" v-on:click="clickCrop(cropCell.xCoordinate, cropCell.yCoordinate, cropCell.plotId, cropCell.name)" id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />     
+                </a>
             </td>
         </tr>
       </table>
@@ -174,6 +176,10 @@ template{
     margin-bottom: 20%;
     background-color: #4e2409;
     padding-bottom: 30%;
+}
+
+.tile:focus img{
+    border: .5vh solid #fe6f15 !important;
 }
 
 #crop{

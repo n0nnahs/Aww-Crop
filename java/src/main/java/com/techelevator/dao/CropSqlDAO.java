@@ -113,13 +113,13 @@ public class CropSqlDAO implements CropDAO {
 		List<Crop> plotCrops = new ArrayList<>();
 		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, " +
 				     "COUNT (coords_id) AS amount, " +
-				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, api_name " +
+				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, api_name, description " +
 				     "FROM crops JOIN plot_coords USING (crop_id) " +
 				     "JOIN plot USING (plot_id) " +
 				     "JOIN users_plot USING (plot_id) " +
 				     "JOIN users USING (user_id) " +
 				     "WHERE plot_id = ? " +
-				     "GROUP BY crops.name, yield_lbs_per_square_foot ";
+				     "GROUP BY crops.name, yield_lbs_per_square_foot, crops.crop_id ";
 		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
 		while(results.next()) {
 			Crop c = mapRowToCrop(results);
@@ -152,8 +152,8 @@ public class CropSqlDAO implements CropDAO {
 			String sqlDelete = "DELETE FROM plot_coords WHERE plot_id = ? AND x = ? AND y = ?";
 			jdbc.update(sqlDelete, plotId, crop.getxCoordinate(), crop.getyCoordinate());
 		} else if(checkCropCoordinates(crop)) {
-			String sql = "UPDATE plot_coords SET plot_id = ? crop_id = ? WHERE x = ? AND y = ?";
-			jdbc.update(sql, plotId, id, crop.getxCoordinate(), crop.getyCoordinate());
+			String sql = "UPDATE plot_coords SET crop_id = ? WHERE plot_id = ? AND x = ? AND y = ?";
+			jdbc.update(sql, id, plotId, crop.getxCoordinate(), crop.getyCoordinate());
 
 		} else {
 			String sqlElse = "INSERT INTO plot_coords (coords_id, crop_id, plot_id, x, y) " + 
