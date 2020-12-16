@@ -29,7 +29,7 @@ import plotGrid from "../components/PlotGrid";
 import Notes from "../components/Notes.vue" 
 import plotCrop from '../components/PlotCrop.vue';
 import shoppingList from '../components/ShoppingList.vue';
-import plotService from "../services/PlotService";
+import PlotService from "../services/PlotService";
 
 export default {
   components: { 
@@ -50,10 +50,14 @@ export default {
     }
   },
   methods: {
-
+    getNotes(){
+    PlotService.getNotes(this.$store.state.user.id).then(response => {
+      this.$store.commit("SET_NOTES", response.data);
+    });
+    },
     getPlotName(){
      let urlPlotId = this.$route.params.plotId;
-            plotService.getPlotById(urlPlotId)
+            PlotService.getPlotById(urlPlotId)
                 .then(response => {
                     if(response.status === 200){      
                         this.$store.commit("SET_PLOT", response.data);
@@ -63,11 +67,12 @@ export default {
                 .catch(error => {
                     console.log(error.status)
                 });
-          }
+          } 
 
   },
   created(){
     this.getPlotName();
+    this.getNotes();
   }
 }
 </script>
