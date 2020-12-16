@@ -72,4 +72,13 @@ h5 {
   max-height: 300px;
   border-radius: 3px;
 }
+@media (max-width: 800px) {
+  
+  #details-grid{
+  grid-template-columns:100%;
+  grid-template-areas:
+    "left-column"
+    "right-column";
+  }
+}
 </style>

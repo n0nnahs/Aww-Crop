@@ -60,7 +60,7 @@ export default {
   color: black;
   background-color: white;
   border-radius: 3px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 #pineapples{
   font-size: 32px !important;
