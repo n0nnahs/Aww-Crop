@@ -122,6 +122,9 @@ button {
   border-radius: 3px;
   align-self:center;
 }
+button:focus{
+  outline:none;
+}
 #back-button {
   display: flex;
   justify-content: left;

@@ -45,6 +45,7 @@ export default {
   },
   data(){
     return {
+      active:true,
       showNotes: false,
       myPlot: {
         id: "",
@@ -80,6 +81,13 @@ export default {
             this.showNotes = true;
           } else {
             this.showNotes = false;
+          }
+    },
+        isItActive() {
+          if(this.$store.state.plot.active === true){
+            this.active = true;
+          }else{
+            this.active = false;
           }
     },
 
@@ -152,6 +160,10 @@ export default {
   color: white;
   padding: 8px;
   border-radius: 3px;
+}
+#view-notes:focus{
+  outline:none;
+
 }
 @media (max-width: 800px){
 

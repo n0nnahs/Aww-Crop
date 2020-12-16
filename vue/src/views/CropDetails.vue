@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style scoped>
+#back-button:focus{
+  outline:none;
+
+}
 #details-body {
   padding: 20px;
   height: 100vh;

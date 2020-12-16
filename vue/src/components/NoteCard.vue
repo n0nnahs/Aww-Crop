@@ -73,5 +73,8 @@ export default {
   background-color: white;
   margin: 5px;
 }
+#edit-note-button:focus{
+  outline:none;
+}
  
 </style>

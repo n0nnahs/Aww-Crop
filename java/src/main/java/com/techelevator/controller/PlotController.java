@@ -95,5 +95,14 @@ public class PlotController {
 	@RequestMapping(value = "/notes/delete", method = RequestMethod.DELETE)
 	public void deleteNote(@RequestParam int noteId) {
 		dao.deleteNote(noteId);
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	@RequestMapping(value = "/abandon/{plotId}", method = RequestMethod.PUT)
+	public void abandonPlot(@PathVariable int plotId) {
+		dao.abandonPlot(plotId);
+	}
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	@RequestMapping(value = "/activate/{plotId}", method = RequestMethod.PUT)
+	public void activatePlot(@PathVariable int plotId) {
+		dao.abandonPlot(plotId);
 	}
 }

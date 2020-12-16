@@ -24,4 +24,7 @@ public interface PlotDAO {
 
 	void updateNote(Note updatedNote, int id);
 	
+	void abandonPlot(int plotId);
+	
+	void activatePlot(int plotId);
 }

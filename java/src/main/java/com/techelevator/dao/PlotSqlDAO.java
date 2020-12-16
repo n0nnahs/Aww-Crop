@@ -148,5 +148,17 @@ public class PlotSqlDAO implements PlotDAO {
 		n.setDate(results.getDate("date"));
 		return n;
 	}
+	
+	@Override
+	public void abandonPlot(int plotId) {
+		String sql = "UPDATE plot SET active = false WHERE plot_id = ?";
+		jdbc.update(sql, plotId);
+	}
+	
+	@Override
+	public void activatePlot(int plotId) {
+		String sql = "UPDATE plot SET active = true WHERE plot_id = ?";
+		jdbc.update(sql, plotId);
+	}
 
 }
