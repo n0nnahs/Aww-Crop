@@ -113,13 +113,13 @@ public class CropSqlDAO implements CropDAO {
 		List<Crop> plotCrops = new ArrayList<>();
 		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, " +
 				     "COUNT (coords_id) AS amount, " +
-				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, api_name " +
+				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, api_name, description " +
 				     "FROM crops JOIN plot_coords USING (crop_id) " +
 				     "JOIN plot USING (plot_id) " +
 				     "JOIN users_plot USING (plot_id) " +
 				     "JOIN users USING (user_id) " +
 				     "WHERE plot_id = ? " +
-				     "GROUP BY crops.name, yield_lbs_per_square_foot ";
+				     "GROUP BY crops.name, yield_lbs_per_square_foot, crops.crop_id ";
 		SqlRowSet results = jdbc.queryForRowSet(sql, plotId);
 		while(results.next()) {
 			Crop c = mapRowToCrop(results);
