@@ -28,7 +28,7 @@ public class CropSqlDAO implements CropDAO {
 		List<Crop> allCrops = new ArrayList<>();
 		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, "
 				+ "COUNT (coords_id) AS amount, "
-				+ "        (COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, description "
+				+ "        (COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, description, api_name "
 				+ "FROM crops JOIN plot_coords USING (crop_id) "
 				+ "JOIN plot USING (plot_id) "
 				+ "JOIN users_plot USING (plot_id) "
@@ -59,7 +59,7 @@ public class CropSqlDAO implements CropDAO {
 
 	@Override
 	public Crop getCropByName(String name) {
-		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
+		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description, api_name "
 					+ "FROM crops "
 					+ "WHERE name ILIKE ?";
 		SqlRowSet results = jdbc.queryForRowSet(sql, name);
@@ -74,7 +74,7 @@ public class CropSqlDAO implements CropDAO {
 	@Override
 	public List<Crop> listAllCropsInActivePlots(int plotId){
 		List<Crop> cropsInPlot = new ArrayList<>();
-		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description "
+		String sql = "SELECT crop_id, name, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, description, api_name "
 			       + "FROM crops "
 			       + "JOIN plot_coords USING (crop_id) "
 			       + "WHERE plot_id = ?";
@@ -91,7 +91,7 @@ public class CropSqlDAO implements CropDAO {
 		List<Crop> cropsForUser = new ArrayList<>();
 		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, "
 				+ "COUNT (coords_id) AS amount, "
-				+ "        (COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, description "
+				+ "        (COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, description, api_name "
 				+ "FROM crops JOIN plot_coords USING (crop_id) "
 				+ "JOIN plot USING (plot_id) "
 				+ "JOIN users_plot USING (plot_id) "
@@ -113,7 +113,7 @@ public class CropSqlDAO implements CropDAO {
 		List<Crop> plotCrops = new ArrayList<>();
 		String sql = "SELECT crop_id, yield_lbs_per_square_foot, crops_per_square_foot, seed_cost, crops.name AS name, " +
 				     "COUNT (coords_id) AS amount, " +
-				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield " +
+				     "(COUNT (coords_id) * (yield_lbs_per_square_foot)) AS yield, api_name " +
 				     "FROM crops JOIN plot_coords USING (crop_id) " +
 				     "JOIN plot USING (plot_id) " +
 				     "JOIN users_plot USING (plot_id) " +
@@ -196,6 +196,7 @@ public class CropSqlDAO implements CropDAO {
 		c.setDescription(results.getString("description"));
 		c.setAmount(results.getInt("amount"));
 		c.setTotalYield(results.getDouble("yield"));
+		c.setApi_name(results.getString("api_name"));
 		return c;
 	}
 	
