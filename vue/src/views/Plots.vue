@@ -89,7 +89,6 @@ export default {
 <style scoped>
 
 #plot-page {
-  height:100vh;
   padding: 0 20px 20px 20px;
   background-color: #4e2409;
   display:grid;
