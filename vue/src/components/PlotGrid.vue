@@ -162,13 +162,13 @@ template{
 }
 
 .plot-component{
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
     background-color: #a53b58;;
     border-radius: 3px;
-    padding-bottom: 10%;
 }
 
 #plot-grid-table{
@@ -179,14 +179,7 @@ template{
 }
 
 .tile:focus img{
-    border: .5vh solid #fe6f15 !important;
-}
-
-#crop{
-    border: .5vw solid rgb(87, 53, 22);
-    height: 3.25vh;
-    width: 3.25vh;
-    padding: 0vw;
+    border: 1vh solid #fe6f15 !important;
 }
 
 #plot-grid{
@@ -198,9 +191,16 @@ template{
   height: 100vh;
 }
 
+#crop{
+    border: .5vw solid rgb(87, 53, 22);
+    height: 5vw;
+    width: 5vw;
+    padding: 0vw;
+}
+
 #plant{
-  height:3.25vw;
-  width: 3.25vw;
+  height:5vw;
+  width: 5vw;
   padding: 0vw;
 }
 

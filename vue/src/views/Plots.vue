@@ -96,6 +96,7 @@ export default {
   grid-area: plots-body-grid;
   background-color: #a53b58;
   margin-top:10px;
+
 }
 #plot-visual {
   background-color:#4e2409;
