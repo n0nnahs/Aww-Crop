@@ -40,9 +40,7 @@ export default {
     NoteCard
   },
   created(){
-    // PlotService.getNotes(this.$store.state.user.id).then(response => {
-    //   this.$store.commit("SET_NOTES", response.data);
-    // });
+
   },
   methods: {
     saveNote() {
