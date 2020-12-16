@@ -106,4 +106,13 @@ button:focus{
     border-style: none;
     outline: none;
 }
+#name:focus{
+  outline-color: #83a126 !important;
+}
+#length:focus{
+  outline-color: #83a126;
+}
+#width:focus{
+  outline-color: #83a126;
+}
 </style>

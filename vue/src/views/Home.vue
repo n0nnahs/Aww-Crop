@@ -143,7 +143,7 @@ export default {
   align-content: bottom;
   border-radius: 3px;
   text-align: center;
-  padding: 10px;
+  padding: 8px;
   border-radius: 3px;
   color: #83a126;
   background-color: white;
@@ -171,6 +171,7 @@ export default {
 #my-crops{
   grid-area: my-crops;
   margin-top: 10px;
+  height: 100vh;
 }
 button:focus{
   border-style: none;
