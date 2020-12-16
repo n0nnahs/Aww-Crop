@@ -67,6 +67,13 @@ const router = new Router({
       path: "/myplot/:plotId",
       name: "plots",
       component: Plots,
+      props:(route) => {
+        const plotId = Number.parseInt(route.params.plotId, 10)
+        if(Number.isNaN(plotId)){
+          return 0;
+        }
+        return plotId
+      },
       meta: {
         requiresAuth: false
       }
