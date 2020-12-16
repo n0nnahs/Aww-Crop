@@ -35,6 +35,15 @@ export default new Vuex.Store({
     cropsForPlot: [],
     header: false,
     notes: [],
+    crop: {
+      crop_id: '',
+      name: '',
+      yield_lbs_per_square_foot: '',
+      crops_per_square_foot: '',
+      seed_cost: '',
+      description: '',
+      api_name: ''
+    },
     note:{
       date: '',
       note: '',
