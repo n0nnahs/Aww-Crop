@@ -1,17 +1,14 @@
 <template>
-  <div class="plot-component">
+  <div class="plot-component" v-if="this.plotIsLoading">
       <h2 id="garden-plot-header">
           Find Your Inner Peas 
       </h2>
+      <planter id="planter-choice" v-if="!this.planterViewable" v-bind="cropSquare"></planter>
       <div id="plot-grid">
-      <table id="plot-grid-table" v-bind="grid" v-if="!isLoading">
-        
+      <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
-            <td id="crop" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
-                <!--<img  id="plant" src="@/assets/dirt.jpg" />
-                <img v-if='croppy.name !==""' id="plant" src="../assets/peas.jpeg" />{{cropCell.name}}-->
-                <img id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />
-                
+            <td id="crop" class="square" v-for="cropCell in cropRow" v-bind:key="cropCell.name">
+                <img class="content" v-on:click="clickCrop(cropCell.xCoordinate, cropCell.yCoordinate, cropCell.plotId, cropCell.name)" id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)"  />     
             </td>
         </tr>
       </table>
@@ -21,7 +18,7 @@
 </template>
 
 <script>
-//import PlotCrop from './PlotCrop.vue';
+import Planter from './Planter.vue';
 import plotService from "../services/PlotService";
 
 export default {
@@ -30,13 +27,14 @@ export default {
         return{
             //defaultImg: 'require("../assets/dirt.jpg")',
             plotNotFound: false,
-            isLoading: true,
+            planterViewable: true,
+            plotIsLoading: false,
             plotGrid: [],
             cropSquare: {
-                name: "dirt",
-                xCoordinate: 0,
-                yCoordinate: 0,
-                plotId: 0
+                name: "",
+                xCoordinate: "",
+                yCoordinate: "",
+                plotId: ""
             }
         }
     },
@@ -44,15 +42,13 @@ export default {
         'croppy'    
     ],
     components:{
-        //PlotCrop
-        
+        Planter  
     },
     methods: {
         //imgError(){this.src = this.defaultImg;},
         grid(){
             //take in height and create number of arrays in plotGrid
             //take in width and create length of arrays in plotGrid
-
             let urlPlotId = this.$route.params.plotId;
             plotService.getPlotById(urlPlotId)
                 .then(response => {
@@ -81,7 +77,6 @@ export default {
                 .catch(error => {
                     console.log(error.status)
                 });
-
         },
         assignCrops(){
             let urlPlotId = this.$route.params.plotId;
@@ -89,7 +84,7 @@ export default {
             plotService.getPlotCoordId(urlPlotId)
                 .then(response => {
                     if (response.status == 200) {
-                        console.log(response.status);
+                        console.log(response.status, "crops came in");
                         this.$store.commit("SET_PLOT_GRID", response.data);
 
                         let arr = this.$store.state.plotGrid;
@@ -99,7 +94,9 @@ export default {
                             let y = element.yCoordinate;
                             this.plotGrid[x][y] = element;
                         });
-                        this.isLoading = false;
+                        console.log("still working")
+                        this.plotIsLoading = true;
+                        console.log("should show")
                     }
                 })
                 .catch(error => {
@@ -110,8 +107,22 @@ export default {
             //sort information coming in
 
         },
-        assignNewCrop(y, x){
-            console.log(x, y);
+        clickCrop(y, x, plotId, name){
+            this.planterViewable = false;
+            if(name === "dirt"){
+                console.log(x, y, plotId, "empty plot");
+                this.cropSquare.name = "empty";
+                this.cropSquare.xCoordinate = x;
+                this.cropSquare.yCoordinate = y;
+                this.cropSquare.plotId = this.$route.params.plotId;
+            } else {
+                console.log(x, y, name)
+                this.cropSquare.name = name;
+                this.cropSquare.xCoordinate = x;
+                this.cropSquare.yCoordinate = y;
+                this.cropSquare.plotId = this.$route.params.plotId;
+            }
+            
         },
 
     },
@@ -136,6 +147,10 @@ export default {
   border-radius: 3px;
 }
 
+#planter-choice{
+    text-align: center;
+}
+
 #error{
     color: red;
 }
@@ -145,25 +160,26 @@ template{
 }
 
 .plot-component{
-  color: white;
-  background-color: #a53b58;;
-  border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    background-color: #a53b58;;
+    border-radius: 3px;
+    padding-bottom: 10%;
 }
 
 #plot-grid-table{
-    display: absolute;
     table-layout: fixed;
-    justify-content: center;
-    margin: 10px;
-    max-width: 100%;
-    height: auto;
+    margin-bottom: 20%;
     background-color: #4e2409;
+    padding-bottom: 30%;
 }
 
 #crop{
     border: .5vw solid rgb(87, 53, 22);
-    height: 3.25vw;
-    width: 3.25vw;
+    height: 3.25vh;
+    width: 3.25vh;
     padding: 0vw;
 }
 

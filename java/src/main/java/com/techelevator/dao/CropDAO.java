@@ -20,7 +20,9 @@ public interface CropDAO {
 	
 	List<Crop> listCropCoordinatesForOnePlot(int plotId);
 	 
-
+	Crop getTopCropForPlot(int plotId);
+	
+	void updateCoordinateData(int plotId, Crop crop);
 
 	
 }
