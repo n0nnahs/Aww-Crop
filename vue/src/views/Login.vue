@@ -126,6 +126,7 @@ form {
   border-radius: 3px;
   outline: none;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 #loginbutton:hover{
   background-color: #83a126;

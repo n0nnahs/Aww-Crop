@@ -22,8 +22,10 @@
 
 #nav {
   background-color: #81e5fc;
-  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 10px;
+  display:flex;
+  justify-content: flex-end;
 }
 
 header {
