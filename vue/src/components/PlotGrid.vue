@@ -175,7 +175,7 @@ template{
     table-layout: fixed;
     margin-bottom: 20%;
     background-color: #4e2409;
-    padding-bottom: 30%;
+    /* padding-bottom: 30%; */
 }
 
 .tile:focus img{
@@ -195,7 +195,7 @@ template{
   color: white;
   background-color: #a53b58;;
   border-radius: 3px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 #plant{
