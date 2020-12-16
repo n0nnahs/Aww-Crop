@@ -160,7 +160,7 @@ public class CropSqlDAO implements CropDAO {
 
 	public int getCropId(String cropName) {
 		int output = 0;
-		String sql = "SELECT crop_id FROM crops\n" + 
+		String sql = "SELECT crop_id FROM crops " + 
 				"WHERE name ILIKE ?";
 		SqlRowSet results = jdbc.queryForRowSet(sql, cropName);
 		while(results.next()) {
