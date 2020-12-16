@@ -108,7 +108,7 @@ export default {
 <style>
 
 .btn-submit:hover{
-    background-color: green;
+    background-color: #83a126;
 }
 .btn-cancel:hover{
     background-color: red;

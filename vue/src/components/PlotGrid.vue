@@ -179,7 +179,7 @@ template{
 }
 
 .tile:focus img{
-    border: 1vh solid red !important;
+    border: .5vh solid #fe6f15 !important;
 }
 
 #crop{
