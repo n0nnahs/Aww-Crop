@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img id="plant" src="../assets/dirt.jpg" />
+    <img id="plant" src="../assets/dirt.jpeg" />
     <div v-bind:value="cropCell">
       
       <img v-if='cropCell.name !==""' id="plant" :src="require(`@/assets/${cropCell.name}.jpeg`)" />

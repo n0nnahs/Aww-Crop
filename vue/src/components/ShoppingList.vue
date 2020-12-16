@@ -62,7 +62,7 @@ export default {
   font-size: 32px !important;
   text-align: center;
   color: white;
-  background-color: #ba7331;
+  background-color: #fe6f15;
   padding: 10px;
   border-radius: 3px;
 }
@@ -85,10 +85,10 @@ export default {
 
 #carp{
   grid-area: carp;
-  text-align: center;
+  text-align: left;
   font-size: 20px !important;
   font-weight: bold !important;
-  padding-left: 20px;
+  padding-left: 40px !important;
 }
 #amount{
   grid-area: amount;

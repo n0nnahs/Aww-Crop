@@ -6,7 +6,7 @@
     <div>
       <form class="new-note-form" v-on:submit.prevent="saveNote">
         <textarea class="message-input" placeholder="Note" v-model="note.message" />
-        <button>Save Note</button>
+        <button class="wendy">Save Note</button>
       </form>
     </div>
     <div class="notes-list">
@@ -56,6 +56,7 @@ export default {
 </script>
  
 <style scoped>
+
 textarea{
   width: 100%;
   border-radius: 3px;
@@ -86,8 +87,15 @@ textarea{
     margin: 20px;
 }
 
-.new-note-form input, .new-note-form button {
+.new-note-form input{
     margin: 10px;
     font-size: 1rem;
+}
+.wendy{
+  text-align: center;
+  color: white;
+  background-color: #fe6f15;
+  padding: 10px;
+  border-radius: 3px;
 }
 </style>

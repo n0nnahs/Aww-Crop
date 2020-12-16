@@ -17,7 +17,7 @@ export default {
  </script>
  
 <style scoped>
-.notecard {
+/* .notecard {
   border-radius: 3px;
   width: 220px;
   height: 200px;
@@ -27,40 +27,50 @@ export default {
   grid-template-rows:1fr 2fr 1fr;
   grid-template-areas:
     "date body button";
-}
- 
+} */
+.notecard {
+  /* border-style: solid;
+  border-color:#4e2409; */
+  border-radius: 3px;
+  width: 220px;
+  height: 200px;
+  margin: 20px;
+  background-color: #ba7331 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+
+} 
 #note-date {
   font-size: 100%;
   text-align: center;
   margin: 5px;
-  grid-area: date;
-  display:flex;
-  flex-direction: column;
-  flex-flow: column wrap;
+  background-color: #fe6f15;
+  color: white;
+  padding: 5px;
 }
 
 #note-body {
-  grid-area: body;  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   text-align: center;
+  
 }
 
 #edit-note-button {
-  grid-area: button;
   font-size: 15px;
   margin: 5px;
-  align-content: bottom;
-  border-radius: px;
+  border-radius: 3px;
+  color: white;
+  background-color: #83a126;
+
 }
  
 #edit-note-button:hover {
   grid-area: button;
   font-size: 15px;
-  background-color: #83a126;
+  color: #83a126;
+  background-color: white;
   margin: 5px;
-  color: white;
-  align-content: bottom;
 }
  
 </style>

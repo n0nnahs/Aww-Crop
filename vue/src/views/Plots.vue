@@ -7,10 +7,18 @@
     </h1>
     <div id="plots-body-grid">
       <div id="plot-visual">
-        <plot-grid></plot-grid>
+        <plot-grid id="sean"></plot-grid>
+      </div>
+    </div>
+    <div id="everything-else">
+      <div id="plot-crops">
+        <plot-crop></plot-crop>
       </div>
       <div id="notes-area">
         <notes></notes>
+      </div>
+      <div id="notes-area">
+        <shopping-list></shopping-list>
       </div>
     </div>
   </div>
@@ -18,13 +26,17 @@
 
 <script>
 import plotGrid from "../components/PlotGrid";
+import plotCrop from "../components/PlotCrop";
 import Notes from "../components/Notes.vue";
+import shoppingList from "../components/ShoppingList.vue";
 import plotService from "../services/PlotService";
 
 export default {
   components: { 
     plotGrid,
-    Notes
+    plotCrop,
+    Notes,
+    shoppingList
   },
   data(){
     return {
@@ -65,28 +77,31 @@ export default {
 #plot-page {
   padding: 0 20px 20px 20px;
   background-color: #4e2409;
-  
-}
-#plots-body-grid {
-  background-color: #4e2409;
-  display: grid;
-  column-gap: 20px;
+  display:grid;
   grid-template-columns:1fr 1fr;
+  column-gap: 20px;
   grid-template-areas:
-    "plot-visual notes-area";
-  
+    "my-plot my-plot"
+    "plots-body-grid everything-else";
 }
 #my-plot{
+  grid-area: my-plot;
   text-align: center;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
 }
+#plots-body-grid {
+  grid-area: plots-body-grid;
+  background-color: #a53b58;
+  margin-top:10px;
+}
 #plot-visual {
-  grid-area: plot-visual;
-  margin-top: 10px;
   background-color:#4e2409;
+}
+#everything-else{
+  grid-area:everything-else;
 }
 #notes-area{
   grid-area: notes-area;
