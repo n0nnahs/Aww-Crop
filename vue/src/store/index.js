@@ -28,8 +28,8 @@ export default new Vuex.Store({
     plotGrid: [],
     activePlotSize: {
       plotId: 0,
-      length: 10,
-      width: 10
+      length: 0,
+      width: 0
     },
     crops: [],
     plots: [],
