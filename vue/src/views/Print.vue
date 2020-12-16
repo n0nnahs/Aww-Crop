@@ -1,7 +1,7 @@
 <template>
   <div class="shopping-list">
     <div id="back-button">
-      <button @click="$router.go(-1)">Go Back</button>
+      <button id="icecream" @click="$router.go(-1)">Go Back</button>
     </div>
     <h1 id=pineapples>
       <i class="fas fa-seedling"></i>
@@ -126,5 +126,9 @@ button {
   display: flex;
   justify-content: left;
 }
-
+#icecream{
+  border-color:black;
+  border-style: solid;
+  border-width: 1px;
+}
 </style>

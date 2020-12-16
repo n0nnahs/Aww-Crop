@@ -27,18 +27,22 @@ export default {
 <style scoped>
 #details-body {
   padding: 20px;
+  height: 100vh;
+  background-color: #4e2409;
 }
 
 #crop-details-h1 {
   text-align: center;
   padding-bottom: 20px;
   padding-top: 20px;
+  margin-bottom: 10px;
   background-color:#ba7331;
   border-radius: 3px;
 }
 
 crop-details-individual {
     overflow: scroll;
+    height: 100vh;
 }
 
 #back-button {
@@ -49,7 +53,7 @@ crop-details-individual {
   border-radius: 3px;
   text-align: center;
   padding: 10px;
-  color: #83a126;
+  color: #83a126 !important;
   background-color: white;
   border-style: none;
 }
@@ -64,5 +68,6 @@ crop-details-individual {
   border-radius: 3px;
   color: white !important;
   background-color: #83a126;
+
 }
 </style>

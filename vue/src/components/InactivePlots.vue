@@ -2,21 +2,24 @@
     <section id="inactive-plots-section">
       <div id="inactive">
         <h2 id="blueberries">Inactive Plots</h2>
-      </div>
         <div class="inactive-plots-list" v-for="plot in inactivePlots" v-bind:key="plot">
           <router-link :to="`myplot/${plot.id}`" >
             <plot-card v-bind:plot="plot" v-bind:key="plot.id" />
           </router-link>
         </div>
+        </div>
     </section>
 </template>
 
 <script>
+
 import PlotCard from '@/components/PlotCard.vue';
 
 export default {
   name: "inactive-plots",
-
+  props: {
+    inactiveArray: Array
+  },
    computed: {
 
     inactivePlots() {
@@ -55,10 +58,10 @@ export default {
   border-radius: 3px;
 }
 .inactive-plots-list {
-    display:inline-block;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  display: inline-block;
 }
 
 </style>

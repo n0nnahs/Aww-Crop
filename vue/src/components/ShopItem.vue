@@ -78,4 +78,17 @@ export default {
   padding-left: 25px;
   text-align: left;
 }
+@media (max-width: 400px){
+
+#crop-name{
+  font-size: 12px;
+}
+#crop-amount{
+  font-size: 12px;
+}
+#cost{
+  font-size: 12px;
+}
+}
+
 </style>
