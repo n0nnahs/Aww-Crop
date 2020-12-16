@@ -121,6 +121,7 @@ export default {
 #plots {
   grid-area: plots;
   background-color:#4e2409;
+  height: 100vh;
 }
 #new-plot-section {
   background-color: #a53b58;

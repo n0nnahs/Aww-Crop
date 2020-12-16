@@ -6,8 +6,10 @@
             Come grow with us!
             <i class="fas fa-seedling"></i>
             <br>Create your new account below.</h1>
-      <div class="alert alert-danger" role="alert" v-if="registrationErrors">
+      <div id="ohno" class="alert alert-danger" role="alert" v-if="registrationErrors">
+        <img id="mrYuck" src ="../assets/error.jpeg" >
         {{ registrationErrorMsg }}
+        <img id="mrYucks" src ="../assets/error.jpeg" >
       </div>
       <label for="username" class="sr-only">Username</label>
       <input
@@ -60,14 +62,14 @@ export default {
         role: 'user',
       },
       registrationErrors: false,
-      registrationErrorMsg: 'There were problems registering this user.',
+      registrationErrorMsg: 'Oh my gourd! There were problems registering this user.',
     };
   },
   methods: {
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+        this.registrationErrorMsg = 'Oh my gourd!! Password & Confirm Password do not match. Try again!';
       } else {
         authService
           .register(this.user)
@@ -83,17 +85,17 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+              this.registrationErrorMsg = 'Oh my gourd! Bad Request: Validation Errors';
             }
             if(response.status === 409){
-              this.registrationErrorMsg = 'This email is already registered!'
+              this.registrationErrorMsg = 'Oh my gourd! This email is already registered!'
             }
           });
       }
     },
     clearErrors() {
       this.registrationErrors = false;
-      this.registrationErrorMsg = 'There were problems registering this user.';
+      this.registrationErrorMsg = 'Oh my gourd! There were problems registering this user.';
     },
   },
 };
@@ -106,6 +108,11 @@ export default {
 }
 .create-account-button {
   margin-bottom: 10px;
+  margin-top: 10px;
+}
+.create-account-button:focus {
+  border-style: none;
+  outline: none;
 }
 #create{
   font-size: 24px !important;
@@ -130,5 +137,26 @@ button{
 button:focus{
   border-style: none;
   outline: none;
+}
+#ohno{
+  padding:20px;
+  margin: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  color:#4e2409;
+
+}
+#mrYuck{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  height: 100px;
+  padding: 5px;
+}
+#mrYucks{
+  height: 100px;
+  padding: 5px;
+}
+#confirmPassword:focus {
+  outline-color: #83a126 !important;
 }
 </style>
