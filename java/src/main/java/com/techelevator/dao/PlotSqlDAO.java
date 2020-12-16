@@ -127,9 +127,16 @@ public class PlotSqlDAO implements PlotDAO {
 	
 	@Override
 	public void updateNote(Note updatedNote, int id) {
-		String sql = "UPDATE notes SET note = ? WHERE note_id = ?";
+		String sql = "DELETE FROM notes SET note = ? WHERE note_id = ?";
 		
 		jdbc.update(sql, updatedNote.getNote(), id);
+	}
+	
+	@Override
+	public void deleteNote(int id) {
+		String sql = "DELETE FROM notes WHERE note_id = ?";
+		
+		jdbc.update(sql, id);
 	}
 	
 	private Note mapRowToNote(SqlRowSet results) {

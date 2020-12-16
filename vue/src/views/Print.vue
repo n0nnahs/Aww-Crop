@@ -4,9 +4,9 @@
       <button id="icecream" @click="$router.go(-1)">Go Back</button>
     </div>
     <h1 id=pineapples>
-      <i class="fas fa-seedling"></i>
+      <i class="fas fa-seedling" style="color: black"></i>
       My Shopping List
-      <i class="fas fa-seedling"></i>
+      <i class="fas fa-seedling" style="color: black"></i>
     </h1>
     <div id="labels">
       <h3 id="carp">Crop</h3>
