@@ -17,20 +17,8 @@ export default {
  </script>
  
 <style scoped>
-/* .notecard {
-  border-radius: 3px;
-  width: 220px;
-  height: 200px;
-  margin: 20px;
-  background-color: #ba7331 !important;
-  display: grid;
-  grid-template-rows:1fr 2fr 1fr;
-  grid-template-areas:
-    "date body button";
-} */
+
 .notecard {
-  /* border-style: solid;
-  border-color:#4e2409; */
   border-radius: 3px;
   width: 220px;
   height: 200px;

@@ -113,7 +113,6 @@ export default {
 }
 #plots {
   grid-area: plots;
-  margin-top: 10px;
   background-color:#4e2409;
 }
 #new-plot-section {
@@ -134,10 +133,10 @@ export default {
   height: 65px;
   font-size: 32px;
   align-content: bottom;
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
   color: #83a126;
   background-color: white;
   border-style: none;
@@ -148,7 +147,7 @@ export default {
   margin-bottom: 0px;
   font-size: 32px;
   align-content: bottom;
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
   padding: 10px;
   border-radius: 10px;
@@ -157,7 +156,7 @@ export default {
 }
 #new-plot-section {
   background-color: #a53b58;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   column-gap: 50px;
   border-radius: 10px;

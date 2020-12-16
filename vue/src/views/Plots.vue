@@ -16,9 +16,8 @@
       </div>
       <div id="notes-area">
         <notes></notes>
-        <my-crops></my-crops>
       </div>
-      <div id="notes-area">
+      <div id="shopping-list">
         <shopping-list></shopping-list>
       </div>
     </div>
@@ -104,10 +103,51 @@ export default {
 #everything-else{
   grid-area:everything-else;
 }
+#plot-crops{
+  margin-top:10px;
+  margin-bottom:20px;
+}
 #notes-area{
   grid-area: notes-area;
-  margin-top: 10px;
 }
+#shopping-list{
+  margin-top:20px;
+}
+@media (max-width: 800px){
+
+#plot-page {
+  padding: 0 20px 20px 20px;
+  background-color: #4e2409;
+  display:grid;
+  grid-template-columns:100%;
+  padding: 0 20px 20px 20px;
+  column-gap: 20px;
+  grid-template-areas:
+    "my-plot"
+    "plots-body-grid"
+    "everything-else"
+    /* "plot-crops"
+    "notes-area"
+    "shopping-list" */
+    ;
+  }
+  #my-plot{
+    grid-area: my-plot;
+  }
+  #plots-body-grid{
+    grid-area: plots-body-grid;
+  }
+  #plot-crops{
+    grid-area: plot-crops;
+  }
+  #notes-area{
+    grid-area: notes-area;
+  }
+  #shopping-list{
+    grid-area: shopping-list;
+  }
+}
+
 
 
 </style>

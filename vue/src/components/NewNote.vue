@@ -74,13 +74,13 @@ textarea{
   display:flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  height: 100vh;
 }
  
 #notes-section {
   color: white;
   background-color: #a53b58;;
   border-radius: 3px;
-  height: 100vh;
 }
 
 .new-note-form {
