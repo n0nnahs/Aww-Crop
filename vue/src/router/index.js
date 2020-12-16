@@ -113,7 +113,7 @@ const router = new Router({
       }
     },
     {
-      path: "/seedlist/print",
+      path: "/seedlist/print/:plotId",
       name: "print",
       component: Print,
       meta: {
