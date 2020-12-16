@@ -37,6 +37,10 @@ export default {
   border-radius: 3px;
 }
 
+crop-details-individual {
+    overflow: scroll;
+}
+
 #back-button {
   width: 100%;
   height: 65px;

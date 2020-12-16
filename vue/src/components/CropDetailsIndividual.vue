@@ -41,6 +41,7 @@ export default {
 }
 #left-column {
   margin: 10px;
+  text-align: center;
 }
 #right-column {
   margin: 10px;
@@ -69,7 +70,7 @@ h5 {
 }
 #crop-image {
   max-width:100%;
-  height:auto;
+  max-height: 300px;
   border-radius: 3px;
 }
 </style>
