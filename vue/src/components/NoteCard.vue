@@ -78,7 +78,7 @@ export default {
 .notecard {
   border-radius: 3px;
   width: 220px;
-  height: 200px;
+  min-height: 200px;
   margin: 20px;
   background-color: #ba7331 !important;
   display: flex;

@@ -47,7 +47,6 @@ export default {
   color: white;
   background-color: #a53b58;
   border-radius: 3px;
-  margin-bottom: 20px;
 }
 #blueberries{
   font-size: 32px !important;

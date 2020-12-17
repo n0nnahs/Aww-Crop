@@ -130,9 +130,7 @@ export default {
   column-gap: 50px;
   border-radius: 10px;
 }
-#iplots{
-  background-color: #a53b58;
-}
+
 #inactiveplots.plotcard:empty{
   display:none;
 }
