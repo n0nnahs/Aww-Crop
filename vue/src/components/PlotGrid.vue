@@ -189,7 +189,6 @@ template{
   color: white;
   background-color: #a53b58;;
   border-radius: 3px;
-  /* height: 100vh; */
 }
 
 #crop{
