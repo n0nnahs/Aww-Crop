@@ -67,7 +67,7 @@ color: green;
 #footer{
   grid-area: footer;
   text-align: left;
-  background-color: #5f2b0a; 
+  background-color: #4e2409;
   padding-left: 10px;
   padding-bottom: 10px;
 }

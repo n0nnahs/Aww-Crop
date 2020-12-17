@@ -116,6 +116,7 @@ export default {
   padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
+  margin-top: 10px;
 
 }
 #plots {

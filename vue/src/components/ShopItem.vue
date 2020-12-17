@@ -56,7 +56,7 @@ export default {
   font-size: 20px;
   padding-top: 7px;
   padding-left: 25px;
-  align-self:center;
+  text-align:center;
   
 }
 #crop-amount{
@@ -66,7 +66,7 @@ export default {
   font-size: 20px;
   padding-top: 7px;
   padding-left: 25px;
-  align-self:center;
+  text-align: center;
 
 }
 #cost{
@@ -76,7 +76,7 @@ export default {
   font-size: 20px;
   padding-top: 7px;
   padding-left: 25px;
-  text-align: left;
+  text-align: center;
 }
 @media (max-width: 400px){
 
