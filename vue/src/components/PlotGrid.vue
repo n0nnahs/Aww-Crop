@@ -3,7 +3,8 @@
       <h2 id="garden-plot-header">
           Find Your Inner Peas
       </h2>
-      <planter id="planter-choice" v-if="!this.planterViewable" v-bind="cropSquare"></planter>
+      <!--v-if="!this.planterViewable"-->
+      <planter id="planter-choice"  v-bind="cropSquare"></planter>
       <div id="plot-grid">
       <table id="plot-grid-table" v-bind="grid" >       
         <tr v-for="cropRow in this.plotGrid" v-bind:key="cropRow">
@@ -162,13 +163,13 @@ template{
 }
 
 .plot-component{
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
     background-color: #a53b58;;
     border-radius: 3px;
-    padding-bottom: 10%;
 }
 
 #plot-grid-table{
@@ -179,14 +180,7 @@ template{
 }
 
 .tile:focus img{
-    border: .5vh solid #fe6f15 !important;
-}
-
-#crop{
-    border: .5vw solid rgb(87, 53, 22);
-    height: 3.25vh;
-    width: 3.25vh;
-    padding: 0vw;
+    border: 1vh solid #fe6f15 !important;
 }
 
 #plot-grid{
@@ -197,9 +191,16 @@ template{
   border-radius: 3px;
 }
 
+#crop{
+    border: .5vw solid rgb(87, 53, 22);
+
+    padding: 0vw;
+}
+
 #plant{
-  height:3.25vw;
+  height: 3.25vw;
   width: 3.25vw;
+  flex: 1 1 auto;
   padding: 0vw;
 }
 

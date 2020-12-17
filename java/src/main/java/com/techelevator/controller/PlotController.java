@@ -105,6 +105,6 @@ public class PlotController {
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	@RequestMapping(value = "/activate/{plotId}", method = RequestMethod.PUT)
 	public void activatePlot(@PathVariable int plotId) {
-		dao.abandonPlot(plotId);
+		dao.activatePlot(plotId);
 	}
 }
