@@ -5,6 +5,9 @@
         {{this.myPlot.name}}
       <i class="fas fa-seedling"></i>
     </h1>
+    <div class="loading" v-if="isLoading">
+        <img src="../assets/loadingPlant.gif" />
+    </div>
     <div id="plots-body-grid">
       <div id="plot-visual">
         <plot-grid id="sean"></plot-grid>
@@ -45,6 +48,7 @@ export default {
   },
   data(){
     return {
+      isLoading: true,
       active:true,
       showNotes: false,
       myPlot: {
@@ -95,6 +99,7 @@ export default {
   created(){
     this.getPlotName();
     this.getNotes();
+    this.isLoading = false;
   }
 }
 </script>
@@ -114,11 +119,11 @@ export default {
 #my-plot{
   grid-area: my-plot;
   text-align: center;
-  margin-top: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
+  margin-top: 10px;
 }
 #plots-body-grid {
   grid-area: plots-body-grid;

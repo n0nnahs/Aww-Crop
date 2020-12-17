@@ -99,7 +99,7 @@ export default {
       } 
   
 .home {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   background-color: #4e2409;
 }
 #home-grid {
@@ -112,11 +112,12 @@ export default {
 }
 #my-garden{
   text-align: center;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
   margin-top: 10px;
+
 }
 #plots {
   grid-area: plots;
@@ -170,7 +171,7 @@ export default {
 #my-crops{
   grid-area: my-crops;
   margin-top: 10px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 button:focus{
   border-style: none;
@@ -212,8 +213,7 @@ button:focus{
   padding-top: 10px;
   background-color:#ba7331;
   border-radius: 3px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+
 }
 #new-plot-section {
   background-color: #4e2409 !important;

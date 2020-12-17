@@ -10,11 +10,13 @@
     </h1>
     <div id="labels">
       <h3 id="carp">Crop</h3>
-      <h3 id="amount">Amount Needed</h3>
-      <h3 id="cost">Approximate Cost</h3>
+      <h3 id="amount">Quantity</h3>
+      <h3 id="cost">Cost</h3>
     </div>
+    <div id="cropbox">
     <div id="crop-list" v-for="crop in cropsForPlot" v-bind:key="crop">
          <shop-item v-bind:crop="crop" v-bind:key="crop.name"></shop-item>
+    </div>
     </div>
   </div>
 </template>
@@ -69,6 +71,7 @@ export default {
   background-color: white;
   padding: 10px;
   border-radius: 3px;
+  margin-bottom: 50px;
 }
 #labels{
   display: grid;
@@ -92,26 +95,38 @@ export default {
   text-align: center;
   font-size: 20px !important;
   font-weight: bold !important;
-  padding-left: 20px;
+  margin-left: 40px!important;
 }
 #amount{
   grid-area: amount;
   text-align: center;
   font-size: 20px !important;
   font-weight: bold !important;
-  padding-left: 15px;
+  margin-left: 23px !important;
 }
 #cost{
   grid-area: cost;
   text-align: center;
   font-size: 20px !important;
   font-weight: bold !important;
+  margin-left: 10x !important;
 }
 #crop-list{
   margin-top: 0px;
   border-radius: 3px;
   color:black;
   background-color: white;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+}
+#cropbox{
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-bottom: none;
+  margin: 20px;
+  margin-top: 10px;
 }
 #item {
   color:black;

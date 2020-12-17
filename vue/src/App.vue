@@ -8,6 +8,8 @@
     <header class="header" v-show="$route.name !== 'welcome' && $route.name !== 'print'">
     </header>
     <router-view />
+    <footer id="bones" >
+    </footer>
   </div>
 </template>
 
@@ -23,21 +25,32 @@
 
 #nav {
   background-color: #81e5fc;
-  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 10px;
+  display:flex;
+  justify-content: flex-end;
 }
 
 header {
   background-image: url("./assets/veggies-fixed-clouds.jpg");
   background-repeat: repeat-x;
   background-size: contain;
-  height: 25%;
+  height: 20%;
   width: 100%;
 }
 
 button{
   border-style:none;
 }
+/* #bones{
+  background-image: url("./assets/bones.jpeg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 10%;
+  width: 100%;   
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+} */
 
 </style>
  

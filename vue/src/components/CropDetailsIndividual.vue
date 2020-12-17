@@ -1,6 +1,9 @@
 <template>
   <div id="details-container">
     <h2 id="crop-name-h2">{{ crop.name }}</h2>
+      <div class="loading" v-if="isLoading">
+        <img src="../assets/loadingPlant.gif" />
+      </div>
     <div id="details-grid">
       <div id="left-column">
         <img id="crop-image" :src="crop.main_image_path" />
@@ -21,12 +24,14 @@ export default {
   name: 'crop-detail',
   data() {
     return {
+      isLoading: true,
       crop: Object
     };
   },
   created() {
     CropDetailService.get(this.$route.params.name).then((response) => {
       this.crop = response.data.data.attributes;
+      this.isLoading = false;
     });
   }
 };
@@ -71,5 +76,14 @@ h5 {
   max-width:100%;
   max-height: 300px;
   border-radius: 3px;
+}
+@media (max-width: 800px) {
+  
+  #details-grid{
+  grid-template-columns:100%;
+  grid-template-areas:
+    "left-column"
+    "right-column";
+  }
 }
 </style>

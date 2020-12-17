@@ -31,7 +31,7 @@ export default {
 }
 #details-body {
   padding: 20px;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: #4e2409;
 }
 
@@ -44,10 +44,10 @@ export default {
   border-radius: 3px;
 }
 
-crop-details-individual {
+/* crop-details-individual {
     overflow: scroll;
-    height: 100vh;
-}
+    height: 100vh; 
+} */
 
 #back-button {
   width: 100%;
@@ -74,4 +74,6 @@ crop-details-individual {
   background-color: #83a126;
 
 }
+
+
 </style>
