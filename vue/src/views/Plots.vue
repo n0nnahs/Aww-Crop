@@ -29,6 +29,11 @@
         <shopping-list></shopping-list>
       </div>
     </div>
+      <button id="back-button" @click="$router.go(-1)">
+      <i class="fas fa-seedling"></i>
+      Go Back
+      <i class="fas fa-seedling"></i>
+    </button>
   </div>
 </template>
 
@@ -114,7 +119,8 @@ export default {
   column-gap: 20px;
   grid-template-areas:
     "my-plot my-plot"
-    "plots-body-grid everything-else";
+    "plots-body-grid everything-else"
+    "go-back go-back";
 }
 #my-plot{
   grid-area: my-plot;
@@ -171,6 +177,37 @@ export default {
   outline:none;
 
 }
+#back-button {
+  width: 100%;
+  height: 65px;
+  font-size: 32px;
+  align-content: bottom;
+  border-radius: 3px;
+  text-align: center;
+  padding: 0px;
+  color: #83a126 !important;
+  background-color: white;
+  border-style: none;
+  margin-top:20px;
+  grid-area: go-back;
+}
+#back-button:hover {
+  width: 100%;
+  height: 65px;
+  margin-bottom: 0px;
+  font-size: 32px;
+  align-content: bottom;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+  color: white !important;
+  background-color: #83a126;
+
+}
+#back-button:focus{
+  outline:none;
+
+}
 @media (max-width: 800px){
 
 #plot-page {
@@ -184,9 +221,7 @@ export default {
     "my-plot"
     "plots-body-grid"
     "everything-else"
-    /* "plot-crops"
-    "notes-area"
-    "shopping-list" */
+    "go-back"
     ;
   }
   #my-plot{
