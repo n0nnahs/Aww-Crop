@@ -66,9 +66,11 @@ export default {
             if(this.inactivePlot){
                 PlotService.updatePlotInactive(this.$store.state.plot.id)
                 .then( response => {
-                    console.log(response.status)
-                    this.$router.push({path: '/'});    
+                    console.log(response.status);   
                 })
+                .then(
+                    this.$router.push({name: 'home'}) 
+                )
                 .catch((error) => {
                     console.log(error.status);
                 })
@@ -102,7 +104,7 @@ export default {
             this.assignPlotInfo();
             console.log(this.vegetable);
             PlotService.plantNewCrop(this.vegetable).then(response => {
-                    console.log("win");
+                    console.log(response.status);
                     this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);
 
             })
