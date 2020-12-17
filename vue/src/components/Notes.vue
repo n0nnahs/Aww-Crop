@@ -8,7 +8,21 @@
       </div>
       </form>
     </div>
-    <div class="notes-list">
+    <div class="notes-list">      
+      <div
+        id="createdNote"
+        class="alert alert-success"
+        role="alert"
+        v-if="noteWasCreated"
+       >Romaine calm, your note was created! 
+        </div>
+        <div
+        id="notCreatedNote"
+        class="alert alert-danger"
+        role="alert"
+        v-if="noteWasNotCreated"
+       >Oh my gourd!  Something went wrong! We'll do better next thyme.
+        </div>
       <note-card v-for="note in plotNotes" v-bind:note="note" v-bind:key="note.plotId" />
     </div>
   </section>
@@ -22,6 +36,8 @@ export default {
   name: "notes",
   data() {
     return {
+      noteWasCreated: false,
+      noteWasnotCreated: false,
       newNote: {
         plot_id: parseInt(this.$route.params.plotId),
         note: '',
@@ -47,17 +63,29 @@ export default {
       PlotService.createNewNote(this.newNote).then(response => {
         if(response.status == 201){
           this.$parent.$router.go("/");
-          alert("Note created");
+          this.noteWasCreated = true;
+        }else{
+          this.noteWasNotCreated = true;
         }
-      }).catch(error => {
-          if (error.response) {
-            this.errorMsg = "Error submitting new board. Response received was '" + error.response.statusText + "'.";
-          } else if (error.request) {
-            this.errorMsg = "Error submitting new note. Server could not be reached.";
-        } else {
-            this.errorMsg = "Error submitting new note. Request could not be created.";
-        }
-      })
+        })
+      //I wasn't sure what the best action was here, so I just commented
+      //the code out for now and put in the new, formatted error message.
+
+      //I could always make a larger variety of messages for specific errors.
+      //While I do think it's important to give error messages to users if it's
+      //something they did wrong so that they can correct it, I thought a generic
+      //message might be enough in this instance.
+       
+      //.catch(error => {
+      //     this.noteWasNotCreated = true;
+      //     if (error.response) {
+      //       this.errorMsg = "Error submitting new board. Response received was '" + error.response.statusText + "'.";
+      //     } else if (error.request) {
+      //       this.errorMsg = "Error submitting new note. Server could not be reached.";
+      //   } else {
+      //       this.errorMsg = "Error submitting new note. Request could not be created.";
+      //   }
+      // })
       this.note = {
         plot_id: parseInt(this.$route.params.plotId),
         note: '',
@@ -131,5 +159,15 @@ textarea{
 }
 .message-input{
   outline-color:#83a126 !important;
+}
+#createdNote{
+  color:white ;
+  background-color: #83a126;
+  outline: none;
+}
+#notCreatedNote{
+  color:white ;
+  background-color: rgb(228, 86, 86);
+  outline: none;
 }
 </style>
