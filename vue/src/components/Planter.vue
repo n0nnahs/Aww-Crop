@@ -2,7 +2,7 @@
     <div id="planter">
 
         <div v-bind="cropSquare"  >
-            <form v-on:submit="submitNewCropToDatabase" class="cardForm" >
+            <form class="cardForm" >
                     <select id="vegetables" name="vegetable" v-model="vName">
                         <option value="">Select a vegetable</option>
                         <option value="beets">Beets</option>
@@ -24,7 +24,7 @@
                         <option value="turnips">Turnips</option>
                         <option value="dirt">Dirt</option>
                     </select>
-                    <button class="btn btn-submit" v-on:click="assignPlotInfo">Plant Crop!</button>
+                    <button class="btn btn-submit" v-on:click="submitNewCropToDatabase">Plant Crop!</button>
                     <button class="btn btn-reclaim" v-show="!inactivePlot" v-bind="inactivePlot" v-on:click='inactivatePlot' >Reclaim Plot</button>
                     <button class="btn btn-abandon" v-show="inactivePlot" v-bind="inactivePlot" v-on:click='inactivatePlot' >Abandon Plot</button>
             </form>
@@ -55,11 +55,6 @@ export default {
         }
     },
     methods: {
-        test(){
-            
-                console.log(this.$store.state.plot)
-            
-        },
         plotStatus(){
             this.$store.state.plots.array.forEach(element => {
                 if(element.active === false && element.id === this.$route.params.plotId){
@@ -71,10 +66,8 @@ export default {
             if(this.inactivePlot){
                 PlotService.updatePlotInactive(this.$store.state.plot.id)
                 .then( response => {
-                    if(response.status === 202){
-                        console.log("updated");
-                        this.$router.go({name: 'home'});
-                    }
+                    console.log(response.status)
+                    this.$router.push({path: '/'});    
                 })
                 .catch((error) => {
                     console.log(error.status);
@@ -109,10 +102,9 @@ export default {
             this.assignPlotInfo();
             console.log(this.vegetable);
             PlotService.plantNewCrop(this.vegetable).then(response => {
-                if(response.status === 201){
                     console.log("win");
                     this.$parent.$router.push(`/myplot/${this.$route.params.plotId}`);
-                }
+
             })
             .catch((error) => {
                 this.errorMsg = "";
