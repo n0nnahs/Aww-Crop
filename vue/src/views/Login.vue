@@ -13,16 +13,20 @@
         v-if="invalidCredentials"
 
       >
-      <img id="mrYuck" src ="../assets/error.jpeg" >
+      <img id="mrYuck" src ="../assets/failureCarrot.png" >
       Oh my gourd! Invalid username or password!
-      <img id="mrYucks" src ="../assets/error.jpeg" >
+      <img id="mrYucks" src ="../assets/failureCarrot.png" >
       </div>
       <div
       id="yesss"
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
+      >
+      <img id="mrYes" src ="../assets/successCarrot.png" >
+      Thank you for registering, please sign in.
+      <img id="mrYess" src ="../assets/successCarrot.png" >
+      </div>
       <label for="username" class="sr-only">Username</label>
       <input
         type="text"
@@ -48,6 +52,7 @@
       <br/>
       <router-link style="color: #83a126;" v-bind:to="{ name: 'register' }">Register for new account</router-link>
     </form>
+      <a id="mozartsGhost" style="color: #ba7331;;" href="https://www.youtube.com/watch?v=JVSIhNYlKIY">π</a>
   </div>
 </template>
 
@@ -142,8 +147,9 @@ button:focus{
   padding:0px;
   margin: 0px;
   margin-bottom: 20px;
-  background-color: white;
-  color:#4e2409;
+  background-color: rgb(228, 86, 86);
+  color:white;
+  border: none;
 }
 #mrYuck{
   -webkit-transform: scaleX(-1);
@@ -152,12 +158,29 @@ button:focus{
   padding: 5px;
 }
 #mrYucks{
+
   height: 100px;
   padding: 5px;
 }
+#mrYes{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  height: 100px;
+  padding: 5px;
+}
+#mrYess{
+  height: 100px;
+  padding: 5px; 
+}
 #yesss{
-  background-color:#83a126;
-  color:white;
+  color: white;
+  background-color: #83a126 !important;
   border: none;
+}
+#mozartsGhost{
+  font-size: 16;
+  position: absolute;
+  bottom: 5px;
+  left: 95%;
 }
 </style>
