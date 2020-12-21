@@ -18,4 +18,4 @@ The frontend is written in Vue.js and utilizes Vuex and bootstrap.
 
 ![home page](https://i.imgur.com/9QRWuMZ.png)
 
-![plot view](https://i.imgur.com/9QRWuMZ.png)
+![plot view](https://i.imgur.com/f0uXXe2.png)
