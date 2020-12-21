@@ -1,6 +1,8 @@
 # Aww Crop! The garden planning app
 Aww crop! is the product of the hard work from five recent graduates of a 14 week java bootcamp. We used all of the things we learned to make a fully functional and responsive webapp. 
 
+https://aww-crop.herokuapp.com/welcome
+
 # Description 
 Aww Crop allows home gardeners to plan out their plots, save notes related to plots, generate a shopping list of seedlings based on what is planted in their garden, as well as estimate yearly yields based on how much space each crop is allotted. 
 
